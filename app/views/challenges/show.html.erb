@@ -3,9 +3,10 @@
 <div class="description"><%= @challenge.description %></div>
 <%= @message if @message %>
 <div class="console">
-  <%= form_for "Type JS commands here", challenge_game_path(@challenge, @game) do |f|%>
-    <%= f.text_area %>
-    <%= f.submit, "test your code!" %>
+  <%= form_for @game, url: challenge_game_path(@challenge, @game), controller: :games, method: "put" do |f|%>
+  <% f.label :status_string %>
+    <%= f.text_area :status_string %>
+    <%= f.submit "test your code!" %>
   <% end %>
 </div>
 <%  %>

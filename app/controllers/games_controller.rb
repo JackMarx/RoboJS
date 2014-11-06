@@ -1,15 +1,16 @@
 class GamesController  < ApplicationController
-  require ApplicationHelper
+  include ApplicationHelper
   def create
     @game = Game.find_or_create_by(game_params)
     redirect_to "challenges/show"
   end
 
   def update
+    p game_params
     @user_input = game_params[:status_string]
-    @challenge = Challenge.find(game_params[:challenge_id])
-    @game = Game.find_by(user: current_user, challenge: @challenge)
-    @game.update_attribute(status_string: @user_input)
+    @challenge = Challenge.find(params[:challenge_id])
+    @game = Game.find_by(user: User.first, challenge: @challenge)
+    @game.update_attribute(:status_string, @user_input)
 
     if @user_input == @challenge.solution
       @game.update_attribute(completed: true)
