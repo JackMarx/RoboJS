@@ -1,8 +1,8 @@
 class GamesController  < ApplicationController
   require ApplicationHelper
-
   def create
-    @game = Game.create(game_params)
+    @game = Game.find_or_create_by(game_params)
+    redirect_to "challenges/show"
   end
 
   def update
@@ -38,7 +38,6 @@ class GamesController  < ApplicationController
     else
       @message = "I don't understand you"
     end
-
   end
 
   private

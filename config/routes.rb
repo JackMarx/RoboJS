@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :games, only: [:create, :update]
   end
 
-  resources :users, except: [:update, :destroy] do
+  resources :users, except: [:edit, :update, :destroy] do
     resources :badges, only: [:index]
   end
 
