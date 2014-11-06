@@ -4,7 +4,7 @@ class CreateChallenges < ActiveRecord::Migration
       t.string    :title
       t.text      :tutorial
       t.string    :solution
-      t.text      :descrition
+      t.text      :description
       t.string    :hint
 
       t.timestamps
