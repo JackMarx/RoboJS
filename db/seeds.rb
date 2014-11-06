@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-megan = User.create!(username: "megmazzle", password: 1)
+megan = User.create!(username: "megmazzle", password_digest: 1)
 
 challenge1 = Challenge.create!(title: "One challenge to rule them all",
                                tutorial: "One challenge to find them",
