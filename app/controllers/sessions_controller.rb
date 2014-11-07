@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
-include ApplicationHelper
-  def index
 
+  def index
+    render "sessions/index", layout: false
   end
+
 
   def create
     @user = User.find_by(email: params[:email])
