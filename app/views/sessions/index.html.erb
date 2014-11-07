@@ -1,2 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RoboJS</title>
+   <%= stylesheet_link_tag    'application', media: 'all' %>
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+   <%= javascript_include_tag 'application' => true %>
+   <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="splash-header box">
+  <h1 class="splash-h1">Robo.JS</h1>
+</header>
 
-<p><%= link_to "Enter", login_path %></p>
+<div class="splash-container">
+  <div class="robo-top"></div>
+  <div class="robo-"></div>
+  <div class="robo-treads">
+    <div class="robo-wheels"></div>
+    <div class="robo-wheels"></div>
+    <div class="robo-wheels"></div>
+    <div class="robo-wheels"></div>
+  </div>
+<%= link_to "Enter", login_path, class: "splash-enter-button" %>
+</div>
+
+</body>
+</html>

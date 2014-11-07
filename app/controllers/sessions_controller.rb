@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-include ApplicationHelper
-  def index
 
+  def index
+    render "sessions/index", layout: false
   end
 
   def login
