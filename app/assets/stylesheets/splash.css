@@ -1,21 +1,55 @@
-.splash-header {
-  margin: 0 auto;
-  width: 30%;
-  -webkit-box-shadow: 0 10px 16px -10px #333;
-     -moz-box-shadow: 0 10px 16px -10px #333;
-          box-shadow: 0 10px 16px -10px #333;
+body {
+  top: 0;
+  left: 0;
+  margin: 0;
 }
+.box{
+  width:40%;
+  background:#FFF;
+  margin:0 auto;
+}
+
+.splash-header {
+  position:relative;
+}
+
+.splash-header:before, .splash-header:after {
+  content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+
+.splash-header:after {
+  right:10px;
+  left:auto;
+  -webkit-transform:skew(8deg) rotate(3deg);
+     -moz-transform:skew(8deg) rotate(3deg);
+      -ms-transform:skew(8deg) rotate(3deg);
+       -o-transform:skew(8deg) rotate(3deg);
+          transform:skew(8deg) rotate(3deg);
+}
+
 
 .splash-h1 {
   font-family: "Open Sans", sans-serif;
   text-align: center;
   font-size: 60px;
   padding: 10px;
+  margin: 0;
 }
 
 .splash-container {
   width: 40%;
-  margin: 0 auto;
+  margin: 30px auto 0;
 }
 
 .splash-enter-button {
