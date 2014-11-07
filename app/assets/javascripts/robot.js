@@ -3,18 +3,22 @@ function Robot() {
 }
 
 Robot.prototype.turnRight = function(){
-  this.instructions.push("turnRight");
+  this.instructions.push("R");
 };
 
 Robot.prototype.turnLeft = function(){
-  this.instructions.push("turnLeft");
+  this.instructions.push("L");
 };
 
-Robot.prototype.moveForward = function(){
-  this.instructions.push("moveForward");
+Robot.prototype.moveForward = function(amt){
+  this.instructions.push("F"+amt);
 
 };
 
-Robot.prototype.moveBackward = function(){
-  this.instructions.push("moveBackward");
+Robot.prototype.moveBackward = function(amt){
+  this.instructions.push("B"+amt);
+};
+
+Robot.prototype.serializedInstructions = function() {
+  return this.instructions.join(",");
 };
