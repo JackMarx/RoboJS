@@ -47,8 +47,8 @@ body {
   font-size: 60px;
   padding: 10px;
   margin: 0;
-  color: black;
-  text-shadow: 0 0 5px #00cbcf;
+  color: #006569;
+  /*text-shadow: 0 0 5px #00cbcf;*/
 }
 
 .splash-container {
