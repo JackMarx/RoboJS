@@ -1,0 +1,24 @@
+<div class="login-form">
+  <h3> Log In </h3>
+  <%= form_for login_path do |f| %>
+    <%= f.label :username, "Username:" %>
+    <%= f.text_field :username %>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password %>
+    <%= submit_tag "Login", :class => 'submit-button' %>
+  <% end %>
+</div>
+
+<div class="sign-up-form">
+  <h3>Sign Up</h3>
+  <%= form_for User.new do |f| %>
+    <%= f.label :username, "Username:" %>
+    <%= f.text_field :username %>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation, "Confirm your password:" %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.submit "Sign Up", :class => 'submit-button' %>
+  <% end %>
+</div>
+
