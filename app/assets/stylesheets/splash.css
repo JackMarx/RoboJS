@@ -1,0 +1,23 @@
+.splash-header {
+  margin: 0 auto;
+  width: 30%;
+  -webkit-box-shadow: 0 10px 16px -10px #333;
+     -moz-box-shadow: 0 10px 16px -10px #333;
+          box-shadow: 0 10px 16px -10px #333;
+}
+
+.splash-h1 {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 60px;
+  padding: 10px;
+}
+
+.splash-container {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.splash-enter-button {
+  margin: 46%;
+}
