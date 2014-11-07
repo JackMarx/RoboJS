@@ -2,10 +2,12 @@ body {
   top: 0;
   left: 0;
   margin: 0;
+  background:#fcfcfc;
+
 }
 .box{
   width:40%;
-  background:#FFF;
+  background:#fcfcfc;
   margin:0 auto;
 }
 
@@ -17,9 +19,9 @@ body {
   content:"";
     position:absolute;
     z-index:-1;
-    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -webkit-box-shadow:0 0 10px rgba(0,151,156,0.8);
+    -moz-box-shadow:0 0 10px rgba(0,151,156,0.8);
+    box-shadow:0 0 10px rgba(0,151,156,0.8);
     top:50%;
     bottom:0;
     left:10px;
@@ -45,7 +47,8 @@ body {
   font-size: 60px;
   padding: 10px;
   margin: 0;
-  color: black;
+  color: #006569;
+  /*text-shadow: 0 0 5px #00cbcf;*/
 }
 
 .splash-container {
@@ -55,4 +58,13 @@ body {
 
 .splash-enter-button {
   margin: 46%;
+  padding: 10px;
+  /*background: #00979c;*/
+  background: #006569;
+  border-radius: 5px;
+}
+
+.splash-enter-button, .splash-enter-button:visited {
+  color: white;
+  text-decoration: none;
 }
