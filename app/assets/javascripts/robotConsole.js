@@ -3,11 +3,14 @@ $(document).ready(function(){
   event.preventDefault();
   var form = $(".edit_game").serialize();
   var url = $(".edit_game").attr("action");
+
+  var evaled = eval(thing)
+
   $.ajax({
       url: url,
       type: "post",
       dataType: "json",
-      data: form,
+      data: evaled, // pick up instructions for one device that is tied to one user
       success: function(response){
       $(".edit_game")[0].reset();
       $(".edit_game #game_status_string").text(response.input);
