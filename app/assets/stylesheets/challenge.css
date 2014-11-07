@@ -1,0 +1,19 @@
+.success {
+  width: 150px;
+  height: 150px;
+  overflow: scroll;
+  border: ;
+}
+
+.challenge-tutorial {
+  display: none;
+}
+
+.game-console {
+  float:right;
+}
+
+input[type="submit"] {
+  padding: 15px;
+  /*display: inline-block;*/
+}

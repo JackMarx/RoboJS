@@ -13,7 +13,6 @@ class GamesController  < ApplicationController
   end
 
   def update
-
     @user_input = game_params[:status_string]
     p @user_input
     @challenge = Challenge.find(params[:challenge_id])
@@ -28,21 +27,26 @@ class GamesController  < ApplicationController
     # render 'challenges/show'
   end
 
+  def execute_commands(input)
+    input = @user_input
+    responded_arr = []
+
+    parse_commands(input).each do |input|
+      responded_arr << move_robot(input)
+    end
+
+    @message = responded_arr.join("<br>")
+    render json: {message: @message, input: @user_input}, status: 200
+  end
+
   def parse_commands(input)
     input.split(/\r\n/)
   end
 
-  def execute_commands(input)
-    input = @user_input
-    responded_arr = []
-    parsed_input = parse_commands(input)
-    parsed_input.each do |input|
-      p input
-      responded_arr << move_robot(input)
-    end
-    p responded_arr
-    @message = responded_arr.join("<br>")
-    render json: {message: @message, input: @user_input}, status: 200
+  private
+
+  def game_params
+    params.require(:game).permit!
   end
 
   def move_robot(input)
@@ -63,11 +67,5 @@ class GamesController  < ApplicationController
     else
       "I don't understand you"
     end
-  end
-
-  private
-
-  def game_params
-    params.require(:game).permit!
   end
 end
