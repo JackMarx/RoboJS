@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-megan = User.create!(username: "megmazzle", password_digest: 1)
+# megan = User.create!(username: "megmazzle", password_digest: 1)
 
 challenge1 = Challenge.create!(title: "One challenge to rule them all",
                                tutorial: "One challenge to find them",
@@ -14,4 +14,10 @@ challenge1 = Challenge.create!(title: "One challenge to rule them all",
                                description: "And in the darkness bind them",
                                hint: "Peter Jackson")
 
-game1 = Game.create!(user: megan, challenge: challenge1, completed: false, status_string: "")
+challenge2 = Challenge.create!(title: "Who ya gonna call?",
+                               tutorial: "Probably the Ghostbusters",
+                               solution: "It's the Ghostbusters",
+                               description: "They're paranormal detectives",
+                               hint: "The fucking Ghostbusters")
+
+# game1 = Game.create!(user: megan, challenge: challenge1, completed: false, status_string: "")

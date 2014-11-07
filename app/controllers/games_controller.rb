@@ -1,13 +1,19 @@
 class GamesController  < ApplicationController
   include ApplicationHelper
   def create
-    unless game_params[:id].nil?
-      @game = Game.find_by(user_id: User.first.id, challenge_id: Challenge.first.id)
+
+    if current_user.games.pluck(:challenge_id).include?(params[:challenge_id])
+      @game = Game.find_by(user_id: current_user.id, challenge_id: params[:challenge_id])
     else
+      p "These are the game params"
+      p game_params
+      p "--------------------------"
       @game = Game.new(game_params)
-      @game.update_attributes(user_id: params[:user_id], challenge_id: params[:challenge_id])
+      @game.save
+      @game.update_attributes(user_id: current_user.id, challenge_id: params[:challenge_id])
+      @game.save
     end
-    @challenge = @game.challenge
+    @challenge = Challenge.find(@game.challenge_id)
 
     redirect_to challenge_path(@challenge)
   end
