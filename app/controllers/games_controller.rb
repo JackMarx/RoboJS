@@ -50,23 +50,18 @@ class GamesController  < ApplicationController
     case input
     when "this.turnRight();"
       "I'm facing right"
-    # render json: {message: @message, input: @input}, status: 200
       # robot turns right
     when "this.turnLeft();"
       "I'm facing left"
       # robot turns left
-      # render json: {message: @message, input: @input}, status: 200
     when "this.forward();"
       "away!"
       # robot moves forward
-      # render json: {message: @message, input: @input}, status: 200
     when "this.backward();"
       "oh no!"
       # robot moves backwards
-      # render json: {message: @message, input: @input}, status: 200
     else
       "I don't understand you"
-      # render json: {message: "I don't know what you mean", input: @input}, status: 200
     end
   end
 
