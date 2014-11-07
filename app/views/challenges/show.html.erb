@@ -4,9 +4,10 @@
 <%= @message if @message %>
 <div class="console">
   <%= form_for @game, url: challenge_game_path(@challenge, @game), controller: :games, method: "put" do |f|%>
-  <% f.label :status_string %>
+    <% f.label :status_string %>
     <%= f.text_area :status_string %>
     <%= f.submit "test your code!" %>
   <% end %>
+  <div class="success"></div>
 </div>
-<%  %>
+

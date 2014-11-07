@@ -17,31 +17,33 @@ class GamesController  < ApplicationController
     if @user_input == @challenge.solution
       @game.update_attribute(completed: true)
     end
-    @message = move_robot(@user_input)
+    move_robot(@user_input)
 
     # render 'challenges/show'
   end
 
   def move_robot(input)
+    @input = input
     case input
     when "this.turnRight();"
-     p @message = "I'm facing right"
+      @message = "I'm facing right"
       # robot turns right
-      render json: {message: @message}, status: 200
+      render json: {message: @message, input: @input}, status: 200
     when "this.turnLeft();"
-     p @message = "I'm facing left"
+      @message = "I'm facing left"
       # robot turns left
-      render json: {message: @message}, status: 200
+      render json: {message: @message, input: @input}, status: 200
     when "this.forward();"
-    p  @message = "away!"
+      @message = "away!"
       # robot moves forward
-      render json: {message: @message}, status: 200
+      render json: {message: @message, input: @input}, status: 200
     when "this.backward();"
-    p  @message = "oh no!"
+      @message = "oh no!"
       # robot moves backwards
-      render json: {message: @message}, status: 200
+      render json: {message: @message, input: @input}, status: 200
     else
-     p @message = "I don't understand you"
+      p @message = "I don't understand you"
+      render json: {message: "I don't know what you mean", input: @input}, status: 200
     end
   end
 
