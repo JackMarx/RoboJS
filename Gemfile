@@ -43,3 +43,4 @@ gem 'byebug'
 gem 'dino'
 gem 'pusher'
 
+gem 'rails_12factor', group: :production
