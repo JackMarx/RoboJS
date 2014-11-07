@@ -4,23 +4,22 @@ include ApplicationHelper
 
   end
 
+  def login
+    @user = User.new
+  end
+
   def create
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(username: params[:username])
     if @user && @user.password == params[:password]
       session[:user_id] = @user.id
-      redirect_to "users/#{@user.id}/show"
-      # respond_to do |format|
-        # format.html { redirect_to :back }
-        # format.js #{render :layout => false}
-      # end
+      redirect_to user_path(@user)
     else
       @error = "That wasn't quite right"
-      # render json: @error, status: 422
     end
   end
 
-  def destroy
+  def log_out
     session[:user_id] = nil
-    redirect_to :root
+    redirect_to root_path
   end
 end

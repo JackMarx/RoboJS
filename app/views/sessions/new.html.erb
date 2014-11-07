@@ -1,6 +1,7 @@
 <div class="login-form">
   <h3> Log In </h3>
-  <%= form_for login_path do |f| %>
+  <%= @error if @error %>
+  <%= form_for :session, url: login_path do |f| %>
     <%= f.label :username, "Username:" %>
     <%= f.text_field :username %>
     <%= f.label :password, "Password:" %>
@@ -11,7 +12,8 @@
 
 <div class="sign-up-form">
   <h3>Sign Up</h3>
-  <%= form_for User.new do |f| %>
+  <%= @error if @error %>
+  <%= form_for :user, url: new_user_path do |f| %>
     <%= f.label :username, "Username:" %>
     <%= f.text_field :username %>
     <%= f.label :password, "Password:" %>
