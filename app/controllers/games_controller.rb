@@ -6,34 +6,37 @@ class GamesController  < ApplicationController
   end
 
   def update
-    p game_params
+
     @user_input = game_params[:status_string]
+    p @user_input
     @challenge = Challenge.find(params[:challenge_id])
     @game = Game.find_by(user: User.first, challenge: @challenge)
     @game.update_attribute(:status_string, @user_input)
+    p @game.status_string
 
     if @user_input == @challenge.solution
       @game.update_attribute(completed: true)
     end
     @message = move_robot(@user_input)
-    render 'challenges/show'
+
+    # render 'challenges/show'
   end
 
   def move_robot(input)
     case input
-    when input == "this.turnRight();"
+    when "this.turnRight();"
      p @message = "I'm facing right"
       # robot turns right
       render json: {message: @message}, status: 200
-    when input == "this.turnLeft();"
+    when "this.turnLeft();"
      p @message = "I'm facing left"
       # robot turns left
       render json: {message: @message}, status: 200
-    when input == "this.forward();"
+    when "this.forward();"
     p  @message = "away!"
       # robot moves forward
       render json: {message: @message}, status: 200
-    when input == "this.backward();"
+    when "this.backward();"
     p  @message = "oh no!"
       # robot moves backwards
       render json: {message: @message}, status: 200
