@@ -11,7 +11,7 @@ $(document).ready(function(){
       success: function(response){
       $(".edit_game")[0].reset();
       $(".edit_game #game_status_string").text(response.input);
-      $("div.success").html(response.message + "<br>")
+      $("div.success").html(response.message)
       },
       error: function(response){
         alert("You have made an error")
