@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  # get 'index' => 'sessions#index', as: :index
+
   resources :challenges, only: [:show] do
     resources :games, only: [:create, :update]
   end
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
   post "create" => "sessions#create"
   delete "log_out" => "sessions#destroy", :as => "logout"
 
+  root "users#index"
   # Example resource route with options:
   #   resources :products do
   #     member do
