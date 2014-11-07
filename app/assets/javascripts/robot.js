@@ -12,6 +12,7 @@ Robot.prototype.turnLeft = function(){
 
 Robot.prototype.moveForward = function(){
   this.instructions.push("moveForward");
+
 };
 
 Robot.prototype.moveBackward = function(){
