@@ -1,8 +1,15 @@
 class GamesController  < ApplicationController
   include ApplicationHelper
   def create
-    @game = Game.find_or_create_by(game_params)
-    redirect_to "challenges/show"
+    unless game_params[:id].nil?
+      @game = Game.find_by(user_id: User.first.id, challenge_id: Challenge.first.id)
+    else
+      @game = Game.new(game_params)
+      @game.update_attributes(user_id: params[:user_id], challenge_id: params[:challenge_id])
+    end
+    @challenge = @game.challenge
+
+    redirect_to challenge_path(@challenge)
   end
 
   def update

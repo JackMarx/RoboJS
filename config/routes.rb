@@ -19,15 +19,17 @@ Rails.application.routes.draw do
     resources :games, only: [:create, :update]
   end
 
-  resources :users, except: [:edit, :update, :destroy] do
+  resources :users, except: [:edit, :update, :destroy, :show] do
     resources :badges, only: [:index]
   end
+
+  get "profile" => "users#show", :as => "profile"
 
   get "login" => "sessions#new", :as => "login"
   post "create" => "sessions#create"
   delete "log_out" => "sessions#destroy", :as => "logout"
 
-  root "users#index"
+  root "sessions#index"
   # Example resource route with options:
   #   resources :products do
   #     member do
