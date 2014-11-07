@@ -2,6 +2,8 @@
 <div class="challenge-description"><%= @challenge.description %></div>
 <div class="challenge-tutorial"><%= @challenge.tutorial %></div>
 <%= @message if @message %>
+
+<canvas id="myCanvas" width="200" height="100"></canvas>
 <div class="game-console">
   <%= form_for @game, url: challenge_game_path(@challenge, @game), controller: :games, method: "put" do |f|%>
     <% f.label :status_string %>
