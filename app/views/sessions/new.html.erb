@@ -1,19 +1,19 @@
 <div class="login-form">
   <h3> Log In </h3>
   <%= @error if @error %>
-  <%= form_for :session, url: login_path do |f| %>
+  <%= form_for :session, url: create_path do |f| %>
     <%= f.label :username, "Username:" %>
     <%= f.text_field :username %>
     <%= f.label :password, "Password:" %>
     <%= f.password_field :password %>
-    <%= submit_tag "Login", :class => 'submit-button' %>
+    <%= f.submit "Login", :class => 'submit-button' %>
   <% end %>
 </div>
 
 <div class="sign-up-form">
   <h3>Sign Up</h3>
   <%= @error if @error %>
-  <%= form_for :user, url: new_user_path do |f| %>
+  <%= form_for :user, url: users_path do |f| %>
     <%= f.label :username, "Username:" %>
     <%= f.text_field :username %>
     <%= f.label :password, "Password:" %>

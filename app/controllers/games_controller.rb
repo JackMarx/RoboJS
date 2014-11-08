@@ -1,47 +1,39 @@
 class GamesController  < ApplicationController
   include ApplicationHelper
   def create
-    unless game_params[:id].nil?
-      @game = Game.find_by(user_id: User.first.id, challenge_id: Challenge.first.id)
+
+    if current_user.games.pluck(:challenge_id).include?(game_params[:challenge_id])
+      @game = Game.find_by(user_id: current_user.id, challenge_id: game_params[:challenge_id])
     else
       @game = Game.new(game_params)
-      @game.update_attributes(user_id: params[:user_id], challenge_id: params[:challenge_id])
+      @game.save
+      @game.update_attributes(user_id: current_user.id, challenge_id: params[:challenge_id])
+      @game.save
     end
-    @challenge = @game.challenge
+    @challenge = Challenge.find(@game.challenge_id)
 
     redirect_to challenge_path(@challenge)
   end
 
   def update
-    @user_input = game_params[:status_string]
+    p params
+    @user_input = params[:status_string]
     p @user_input
+    
     @challenge = Challenge.find(params[:challenge_id])
-    @game = Game.find_by(user: User.first, challenge: @challenge)
-    @game.update_attribute(:status_string, @user_input)
+    @game = Game.find_by(user: current_user, challenge: @challenge)
+    @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
+    p @game.instructions
+    p @game.status_string
 
     if @user_input == @challenge.solution
       @game.update_attribute(completed: true)
     end
-    # p move_robot(@user_input)
-    execute_commands(@user_input)
-    # render 'challenges/show'
+
+    render "challenges/show"
+
   end
 
-  def execute_commands(input)
-    input = @user_input
-    responded_arr = []
-
-    parse_commands(input).each do |input|
-      responded_arr << move_robot(input)
-    end
-
-    @message = responded_arr.join("<br>")
-    render json: {message: @message, input: @user_input}, status: 200
-  end
-
-  def parse_commands(input)
-    input.split(/\r\n/)
-  end
 
   private
 
