@@ -3,6 +3,7 @@ $(document).ready(function(){
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
     var sourceCode = $("#game_status_string").val();
+    console.log(sourceCode);
     
     var rupert = new Robot();
     eval(sourceCode);
@@ -17,7 +18,6 @@ $(document).ready(function(){
       type: "put",
       success: function(response){
         $(".game-console").html(response);
-        console.log(response);
         console.log("it worked");
       },
       error: function(response){
