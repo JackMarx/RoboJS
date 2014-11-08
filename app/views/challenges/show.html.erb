@@ -12,5 +12,13 @@
   <% end %>
 
   <div class="success"></div>
+<!-- 
+  <ul class="challenge-navigation">
+    <% if @challenge.id != @last_challenge.id %>
+      <li><%= link_to "Next Challenge", challenge_game_path(game: current_user.games.find_or_create_by(challenge_id: @challenge.id + 1 ).attributes, controller: :games, method: "post", challenge_id: @challenge.id + 1) %></li>
+    <% elsif @challenge.id != @first_challenge.id %>
+      <li><%= link_to "Previous Challenge", challenge_game_path(game: current_user.games.find_or_create_by(challenge_id: @challenge.id - 1 ).attributes, controller: :games, method: "post", challenge_id: @challenge.id - 1) %></li>
+    <% end %>
+  </ul> -->
 </div>
 
