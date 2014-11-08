@@ -6,9 +6,6 @@ class SessionsController < ApplicationController
   end
 
   def login
-    p "This is the current_user: #{current_user}"
-    redirect_to profile_path(current_user) unless current_user.nil?
-
     @user = User.new
   end
 
