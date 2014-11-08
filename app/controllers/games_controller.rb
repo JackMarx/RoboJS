@@ -1,17 +1,17 @@
 class GamesController  < ApplicationController
   include ApplicationHelper
+
+  before_filter :authorized?
+  
   def create
-
-    if current_user.games.pluck(:challenge_id).include?(game_params[:challenge_id])
-      @game = Game.find_by(user_id: current_user.id, challenge_id: game_params[:challenge_id])
+    unless game_params["challenge_id"].empty?
+      @game = Game.find_by(user_id: current_user.id, challenge_id: game_params["challenge_id"])
     else
-      @game = Game.new(game_params)
-      @game.save
+      @game = Game.create(game_params)
       @game.update_attributes(user_id: current_user.id, challenge_id: params[:challenge_id])
-      @game.save
     end
-    @challenge = Challenge.find(@game.challenge_id)
 
+    @challenge = Challenge.find(@game.challenge_id)
     redirect_to challenge_path(@challenge)
   end
 
