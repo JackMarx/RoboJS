@@ -5,12 +5,20 @@
 
 <canvas id="myCanvas" width="500" height="400"></canvas>
 <div class="game-console">
-  <%= form_for @game, url: challenge_game_path(@challenge, @game), controller: :games, method: "put" do |f|%>
+  <%= form_for @game, url: challenge_game_path(@challenge, @game,  game: @game.attributes), controller: :games, method: "put" do |f|%>
     <% f.label :status_string %>
     <%= f.text_area :status_string, rows: 10, cols: 40 %><br>
     <%= f.submit "test your code!" %>
   <% end %>
 
   <div class="success"></div>
+<!-- 
+  <ul class="challenge-navigation">
+    <% if @challenge.id != @last_challenge.id %>
+      <li><%= link_to "Next Challenge", challenge_game_path(game: current_user.games.find_or_create_by(challenge_id: @challenge.id + 1 ).attributes, controller: :games, method: "post", challenge_id: @challenge.id + 1) %></li>
+    <% elsif @challenge.id != @first_challenge.id %>
+      <li><%= link_to "Previous Challenge", challenge_game_path(game: current_user.games.find_or_create_by(challenge_id: @challenge.id - 1 ).attributes, controller: :games, method: "post", challenge_id: @challenge.id - 1) %></li>
+    <% end %>
+  </ul> -->
 </div>
 

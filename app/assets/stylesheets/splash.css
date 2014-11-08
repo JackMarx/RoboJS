@@ -48,23 +48,28 @@ body {
   padding: 10px;
   margin: 0;
   color: #006569;
-  /*text-shadow: 0 0 5px #00cbcf;*/
 }
 
 .splash-container {
   width: 40%;
   margin: 30px auto 0;
+  padding-bottom: 20px;
 }
 
 .splash-enter-button {
   margin: 46%;
   padding: 10px;
-  /*background: #00979c;*/
   background: #006569;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .splash-enter-button, .splash-enter-button:visited {
   color: white;
   text-decoration: none;
+}
+
+.robo-picture {
+  margin-left: 25px;
+  padding: 0 15px 15px;
 }

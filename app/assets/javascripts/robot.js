@@ -10,12 +10,14 @@ Robot.prototype.turnLeft = function(){
   this.instructions.push("L");
 };
 
-Robot.prototype.turnBackward = function(){
-  this.instructions.push("B");
+Robot.prototype.moveForward = function(amt){
+  if(typeof amt === 'undefined' || typeof amt === "string") amt = 1 ;
+  this.instructions.push("F"+amt);
 };
 
-Robot.prototype.moveForward = function(amt){
-  this.instructions.push("F"+amt);
+Robot.prototype.moveBackward = function(amt){
+  if(typeof amt === 'undefined' || typeof amt === "string") amt = 1 ;
+  this.instructions.push("B"+amt);
 };
 
 Robot.prototype.serializedInstructions = function() {

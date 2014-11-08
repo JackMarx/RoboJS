@@ -13,7 +13,22 @@
   float:right;
 }
 
-input[type="submit"] {
+/*input[type="submit"] {
   padding: 15px;
   /*display: inline-block;*/
+
+
+.challenge-navigation {
+  display: block;
+  float: right;
+}
+
+.challenge-navigation a, .challenge-navigation a:visited {
+  color: #00979c;
+  list-style: none;
+}
+
+.challenge-navigation li {
+  float: left;
+  display: inline-block;
 }
