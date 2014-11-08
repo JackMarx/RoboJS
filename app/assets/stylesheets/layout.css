@@ -17,4 +17,18 @@ header h1{
   width: 800px;
 }
 
+.user-navigation a, .user-navigation a:visited {
+  color: #fff;
+  text-decoration: none;
+}
 
+.user-navigation {
+  list-style: none;
+  display: inline-block;
+  margin-right: 0;
+}
+
+.user-navigation li {
+  display: inline;
+  float: left;
+}
