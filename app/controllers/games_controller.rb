@@ -2,8 +2,8 @@ class GamesController  < ApplicationController
   include ApplicationHelper
   def create
 
-    if current_user.games.pluck(:challenge_id).include?(params[:challenge_id])
-      @game = Game.find_by(user_id: current_user.id, challenge_id: params[:challenge_id])
+    if current_user.games.pluck(:challenge_id).include?(game_params[:challenge_id])
+      @game = Game.find_by(user_id: current_user.id, challenge_id: game_params[:challenge_id])
     else
       @game = Game.new(game_params)
       @game.save
@@ -17,11 +17,14 @@ class GamesController  < ApplicationController
 
   def update
     p params
-    @user_input = game_params[:status_string]
+    @user_input = params[:status_string]
+    p @user_input
     
     @challenge = Challenge.find(params[:challenge_id])
     @game = Game.find_by(user: current_user, challenge: @challenge)
-    @game.update_attribute(:status_string, @user_input)
+    @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
+    p @game.instructions
+    p @game.status_string
 
     if @user_input == @challenge.solution
       @game.update_attribute(completed: true)
@@ -31,21 +34,6 @@ class GamesController  < ApplicationController
 
   end
 
-  def execute_commands(input)
-    input = @user_input
-    responded_arr = []
-
-    parse_commands(input).each do |input|
-      responded_arr << move_robot(input)
-    end
-
-    @message = responded_arr.join("<br>")
-    render json: {message: @message, input: @user_input}, status: 200
-  end
-
-  def parse_commands(input)
-    input.split(/\r\n/)
-  end
 
   private
 
