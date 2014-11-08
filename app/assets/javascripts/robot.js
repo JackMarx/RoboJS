@@ -10,7 +10,7 @@ Robot.prototype.turnLeft = function(){
   this.instructions.push("L");
 };
 
-Robot.prototype.turnBackward = function(amt){
+Robot.prototype.turnBackward = function(){
   this.instructions.push("B");
 };
 
