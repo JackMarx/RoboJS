@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
   before_filter :authorized?, only: [:show]
+
   def show
     @user       = User.first
     @games      = @user.games
