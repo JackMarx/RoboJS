@@ -64,7 +64,6 @@ DrawnRobot.prototype.turnBackward = function(){
 };
 
 DrawnRobot.prototype.moveForward = function(amt){
-
     if (this.facing === "up") {
       var distance = amt * 50
       this.body.animate('top', '-=' + distance.toString(), {
