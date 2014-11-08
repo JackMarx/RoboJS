@@ -7,7 +7,7 @@ challenge1 = Challenge.create!(title: "Intro to JavaScript",
 challenge2 = Challenge.create!(title: "Going the Distance",
                                description: "Awesome! Now, if you want Rupert to move more than a foot forward, you can call the same moveForward(); more than once.",
                                tutorial: "",
-                               solution: "rupert.moveForward();,rupert.moveForward();",
+                               solution: "rupert.moveForward();\n\rrupert.moveForward();",
                                hint: "Try one of these: rupert.moveRight();, rupert.moveLeft();, rupert.moveForward();")
 
 challenge3 = Challenge.create!(title: "Argue with Me",
@@ -19,13 +19,13 @@ challenge3 = Challenge.create!(title: "Argue with Me",
 challenge4 = Challenge.create!(title: "Defeating the Zoolander Curse",
                                description: "Great! Now that Rupert has moved forward, let's see if we can get him to turn left before moving forward again.",
                                tutorial: "",
-                               solution: "rupert.turnLeft();,rupert.moveForward();",
+                               solution: "rupert.turnLeft();\n\rrupert.moveForward();",
                                hint: "Try one of these: rupert.moveRight();, rupert.moveLeft();, rupert.moveForward();")
 
 challenge5 = Challenge.create!(title: "It's Hip to be Square",
                                description: "Fantastic! Using the same commands you already know, let's see if you can make Rupert make a square.",
                                tutorial: "",
-                               solution: "rupert.turnLeft();,rupert.moveForward(),;rupert.turnLeft();,rupert.moveForward();,rupert.turnLeft();,rupert.moveForward();,rupert.turnLeft();,rupert.moveForward();",
+                               solution: "rupert.turnLeft();\n\rrupert.moveForward();\n\rrupert.turnLeft();\n\rrupert.moveForward();\n\rrupert.turnLeft();\n\rrupert.moveForward();\n\rrupert.turnLeft();\n\rrupert.moveForward();",
                                hint: "Try one of these: rupert.moveRight();, rupert.moveLeft();, rupert.moveForward();")
 
 challenge6 = Challenge.create!(title: "Loop around the Rosy",

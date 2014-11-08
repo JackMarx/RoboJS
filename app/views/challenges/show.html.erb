@@ -3,17 +3,8 @@
 <div class="challenge-tutorial"><%= @challenge.tutorial %></div>
 
 <!-- <canvas id="myCanvas" width="500" height="400"></canvas> -->
-<div class="game-console">
-  <div class="success">
-    <%= @success_message if @success_message %>
-  </div>
-  <div class="failure">
-    <%= @fail_message if @fail_message %>
-  </div>
 
-  <%= form_for @game, url: challenge_game_path(@challenge, @game,  game: @game.attributes), controller: :games, method: "put" do |f|%>
-    <%= f.text_area :status_string, rows: 10, cols: 40 %><br>
-    <%= f.submit "Test your code!", class: "game-console-button" %>
-  <% end %>
+<div class="game-console">
+  <%= render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, failure_message: @failure_message } %>
 
 </div>

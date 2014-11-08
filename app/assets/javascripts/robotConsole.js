@@ -1,6 +1,6 @@
 $(document).ready(function(){
   
-  $(".edit-game").on("submit", function(event){
+  $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
     var sourceCode = $("#game_status_string").val();
     
@@ -16,7 +16,7 @@ $(document).ready(function(){
       data: { instructions: rupert.serializedInstructions(), status_string: sourceCode },
       type: "put",
       success: function(response){
-        
+        $(".game-console").html(response);
         console.log(response);
         console.log("it worked");
       },
@@ -24,7 +24,6 @@ $(document).ready(function(){
         console.log("crap");
       }
     });
-    
   });
 });
 

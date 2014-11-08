@@ -24,16 +24,15 @@ class GamesController  < ApplicationController
     
     if @user_input == @challenge.solution
       @game.update_attribute(:completed, true)
-      
-      @fail_message = ""
       @success_message = "Great! Try the next challenge."
       
 
     else
-      @success_message = ""
-      @fail_message = "FAIL. TRY AGAIN."
+      @failure_message = "Oops! Something went wrong. Try again."
     end
-    render "challenges/show"
+
+    render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, failure_message: @failure_message } 
+
   end
 
   private
