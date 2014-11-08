@@ -10,7 +10,6 @@ $(document).ready(function(){
     console.log(robot.serializedInstructions());
     
     var url = $(".edit_game").attr("action");
-    // var form = $(".edit_game").serialize();
 
     var response = $.put(url, {instructions:robot.serializedInstructions(), status_string:sourceCode});
     response.done(function() {
