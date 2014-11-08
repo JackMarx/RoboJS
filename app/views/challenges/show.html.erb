@@ -3,7 +3,7 @@
 <div class="challenge-tutorial"><%= @challenge.tutorial %></div>
 <%= @message if @message %>
 <div class="game-console">
-  <%= form_for @game, url: challenge_game_path(@challenge, @game), controller: :games, method: "put" do |f|%>
+  <%= form_for @game, url: challenge_game_path(@challenge, @game,  game: @game.attributes), controller: :games, method: "put" do |f|%>
     <% f.label :status_string %>
     <%= f.text_area :status_string, rows: 10, cols: 40 %><br>
     <%= f.submit "test your code!" %>

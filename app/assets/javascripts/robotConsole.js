@@ -10,7 +10,7 @@ $(document).ready(function(){
     // var form = $(".edit_game").serialize();
     var url = $(".edit_game").attr("action");
 
-    var response = $.post(url, {instructions:robot.serializedInstructions()});
+    var response = $.put(url, {instructions:robot.serializedInstructions()});
     response.done(function() {
       console.log("it worked");
     });

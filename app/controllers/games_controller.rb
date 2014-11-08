@@ -5,9 +5,6 @@ class GamesController  < ApplicationController
     if current_user.games.pluck(:challenge_id).include?(params[:challenge_id])
       @game = Game.find_by(user_id: current_user.id, challenge_id: params[:challenge_id])
     else
-      p "These are the game params"
-      p game_params
-      p "--------------------------"
       @game = Game.new(game_params)
       @game.save
       @game.update_attributes(user_id: current_user.id, challenge_id: params[:challenge_id])
@@ -19,18 +16,19 @@ class GamesController  < ApplicationController
   end
 
   def update
+    p params
     @user_input = game_params[:status_string]
-    p @user_input
+    
     @challenge = Challenge.find(params[:challenge_id])
-    @game = Game.find_by(user: User.first, challenge: @challenge)
+    @game = Game.find_by(user: current_user, challenge: @challenge)
     @game.update_attribute(:status_string, @user_input)
 
     if @user_input == @challenge.solution
       @game.update_attribute(completed: true)
     end
-    # p move_robot(@user_input)
-    execute_commands(@user_input)
-    # render 'challenges/show'
+
+    render "challenges/show"
+
   end
 
   def execute_commands(input)
