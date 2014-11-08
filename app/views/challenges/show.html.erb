@@ -1,24 +1,19 @@
 <div class="challenge-title"><h3><%= @challenge.title %></h3></div>
 <div class="challenge-description"><%= @challenge.description %></div>
 <div class="challenge-tutorial"><%= @challenge.tutorial %></div>
-<%= @message if @message %>
 
-<canvas id="myCanvas" width="500" height="400"></canvas>
+<!-- <canvas id="myCanvas" width="500" height="400"></canvas> -->
 <div class="game-console">
+  <div class="success">
+    <%= @success_message if @success_message %>
+  </div>
+  <div class="failure">
+    <%= @fail_message if @fail_message %>
+  </div>
+
   <%= form_for @game, url: challenge_game_path(@challenge, @game,  game: @game.attributes), controller: :games, method: "put" do |f|%>
-    <% f.label :status_string %>
     <%= f.text_area :status_string, rows: 10, cols: 40 %><br>
-    <%= f.submit "test your code!" %>
+    <%= f.submit "Test your code!", class: "game-console-button" %>
   <% end %>
 
-  <div class="success"></div>
-<!-- 
-  <ul class="challenge-navigation">
-    <% if @challenge.id != @last_challenge.id %>
-      <li><%= link_to "Next Challenge", challenge_game_path(game: current_user.games.find_or_create_by(challenge_id: @challenge.id + 1 ).attributes, controller: :games, method: "post", challenge_id: @challenge.id + 1) %></li>
-    <% elsif @challenge.id != @first_challenge.id %>
-      <li><%= link_to "Previous Challenge", challenge_game_path(game: current_user.games.find_or_create_by(challenge_id: @challenge.id - 1 ).attributes, controller: :games, method: "post", challenge_id: @challenge.id - 1) %></li>
-    <% end %>
-  </ul> -->
 </div>
-

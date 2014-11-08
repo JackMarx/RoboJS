@@ -1,22 +1,32 @@
 .success {
-  width: 150px;
-  height: 150px;
-  overflow: scroll;
-  border: ;
+  color: #390;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
 }
 
+
+.failure {
+  color: #c00;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif
+}
 .challenge-tutorial {
   display: none;
 }
 
 .game-console {
   float:right;
+  padding: 20px 0;
 }
 
-/*input[type="submit"] {
-  padding: 15px;
-  /*display: inline-block;*/
-
+.game-console-button {
+  padding: 10px;
+  background: #006569;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  border: none;
+}
 
 .challenge-navigation {
   display: block;

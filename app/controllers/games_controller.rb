@@ -23,9 +23,16 @@ class GamesController  < ApplicationController
     @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
     
     if @user_input == @challenge.solution
-      @game.update_attribute(completed: true)
-    end
+      @game.update_attribute(:completed, true)
+      
+      @fail_message = ""
+      @success_message = "Great! Try the next challenge."
+      
 
+    else
+      @success_message = ""
+      @fail_message = "FAIL. TRY AGAIN."
+    end
     render "challenges/show"
   end
 

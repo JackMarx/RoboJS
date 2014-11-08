@@ -1,23 +1,30 @@
 $(document).ready(function(){
-  $(".edit_game").on("submit", function(event){
+  
+  $(".edit-game").on("submit", function(event){
     event.preventDefault();
     var sourceCode = $("#game_status_string").val();
     
-    var robot = new Robot();
-
+    var rupert = new Robot();
     eval(sourceCode);
     
-    console.log(robot.serializedInstructions());
+    console.log(rupert.serializedInstructions());
     
     var url = $(".edit_game").attr("action");
 
-    var response = $.put(url, {instructions:robot.serializedInstructions(), status_string:sourceCode});
-    response.done(function() {
-      console.log("it worked");
+    $.ajax({
+      url: url,
+      data: { instructions: rupert.serializedInstructions(), status_string: sourceCode },
+      type: "put",
+      success: function(response){
+        
+        console.log(response);
+        console.log("it worked");
+      },
+      error: function(response){
+        console.log("crap");
+      }
     });
-    response.fail(function () {
-      console.log("crap");
-    });
+    
   });
 });
 
