@@ -1,0 +1,66 @@
+.sessions-form {
+  font-family: "Open Sans", sans-serif;
+  display:inline;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.login-form {
+  float: left;
+  display: inline-block;
+  width: 40%;
+  padding: 20px 20px 20px 66px;
+}
+
+.sign-up-form {
+  float: left;
+  display: inline-block;
+  margin-left: 65px;
+  width: 30%;
+  padding: 20px 20px 30px;
+  position: relative;
+  background: #fcfcfc;
+}
+
+.login-lines {
+  margin: 20px;
+}
+
+.submit-button {
+  padding: 10px;
+  background: #006569;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  border: none;
+}
+
+.user-login-field {
+  padding: 5px;
+  margin: 5px 0 15px;
+}
+
+.sign-up-form:before, .sign-up-form:after {
+  content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:10px 0 10px rgba(0,151,156,0.6);
+    -moz-box-shadow:10px 0 10px rgba(0,151,156,0.6);
+    box-shadow:10px 0 10px rgba(0,151,156,0.6);
+    top:10%;
+    bottom:10px;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+
+.sign-up-form:after {
+  right:10px;
+  left:auto;
+  -webkit-transform:skew(8deg) rotate(3deg);
+     -moz-transform:skew(8deg) rotate(3deg);
+      -ms-transform:skew(8deg) rotate(3deg);
+       -o-transform:skew(8deg) rotate(3deg);
+          transform:skew(8deg) rotate(3deg);
+}

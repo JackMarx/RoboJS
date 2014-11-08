@@ -4,7 +4,9 @@ $(document).ready(function(){
     var sourceCode = $("#game_status_string").val();
     
     var robot = new Robot();
+
     eval(sourceCode);
+    
     console.log(robot.serializedInstructions());
     
     var url = $(".edit_game").attr("action");
