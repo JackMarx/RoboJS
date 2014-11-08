@@ -10,13 +10,12 @@ Robot.prototype.turnLeft = function(){
   this.instructions.push("L");
 };
 
-Robot.prototype.moveForward = function(amt){
-  this.instructions.push("F"+amt);
-
+Robot.prototype.turnBackward = function(amt){
+  this.instructions.push("B");
 };
 
-Robot.prototype.moveBackward = function(amt){
-  this.instructions.push("B"+amt);
+Robot.prototype.moveForward = function(amt){
+  this.instructions.push("F"+amt);
 };
 
 Robot.prototype.serializedInstructions = function() {
