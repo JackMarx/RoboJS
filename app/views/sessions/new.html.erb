@@ -36,7 +36,9 @@
 
  <div class="login-form">
     <h3> Log In </h3>
-    <%= @error if @error %>
+      <% @errors.full_messages.each do |message| %>
+        <%= message %>
+      <%end%>
     <%= form_for :session, url: create_path, class: "login-lines" do |f| %>
       <%= f.label :username, "Username:", class: "user-input-label"%><br>
       <%= f.text_field :username, class: "user-login-field" %><br>
