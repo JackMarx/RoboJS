@@ -4,7 +4,7 @@ FACING = ["up", "left", "down", "right"];
 
 
 function DrawnRobot(){
-  this.body = new fabric.Rect({
+  this.body = new fabric.Triangle({
   left: 230,
   top: 390,
   fill: 'red',
@@ -18,7 +18,6 @@ function DrawnRobot(){
 
 
 DrawnRobot.prototype.turnLeft = function(){
-  console.log(this.moveForward)
   this.body.animate('angle', '-=90', {
     onChange: canvas.renderAll.bind(canvas),
     duration: 1000,
@@ -30,6 +29,8 @@ DrawnRobot.prototype.turnLeft = function(){
   }
   this.facing = FACING[facingIndex];
   console.log(this.facing);
+
+
 };
 
 DrawnRobot.prototype.turnRight = function(){
@@ -67,13 +68,15 @@ DrawnRobot.prototype.turnBackward = function(){
 
 DrawnRobot.prototype.moveForward = function(amt){
   var distance, line;
-    if (this.facing === "up") {
+  var robot = this;
+  setTimeout(function(){
+    if (robot.facing === "up") {
       distance = amt * 50;
-      this.body.animate('top', '-=' + distance.toString(), {
+      robot.body.animate('top', '-=' + distance.toString(), {
         onChange: canvas.renderAll.bind(canvas),
         duration: 1000,
       });
-      line = new fabric.Line([ this.body.left, this.body.top, this.body.left, this.body.top], {
+      line = new fabric.Line([ robot.body.left, robot.body.top, robot.body.left, robot.body.top], {
         stroke: 'red',
         strokeWidth: 5,
         selectable: false,
@@ -85,14 +88,13 @@ DrawnRobot.prototype.moveForward = function(amt){
       onChange: canvas.renderAll.bind(canvas),
       duration: 1000,
     });
-
-  } else if (this.facing === "left") {
+  } else if (robot.facing === "left") {
       distance = amt * 50;
-      this.body.animate('left', '-=' + distance.toString(), {
+      robot.body.animate('left', '-=' + distance.toString(), {
         onChange: canvas.renderAll.bind(canvas),
         duration: 1000,
       });
-      line = new fabric.Line([ this.body.left, this.body.top, this.body.left, this.body.top], {
+      line = new fabric.Line([ robot.body.left, robot.body.top, robot.body.left, robot.body.top], {
         stroke: 'red',
         strokeWidth: 5,
         selectable: false,
@@ -105,13 +107,13 @@ DrawnRobot.prototype.moveForward = function(amt){
       duration: 1000,
     });
 
-  } else if (this.facing === "down") {
+  } else if (robot.facing === "down") {
       distance = amt * 50;
-      this.body.animate('top', '+=' + distance.toString(), {
+      robot.body.animate('top', '+=' + distance.toString(), {
         onChange: canvas.renderAll.bind(canvas),
         duration: 1000,
       });
-      line = new fabric.Line([ this.body.left, this.body.top, this.body.left, this.body.top], {
+      line = new fabric.Line([ robot.body.left, robot.body.top, robot.body.left, robot.body.top], {
         stroke: 'red',
         strokeWidth: 5,
         selectable: false,
@@ -126,11 +128,11 @@ DrawnRobot.prototype.moveForward = function(amt){
 
   } else {
       distance = amt * 50;
-      this.body.animate('left', '+=' + distance.toString(), {
+      robot.body.animate('left', '+=' + distance.toString(), {
         onChange: canvas.renderAll.bind(canvas),
         duration: 1000,
       });
-     line = new fabric.Line([ this.body.left, this.body.top, this.body.left, this.body.top], {
+     line = new fabric.Line([ robot.body.left, robot.body.top, robot.body.left, robot.body.top], {
         stroke: 'red',
         strokeWidth: 5,
         selectable: false,
@@ -143,6 +145,7 @@ DrawnRobot.prototype.moveForward = function(amt){
       duration: 1000,
     });
   }
+  }, 1000);
 };
 
 
@@ -151,7 +154,7 @@ DrawnRobot.prototype.moveForward = function(amt){
   canvas = new fabric.Canvas('myCanvas');
   drawnRobot = new DrawnRobot();
   canvas.add(drawnRobot.body);
-
+  drawnRobot.turnLeft();
   drawnRobot.moveForward(2);
   // drawnRobot.turnBackward();
   // drawnRobot.turnBackward();
