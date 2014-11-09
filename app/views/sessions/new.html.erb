@@ -5,7 +5,7 @@
     <%= form_for :user, url: users_path, class: "login-lines" do |f| %>
       <%= f.label :username, "Username:", class: "user-input-label"%><br>
       <% if @new_user_errors %>
-        <ul class="failure">
+        <ul class="failure login-errors">
           <% @new_user_errors[:username].each do |error| %>
           <li><%= error %></li>
           <% end %>
@@ -14,7 +14,7 @@
       <%= f.text_field :username, class: "user-login-field" %><br>
       <%= f.label :password, "Password:", class: "user-input-label"%><br>
       <% if @new_user_errors %>
-        <ul class="failure">
+        <ul class="failure login-errors">
           <% @new_user_errors[:password].each do |error| %>
           <li><%= error %></li>
           <% end %>
@@ -23,7 +23,7 @@
       <%= f.password_field :password, class: "user-login-field" %><br>
       <%= f.label :password_confirmation, "Confirm your password:", class: "user-input-label"%><br>
         <% if @new_user_errors %>
-          <ul class="failure">
+          <ul class="failure login-errors">
             <% @new_user_errors[:password_confirmation].each do |error| %>
             <li><%= error %></li>
             <% end %>
@@ -35,10 +35,10 @@
   </div>
 
  <div class="login-form">
-    <h3> Log In </h3>
-      <% @errors.full_messages.each do |message| %>
-        <%= message %>
-      <%end%>
+    <h3>Log In</h3>
+    <ul class="failure login-errors">
+      <li><%= @errors %></li>
+    </ul>
     <%= form_for :session, url: create_path, class: "login-lines" do |f| %>
       <%= f.label :username, "Username:", class: "user-input-label"%><br>
       <%= f.text_field :username, class: "user-login-field" %><br>

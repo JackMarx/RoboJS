@@ -64,3 +64,7 @@
        -o-transform:skew(8deg) rotate(3deg);
           transform:skew(8deg) rotate(3deg);
 }
+
+.login-errors {
+  list-style-type: none;
+}
