@@ -45,5 +45,6 @@ gem 'bcrypt'
 gem 'byebug'
 gem 'dino'
 gem 'pusher'
+gem 'ruby_spark'
 
 gem 'rails_12factor', group: :production
