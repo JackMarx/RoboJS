@@ -1,9 +1,16 @@
 <div class="sessions-form">
    <div class="sign-up-form">
     <h3>Sign Up</h3>
-    <%= @error if @error %>
+
     <%= form_for :user, url: users_path, class: "login-lines" do |f| %>
       <%= f.label :username, "Username:", class: "user-input-label"%><br>
+      <% if @new_user_errors %>
+        <ul class="failure">
+          <% @new_user_errors[:username].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= f.text_field :username, class: "user-login-field" %><br>
       <%= f.label :password, "Password:", class: "user-input-label"%><br>
       <%= f.password_field :password, class: "user-login-field" %><br>

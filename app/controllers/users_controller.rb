@@ -11,7 +11,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    @user.save
+
+    if @user.errors.any?
+      @new_user_errors = @user.errors.messages
+      p @new_user_errors
+      render 'sessions/new'
+    else 
+      
       session[:user_id] = @user.id
       redirect_to profile_path(@user)
     end
@@ -20,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit!
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 end
