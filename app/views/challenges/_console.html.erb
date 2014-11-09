@@ -7,7 +7,7 @@
 
     
 
-<%= form_for game, url: challenge_game_path(challenge, game,  game: game.attributes), controller: :games, method: "put" do |f| %>
+<%= form_for game, url: challenge_game_path(game, challenge_id: challenge.id, id: game.id), controller: :games, method: "put" do |f| %>
   <%= f.text_area :status_string, rows: 10, cols: 40 %><br>
   <%= f.submit "Test your code!", class: "game-console-button" %>
 <% end %>

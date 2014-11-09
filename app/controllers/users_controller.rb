@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authorized?, only: [:show]
 
   def show
-    @user       = User.first
+    @user       = current_user
     @games      = @user.games
     @badges     = @user.badges
     @challenges = Challenge.all

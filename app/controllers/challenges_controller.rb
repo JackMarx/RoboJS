@@ -13,6 +13,6 @@ include ApplicationHelper
       @previous_challenge = Challenge.find(@challenge.id - 1)
     end
 
-    @game = Game.find_by(challenge: @challenge, user: User.first)
+    @game = Game.find_by(challenge: @challenge, user: current_user)
   end
 end
