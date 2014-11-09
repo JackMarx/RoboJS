@@ -1,9 +1,7 @@
 $(document).ready(function(){
-<<<<<<< HEAD
+
 FACING = ["up", "left", "down", "right"];
-=======
-FACING = ["up", "left", "down", "right"]
->>>>>>> 3ce6f54149ff0fb8fe71a6539f9019f1d8feb20b
+
 
 function DrawnRobot(){
   this.body = new fabric.Rect({
@@ -33,10 +31,6 @@ DrawnRobot.prototype.turnLeft = function(){
   console.log(this.facing);
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3ce6f54149ff0fb8fe71a6539f9019f1d8feb20b
 DrawnRobot.prototype.turnRight = function(){
   this.body.animate('angle', 90, {
     onChange: canvas.renderAll.bind(canvas),
