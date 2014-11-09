@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :users_badges
   has_many :badges, through: :users_badges
 
+  validates :username, uniqueness: true
+
   has_secure_password
 
   def password
