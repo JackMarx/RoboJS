@@ -18,7 +18,7 @@ function DrawnRobot(){
 
 
 DrawnRobot.prototype.turnLeft = function(){
-  this.body.animate('angle', -90, {
+  this.body.animate('angle', '-=90', {
     onChange: canvas.renderAll.bind(canvas),
     duration: 1000,
   });
@@ -32,7 +32,7 @@ DrawnRobot.prototype.turnLeft = function(){
 };
 
 DrawnRobot.prototype.turnRight = function(){
-  this.body.animate('angle', 90, {
+  this.body.animate('angle', '+=90', {
     onChange: canvas.renderAll.bind(canvas),
     duration: 1000,
   });
@@ -47,7 +47,7 @@ DrawnRobot.prototype.turnRight = function(){
 
 
 DrawnRobot.prototype.turnBackward = function(){
-  this.body.animate('angle', 180, {
+  this.body.animate('angle', '-=180', {
     onChange: canvas.renderAll.bind(canvas),
     duration: 1000,
   });
