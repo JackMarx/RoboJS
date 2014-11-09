@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   root "sessions#index"
 
-  get "hello_world" => "hello_world", :as => "hello_world"
+  get "hello_world" => "hello_worlds#hello_world" #, :as => "hello_world"
 
   # Example resource route with options:
   #   resources :products do
