@@ -22,7 +22,9 @@ class GamesController  < ApplicationController
     @game = Game.find_by(user: current_user, challenge: @challenge)
     @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
     
-    if @user_input == @challenge.solution
+    challenge_solution = "challenge#{@challenge.id}"
+
+    unless Challenge.solutions[challenge_solution.to_sym].match(@user_input).nil?
       @game.update_attribute(:completed, true)
       @success_message = "Great! Try the next challenge."
       
