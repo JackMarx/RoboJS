@@ -30,9 +30,6 @@ Rails.application.routes.draw do
   delete "log_out" => "sessions#destroy", :as => "logout"
 
   root "sessions#index"
-
-  get "hello_world" => "hello_worlds#hello_world" #, :as => "hello_world"
-
   # Example resource route with options:
   #   resources :products do
   #     member do
