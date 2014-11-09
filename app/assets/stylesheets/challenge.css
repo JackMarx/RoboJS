@@ -4,7 +4,6 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-
 .failure {
   color: #c00;
   font-weight: bold;
@@ -31,14 +30,26 @@
 .challenge-navigation {
   display: block;
   float: right;
+  list-style: none;
+  clear: both;
 }
 
 .challenge-navigation a, .challenge-navigation a:visited {
   color: #00979c;
-  list-style: none;
 }
 
 .challenge-navigation li {
   float: left;
-  display: inline-block;
+  padding: 0 5px;
 }
+
+.hint-link, .hint-link:visited {
+  color: #00979c;
+  text-decoration: underline;
+}
+
+.hint {
+  display: none;
+  max-width: 150px;
+}
+

@@ -1,4 +1,9 @@
 $(document).ready(function(){
+
+  $(".game-console").on("click", ".hint-link", function(event){
+    event.preventDefault();
+    $(".hint").toggle();
+  });
   
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
@@ -26,4 +31,3 @@ $(document).ready(function(){
     });
   });
 });
-
