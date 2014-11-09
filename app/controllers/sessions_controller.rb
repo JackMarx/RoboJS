@@ -16,8 +16,9 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to profile_path(@user)
     else
+      @errors = @user.errors
       @user = User.new
-      @error = "That wasn't quite right"
+      # @error = "That wasn't quite right"
       render "sessions/new"
     end
 
@@ -31,6 +32,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit!
+    params.require(:session).permit(:username, :password)
   end
 end
