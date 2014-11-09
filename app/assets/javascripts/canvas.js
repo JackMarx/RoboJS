@@ -5,7 +5,7 @@ FACING = ["up", "left", "down", "right"];
 
 function DrawnRobot(){
   this.body = new fabric.Triangle({
-  left: 230,
+  left:30,
   top: 390,
   fill: 'red',
   width: 20,
