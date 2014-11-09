@@ -32,3 +32,7 @@ header h1{
   display: inline;
   float: left;
 }
+
+input[type="submit"]{
+  outline: none;
+}

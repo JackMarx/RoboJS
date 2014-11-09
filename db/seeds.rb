@@ -7,7 +7,7 @@ challenge1 = Challenge.create!(title: "Intro to JavaScript",
 challenge2 = Challenge.create!(title: "Going the Distance",
                                description: "Awesome! Now, if you want Rupert to move more than a foot forward, you can call the same moveForward(); more than once.",
                                tutorial: "",
-                               solution: "rupert.moveForward();,rupert.moveForward();",
+                               solution: "rupert.moveForward();\nrupert.moveForward();",
                                hint: "Try one of these: rupert.moveRight();, rupert.moveLeft();, rupert.moveForward();")
 
 challenge3 = Challenge.create!(title: "Argue with Me",
@@ -19,17 +19,17 @@ challenge3 = Challenge.create!(title: "Argue with Me",
 challenge4 = Challenge.create!(title: "Defeating the Zoolander Curse",
                                description: "Great! Now that Rupert has moved forward, let's see if we can get him to turn left before moving forward again.",
                                tutorial: "",
-                               solution: "rupert.turnLeft();,rupert.moveForward();",
+                               solution: "rupert.turnLeft();\nrupert.moveForward();",
                                hint: "Try one of these: rupert.moveRight();, rupert.moveLeft();, rupert.moveForward();")
 
 challenge5 = Challenge.create!(title: "It's Hip to be Square",
                                description: "Fantastic! Using the same commands you already know, let's see if you can make Rupert make a square.",
                                tutorial: "",
-                               solution: "rupert.turnLeft();,rupert.moveForward(),;rupert.turnLeft();,rupert.moveForward();,rupert.turnLeft();,rupert.moveForward();,rupert.turnLeft();,rupert.moveForward();",
+                               solution: "rupert.turnLeft();\nrupert.moveForward();\nrupert.turnLeft();\nrupert.moveForward();\nrupert.turnLeft();\nrupert.moveForward();\nrupert.turnLeft();\nrupert.moveForward();",
                                hint: "Try one of these: rupert.moveRight();, rupert.moveLeft();, rupert.moveForward();")
 
 challenge6 = Challenge.create!(title: "Loop around the Rosy",
                                description: "WOW, that sure was tedious! But as you may have realized, you can't say rupert.moveForward(4);, rupert.turnLeft(); and expect him to move in a square. Instead, Rupert moves forward four times before he turns!\n\nComputers are really good at processing complex instructions but really bad at inferring meaning from your commands. What can I say, they're not perfect.\n\nFortunately, there is a way around this: Introducing the FOR loop.\n\nType this:for(var i=1;i<4;i++){\nrupert.moveForward();rupert.turnLeft();\n}",
                                tutorial: "",
-                               solution: "for(var i=1;i<4;i++){\n\rrupert.moveForward();rupert.turnLeft();\n\r}",
+                               solution: "for(var i=1;i<4;i++){\nrupert.moveForward();rupert.turnLeft();\n}",
                                hint: "Try one of these: rupert.moveRight();, rupert.moveLeft();, rupert.moveForward();")

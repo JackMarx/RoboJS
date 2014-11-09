@@ -17,16 +17,22 @@ class GamesController  < ApplicationController
 
   def update
     @user_input = params[:status_string]
-    
+    p @user_input
     @challenge = Challenge.find(params[:challenge_id])
     @game = Game.find_by(user: current_user, challenge: @challenge)
     @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
     
     if @user_input == @challenge.solution
-      @game.update_attribute(completed: true)
+      @game.update_attribute(:completed, true)
+      @success_message = "Great! Try the next challenge."
+      
+
+    else
+      @failure_message = "Oops! Something went wrong. Try again."
     end
 
-    render "challenges/show"
+    render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, failure_message: @failure_message } 
+
   end
 
   private
