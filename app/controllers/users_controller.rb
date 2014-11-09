@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    @user.save
+    @user = User.create(user_params)
+    # @user.save
 
     if @user.errors.any?
       @new_user_errors = @user.errors.messages

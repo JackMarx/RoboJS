@@ -3,12 +3,14 @@ class User < ActiveRecord::Base
   has_many :games
   has_many :users_badges
   has_many :badges, through: :users_badges
+  has_secure_password
 
   validates :username, uniqueness: true
   validates :username, presence: true
-  validates :password_digest, presence: true
+  
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
 
-  has_secure_password
 
   def password
     @password ||= BCrypt::Password.new(password_digest)

@@ -13,8 +13,22 @@
       <% end %>
       <%= f.text_field :username, class: "user-login-field" %><br>
       <%= f.label :password, "Password:", class: "user-input-label"%><br>
+      <% if @new_user_errors %>
+        <ul class="failure">
+          <% @new_user_errors[:password].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= f.password_field :password, class: "user-login-field" %><br>
       <%= f.label :password_confirmation, "Confirm your password:", class: "user-input-label"%><br>
+        <% if @new_user_errors %>
+          <ul class="failure">
+            <% @new_user_errors[:password_confirmation].each do |error| %>
+            <li><%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
       <%= f.password_field :password_confirmation, class: "user-login-field" %><br>
       <%= f.submit "Sign Up", :class => 'submit-button' %>
     <% end %>
