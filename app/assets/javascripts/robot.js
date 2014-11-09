@@ -11,12 +11,12 @@ Robot.prototype.turnLeft = function(){
 };
 
 Robot.prototype.moveForward = function(amt){
-  if(typeof amt === 'undefined' || typeof amt === "string") amt = 1 ;
+  if(typeof amt === "undefined" || typeof amt === "string") amt = 1 ;
   this.instructions.push("F"+amt);
 };
 
 Robot.prototype.moveBackward = function(amt){
-  if(typeof amt === 'undefined' || typeof amt === "string") amt = 1 ;
+  if(typeof amt === "undefined" || typeof amt === "string") amt = 1 ;
   this.instructions.push("B"+amt);
 };
 

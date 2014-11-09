@@ -1,23 +1,33 @@
 $(document).ready(function(){
-  $(".edit_game").on("submit", function(event){
+
+  $(".game-console").on("click", ".hint-link", function(event){
+    event.preventDefault();
+    $(".hint").toggle();
+  });
+  
+  $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
     var sourceCode = $("#game_status_string").val();
-    
-    var robot = new Robot();
+    console.log(sourceCode);
 
+    var rupert = new DrawnRobot();
     eval(sourceCode);
     
-    console.log(robot.serializedInstructions());
+    console.log(rupert.serializedInstructions());
     
     var url = $(".edit_game").attr("action");
 
-    var response = $.put(url, {instructions:robot.serializedInstructions(), status_string:sourceCode});
-    response.done(function() {
-      console.log("it worked");
-    });
-    response.fail(function () {
-      console.log("crap");
+    $.ajax({
+      url: url,
+      data: { instructions: rupert.serializedInstructions(), status_string: sourceCode },
+      type: "put",
+      success: function(response){
+        $(".game-console").html(response);
+        console.log("it worked");
+      },
+      error: function(response){
+        console.log("crap");
+      }
     });
   });
 });
-

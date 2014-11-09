@@ -3,9 +3,16 @@ include ApplicationHelper
 
   before_filter :authorized?
   def show
-    @first_challenge = Challenge.first
-    @last_challenge = Challenge.all[-1]
     @challenge = Challenge.find(params[:id])
+
+    if @challenge != Challenge.all[-1]
+      @next_challenge = Challenge.find(@challenge.id + 1)
+    end
+
+    if @challenge != Challenge.first
+      @previous_challenge = Challenge.find(@challenge.id - 1)
+    end
+
     @game = Game.find_by(challenge: @challenge, user: User.first)
   end
 end
