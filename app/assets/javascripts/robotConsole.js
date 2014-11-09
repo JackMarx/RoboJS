@@ -10,7 +10,7 @@ $(document).ready(function(){
     var sourceCode = $("#game_status_string").val();
     console.log(sourceCode);
 
-    var rupert = new DrawnRobot();
+    var rupert = new Robot();
     eval(sourceCode);
     
     console.log(rupert.serializedInstructions());
