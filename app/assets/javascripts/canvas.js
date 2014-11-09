@@ -18,6 +18,7 @@ function DrawnRobot(){
 
 
 DrawnRobot.prototype.turnLeft = function(){
+  console.log(this.moveForward)
   this.body.animate('angle', '-=90', {
     onChange: canvas.renderAll.bind(canvas),
     duration: 1000,
