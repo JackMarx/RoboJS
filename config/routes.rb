@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   #   resources :products
   # get 'index' => 'sessions#index', as: :index
 
+  get '/forward' => 'robots#forward'
+  get '/left' => 'robots#left'
+  get '/right' => 'robots#right'
+  get '/stop' => 'robots#stop'
+  get '/light' => 'robots#light'
+
   resources :challenges, only: [:show] do
     resources :games, only: [:create, :update]
   end
