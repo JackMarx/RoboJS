@@ -47,5 +47,7 @@ gem 'byebug'
 gem 'dino'
 gem 'pusher'
 gem 'ruby_spark'
+gem 'factory_girl'
+gem 'faker'
 
 gem 'rails_12factor', group: :production
