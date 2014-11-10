@@ -2,14 +2,21 @@
 <div class="challenge-description"><%= @challenge.description %></div>
 <div class="challenge-tutorial"><%= @challenge.tutorial %></div>
 
-<canvas id="myCanvas" width="500" height="400"></canvas>
 
-<div class="console-side">
+<div class="canvas-and-console">
+	<div class="canvas-side">
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+	</div>
+	<div class="console-side">
 
-  <div class="game-console">
-    <%= render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, failure_message: @failure_message } %>
-  </div>
+	  <div class="game-console">
+	    <%= render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, failure_message: @failure_message } %>
+	  </div>
 
-  <%= render partial: "challenges/navigation", locals: { challenge: @challenge, previous_challenge: @previous_challenge, next_challenge: @next_challenge } %>
-
+		<div class="challenge-nav-bar">
+		  <ul class="challenge-navigation">
+			  <%= render partial: "challenges/navigation", locals: { challenge: @challenge, previous_challenge: @previous_challenge, next_challenge: @next_challenge } %>
+			</ul>
+		</div>
+	</div>
 </div>

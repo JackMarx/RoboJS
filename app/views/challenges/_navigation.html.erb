@@ -1,9 +1,8 @@
-<ul class="challenge-navigation">
-  <% if previous_challenge %>
-    <li><%= link_to "Previous Challenge", challenge_games_path(challenge_id: previous_challenge.id, game: current_user.games.find_or_create_by(challenge_id: challenge.id - 1, user_id: current_user.id ).attributes), controller: :games, method: :post, challenge_id: challenge.id - 1 %></li>
-  <% end %>
+<% if previous_challenge %>
+  <li><%= link_to "Previous Challenge", challenge_games_path(challenge_id: previous_challenge.id, game: current_user.games.find_or_create_by(challenge_id: challenge.id - 1, user_id: current_user.id ).attributes), controller: :games, method: :post, challenge_id: challenge.id - 1 %></li>
+<% end %>
 
-  <% if @next_challenge %>
-    <li><%= link_to "Next Challenge", challenge_games_path(challenge_id: next_challenge.id, game: current_user.games.find_or_create_by(challenge_id: challenge.id + 1, user_id: current_user.id ).attributes), controller: :games, method: :post, challenge_id: challenge.id + 1 %></li>
-  <% end %>
-</ul>
+<% if @next_challenge %>
+  <li><%= link_to "Next Challenge", challenge_games_path(challenge_id: next_challenge.id, game: current_user.games.find_or_create_by(challenge_id: challenge.id + 1, user_id: current_user.id ).attributes), controller: :games, method: :post, challenge_id: challenge.id + 1 %></li>
+<% end %>
+
