@@ -100,25 +100,17 @@ DrawnRobot.prototype.moveForward = function(amt){
   canvas.add(line);
   if (robot.facing === "up") {
     robot.body.animate('top', '-=' + distance.toString(), canvasData);
-
     line.animate('height', '-=' + distance.toString(), canvasLineData);
-
   } else if (robot.facing === "left") {
       robot.body.animate('left', '-=' + distance.toString(), canvasData);
-
       line.animate('width', '-=' + distance.toString(), canvasLineData);
-
   } else if (robot.facing === "down") {
       robot.body.animate('top', '+=' + distance.toString(), canvasData);
-
       line.animate('height', '+=' + distance.toString(), canvasLineData);
-
   } else {
       robot.body.animate('left', '+=' + distance.toString(), canvasData);
-
       line.animate('width', '+=' + distance.toString(), canvasLineData);
   }
-
 };
 
 DrawnRobot.prototype.lineTrail = function() {
