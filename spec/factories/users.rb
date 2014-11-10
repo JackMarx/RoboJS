@@ -1,10 +1,6 @@
 require 'rails_helper'
 require 'faker'
 
-
-
-
-
 FactoryGirl.define do 
 
 	factory :user do |f| 
