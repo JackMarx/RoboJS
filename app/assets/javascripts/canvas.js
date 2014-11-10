@@ -1,7 +1,8 @@
 FACING = ["up", "left", "down", "right"];
 
 function DrawnRobot(){
-  this.body = new fabric.Triangle({
+  imgElement = document.getElementById('robot-icon');
+  this.body = new fabric.Image(imgElement, {
     left: 200,
     top: 390,
     fill: '#006569',
@@ -157,6 +158,7 @@ DrawnRobot.prototype.lineTrail = function() {
 //   this.facing = FACING[facingIndex];
 //   console.log(this.facing);
 // };
+
 
 
 
