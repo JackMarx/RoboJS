@@ -14,7 +14,8 @@ header h1{
 .container {
   margin: 0 auto;
   padding: 10px;
-  width: 800px;
+  width: 820px;
+  display: block;
 }
 
 .user-navigation a, .user-navigation a:visited {
@@ -35,4 +36,9 @@ header h1{
 
 input[type="submit"]{
   outline: none;
+}
+
+input[type="submit"]:hover{
+  background-color: #00999f;
+;
 }

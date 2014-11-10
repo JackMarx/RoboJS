@@ -12,11 +12,11 @@ class SessionsController < ApplicationController
   def create
     @user = User.authenticate(session_params)
 
-    if @user 
+    if @user.is_a? User
       session[:user_id] = @user.id
       redirect_to profile_path(@user)
     else
-      @errors = @user.errors
+      @errors = "Incorrect username or password"
       @user = User.new
       # @error = "That wasn't quite right"
       render "sessions/new"

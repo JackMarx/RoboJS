@@ -7,16 +7,15 @@
    <%= javascript_include_tag 'application' => true %>
    <%= csrf_meta_tags %>
 </head>
+
 <body>
 <header class="splash-header box">
   <h1 class="splash-h1">Robo.JS</h1>
 </header>
 
 <div class="splash-container">
-  
-    <img src="../assets/robot-512-mod.png" class="robo-picture" />
-  
-<%= link_to "Enter", login_path, class: "splash-enter-button" %>
+  <%= image_tag "../assets/robot-512-mod-blue.png", class: "robo-picture" %>
+  <%= link_to "Enter", login_path, class: "splash-enter-button" %>
 </div>
 
 </body>
