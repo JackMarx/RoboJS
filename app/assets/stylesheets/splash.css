@@ -2,12 +2,12 @@ body {
   top: 0;
   left: 0;
   margin: 0;
-  background:#fcfcfc;
+  background-color: #ced8e4;
 
 }
 .box{
   width:40%;
-  background:#fcfcfc;
+  background-color: #ced8e4;
   margin:0 auto;
 }
 
@@ -19,9 +19,9 @@ body {
   content:"";
     position:absolute;
     z-index:-1;
-    -webkit-box-shadow:0 0 10px rgba(0,151,156,0.8);
-    -moz-box-shadow:0 0 10px rgba(0,151,156,0.8);
-    box-shadow:0 0 10px rgba(0,151,156,0.8);
+    -webkit-box-shadow:0 0 10px rgba(0, 104, 108, 0.8);
+    -moz-box-shadow:0 0 10px rgba(0, 104, 108, 0.8);
+    box-shadow:0 0 10px rgba(0, 104, 108, 0.8);
     top:50%;
     bottom:0;
     left:10px;
@@ -46,18 +46,16 @@ body {
   text-align: center;
   font-size: 60px;
   padding: 10px;
-  margin: 0;
   color: #006569;
 }
 
 .splash-container {
-  width: 40%;
-  margin: 30px auto 0;
-  padding-bottom: 20px;
+  text-align: center;
+  width: 515px;
+  margin: auto;
 }
 
 .splash-enter-button {
-  margin: 46%;
   padding: 10px;
   background: #006569;
   border-radius: 5px;
@@ -69,7 +67,10 @@ body {
   text-decoration: none;
 }
 
+.splash-enter-button:hover {
+  background-color: #00999f;
+}
+
 .robo-picture {
-  margin-left: 25px;
-  padding: 0 15px 15px;
+  padding: 25px 10px 25px;
 }

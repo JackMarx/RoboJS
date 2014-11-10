@@ -1,29 +1,24 @@
 .sessions-form {
   font-family: "Open Sans", sans-serif;
   display:inline;
-  width: 80%;
-  margin: 0 auto;
 }
 
 .login-form {
-  float: left;
   display: inline-block;
-  width: 40%;
   padding: 20px 20px 20px 66px;
 }
 
 .sign-up-form {
   float: left;
   display: inline-block;
-  margin-left: 65px;
+  margin-left: 120px;
   width: 30%;
   padding: 20px 20px 30px;
   position: relative;
-  background: #fcfcfc;
+  background: #ced8e4;
 }
 
 .login-lines {
-  margin: 20px;
 }
 
 .submit-button {
