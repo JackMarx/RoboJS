@@ -9,12 +9,30 @@
   font-weight: bold;
   font-family: 'Open Sans', sans-serif
 }
+
+.canvas-and-console {
+  width: 100%;
+  display: inline-block;
+}
+
+.canvas-side {
+  /*overflow: auto;*/
+  float: left;
+}
+
+.console-side {
+  float: right;
+  /*margin-left: 25px;*/
+  /*top: 0;*/
+  width: 370px;
+}
+
 .challenge-tutorial {
   display: none;
 }
 
 .game-console {
-  float:right;
+  float: right;
   padding: 20px 0;
 }
 
@@ -31,7 +49,7 @@
   display: block;
   float: right;
   list-style: none;
-  clear: both;
+  /*clear: both;*/
 }
 
 .challenge-navigation a, .challenge-navigation a:visited {

@@ -1,3 +1,7 @@
 #myCanvas{
-  background: blue;
+  background: #5cc7c8;
+  border-radius: 2px;
+  margin: 5px;
+  border: 1px solid #006569;
+
 }

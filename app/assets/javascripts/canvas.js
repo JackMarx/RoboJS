@@ -3,9 +3,9 @@ FACING = ["up", "left", "down", "right"];
 function DrawnRobot(){
   this.instructions = [];
   this.body = new fabric.Triangle({
-    left: 230,
+    left: 200,
     top: 390,
-    fill: 'grey',
+    fill: '#006569',
     width: 20,
     height: 20,
     originX: 'center',
@@ -94,7 +94,7 @@ DrawnRobot.prototype.serializedInstructions = function() {
 
 DrawnRobot.prototype.lineTrail = function() {
     var line = new fabric.Line([ this.body.left - 3, this.body.top -3, this.body.left -3, this.body.top - 3], {
-     stroke: 'grey',
+     stroke: '#006569',
      strokeWidth: 5,
      selectable: false,
      lockMovementY: true,
