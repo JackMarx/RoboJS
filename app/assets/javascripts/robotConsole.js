@@ -15,7 +15,7 @@ $(document).ready(function(){
     // console.log(sourceCode);
 
     try { eval(sourceCode); }
-    catch(error) { alert("Whoops! Looks like that was an invalid command."); }
+    catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?"); }
     // var arrSourceCode = sourceCode.split("\n");
     // for(var i=0;i < arrSourceCode.length; i++){
     //   if(arrSourceCode[i] !== ""){
