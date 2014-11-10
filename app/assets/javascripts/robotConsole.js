@@ -4,6 +4,8 @@ $(document).ready(function(){
     rupert.moveForward(2);
     rupert.instructions = [];
 
+  $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+
   $(".game-console").on("click", ".hint-link", function(event){
     event.preventDefault();
     $(".hint").toggle();
@@ -33,6 +35,8 @@ $(document).ready(function(){
       success: function(response){
         $(".game-console").html(response);
         rupert.instructions = [];
+        $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+
         $(".game-console-button").hide();
         setTimeout(function(){$(".game-console-button").show();}, 2000);
         // console.log("it worked");
