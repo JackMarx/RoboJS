@@ -7,7 +7,7 @@ describe SessionsController do
       expect(response).to render_template (:index)
     end
 
-    it "has an 'enter' button" do
+    pending "has an 'enter' button" do
       get :index
       expect(response.body).to have_link('Enter', href: login_path)
     end
