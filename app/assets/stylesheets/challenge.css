@@ -16,14 +16,11 @@
 }
 
 .canvas-side {
-  /*overflow: auto;*/
   float: left;
 }
 
 .console-side {
   float: right;
-  /*margin-left: 25px;*/
-  /*top: 0;*/
   width: 370px;
 }
 
@@ -33,7 +30,8 @@
 
 .game-console {
   float: right;
-  padding: 20px 0;
+  padding: 5px 0 20px;
+  border-radius: 2px;
 }
 
 .game-console-button {
@@ -46,8 +44,10 @@
 }
 
 .challenge-navigation {
-  display: block;
-  float: right;
+  /*display: block;*/
+  padding-left: 0;
+  margin-left: -10px;
+  float: left;
   list-style: none;
   /*clear: both;*/
 }
@@ -62,12 +62,21 @@
 }
 
 .hint-link, .hint-link:visited {
+  float: left;
+  margin-left: 195px;
+  margin-top: -30px;
   color: #00979c;
   text-decoration: underline;
+}
+
+.challenge-navigation a:hover, .hint-link:hover{
+  color: #52009c;
+  text-decoration: none;
 }
 
 .hint {
   display: none;
   max-width: 150px;
+  float: right;
 }
 
