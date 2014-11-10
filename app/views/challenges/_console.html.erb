@@ -5,12 +5,10 @@
   <%= failure_message unless failure_message.nil? %>
 </div>
 
-    
-
 <%= form_for game, url: challenge_game_path(game, challenge_id: challenge.id, id: game.id), controller: :games, method: "put" do |f| %>
   <%= f.text_area :status_string, rows: 10, cols: 40 %><br>
   <%= f.submit "Test your code!", class: "game-console-button" %>
 <% end %>
 
-<a href="#" class="hint-link">Hint</a>
+<a href="#" class="hint-link">Stumped?</a>
 <div class="hint"><%= challenge.hint %></div>

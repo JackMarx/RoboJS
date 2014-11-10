@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    # @user.save
 
     if @user.errors.any?
       @new_user_errors = @user.errors.messages
