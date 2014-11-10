@@ -15,14 +15,16 @@ $(document).ready(function(){
     event.preventDefault();
     var sourceCode = $("#game_status_string").val();
     // console.log(sourceCode);
-    eval(sourceCode);
+
+    try { eval(sourceCode); }
+    catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?"); }
     // var arrSourceCode = sourceCode.split("\n");
     // for(var i=0;i < arrSourceCode.length; i++){
     //   if(arrSourceCode[i] !== ""){
     //     eval(setTimeout(arrSourceCode[i], 1200))
     //   }
     // }
-    // console.log(rupert.serializedInstructions());
+    console.log(rupert.serializedInstructions());
 
     var url = $(".edit_game").attr("action");
 
@@ -36,7 +38,7 @@ $(document).ready(function(){
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
 
         $(".game-console-button").hide();
-        setTimeout(function(){$(".game-console-button").show()}, 2000);
+        setTimeout(function(){$(".game-console-button").show();}, 2000);
         // console.log("it worked");
       },
       error: function(response){
