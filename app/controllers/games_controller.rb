@@ -2,7 +2,7 @@ class GamesController  < ApplicationController
   include ApplicationHelper
 
   before_filter :authorized?
-  
+
   def create
     unless game_params["challenge_id"].empty?
       @game = Game.find_by(user_id: current_user.id, challenge_id: game_params["challenge_id"])
@@ -21,19 +21,17 @@ class GamesController  < ApplicationController
     @challenge = Challenge.find(params[:challenge_id])
     @game = Game.find_by(user: current_user, challenge: @challenge)
     @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
-    
+
     challenge_solution = "challenge#{@challenge.id}"
 
     unless Challenge.solutions[challenge_solution.to_sym].match(@user_input).nil?
       @game.update_attribute(:completed, true)
       @success_message = "Great! Try the next challenge."
-      
-
     else
-      @failure_message = "Oops! Something went wrong. Try again."
+      @failure_message = "Oops! That wasn't quite right. Try again."
     end
 
-    render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, failure_message: @failure_message } 
+    render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, failure_message: @failure_message }
 
   end
 

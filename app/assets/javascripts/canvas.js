@@ -18,14 +18,11 @@ function DrawnRobot(){
 }
 
 DrawnRobot.prototype.turnLeft = function(){
+
   var canvas = this.canvas;
-
+  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000 };
   this.instructions.push("L");
-
-  this.body.animate('angle', '-=90', {
-    onChange: canvas.renderAll.bind(canvas),
-    duration: 1000,
-  });
+  this.body.animate('angle', '-=90', canvasData);
 
   facingIndex = FACING.indexOf(this.facing);
 
@@ -39,13 +36,10 @@ DrawnRobot.prototype.turnLeft = function(){
 
 DrawnRobot.prototype.turnRight = function(){
   var canvas = this.canvas;
-
+  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000 };
   this.instructions.push("R");
 
-  this.body.animate('angle', '+=90', {
-    onChange: canvas.renderAll.bind(canvas),
-    duration: 1000
-  });
+  this.body.animate('angle', '+=90', canvasData);
 
   facingIndex = FACING.indexOf(this.facing);
   facingIndex -= 1;
@@ -65,7 +59,7 @@ DrawnRobot.prototype.moveForward = function(amt){
 
   robot = this;
   canvas = robot.canvas;
-  canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000 }
+  canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000 };
   distance = amt * 50;
   line = robot.lineTrail();
   canvas.add(line);
@@ -94,6 +88,7 @@ DrawnRobot.prototype.moveForward = function(amt){
 };
 
 DrawnRobot.prototype.serializedInstructions = function() {
+  this.instructions.push("S");
   return this.instructions.join(",");
 };
 

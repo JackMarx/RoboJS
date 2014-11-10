@@ -14,7 +14,12 @@ $(document).ready(function(){
     var sourceCode = $("#game_status_string").val();
     console.log(sourceCode);
 
-    eval(sourceCode);
+    var arrSourceCode = sourceCode.split("\n");
+    for(var i=0;i < arrSourceCode.length; i++){
+      if(arrSourceCode[i] !== ""){
+        eval(setTimeout(function(){arrSourceCode[i]}, 1200))
+      }
+    }
     console.log(rupert.serializedInstructions());
 
     var url = $(".edit_game").attr("action");
