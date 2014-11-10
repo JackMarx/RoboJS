@@ -3,12 +3,21 @@ header {
   background: black;
   margin-top: 0;
   padding-top: 0;
+  font-family: 'Open Sans', sans-serif;
+  display: block;
+  height: 120px;
 }
 
 header h1{
   padding: 15px;
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
+  width: 200px;
+}
+
+nav {
+  width: 300px;
+  float: right;
 }
 
 .container {
@@ -25,13 +34,19 @@ header h1{
 
 .user-navigation {
   list-style: none;
-  display: inline-block;
-  margin-right: 0;
+  float: right;
+  margin: 0;
+  padding: 0;
 }
 
 .user-navigation li {
-  display: inline;
   float: left;
+  padding: 0 4px;
+}
+
+.user-navigation li a {
+  display: inline;
+  padding: 0 4px;
 }
 
 input[type="submit"]{
