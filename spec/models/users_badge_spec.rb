@@ -1,7 +1,8 @@
 require 'rails_helper'
+require 'shoulda-matchers'
 
 describe UsersBadge do 
-  pending {should belong_to(:user)}
-  pending {should belong_to(:badge)}
+  it { should belong_to(:user) }
+  it { should belong_to(:badge) }
 end
 
