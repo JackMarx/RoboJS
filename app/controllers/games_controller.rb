@@ -17,7 +17,6 @@ class GamesController  < ApplicationController
 
   def update
     @user_input = params[:status_string]
-    p @user_input
     @challenge = Challenge.find(params[:challenge_id])
     @game = Game.find_by(user: current_user, challenge: @challenge)
     @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
