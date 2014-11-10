@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Game do 
-  pending {should belong_to(:challenge)}
-  pending {should belong_to(:user)}
+  it { should belong_to(:challenge) }
+  it { should belong_to(:user) }
 end
 
