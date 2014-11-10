@@ -22,6 +22,7 @@
 .console-side {
   float: right;
   width: 370px;
+  height: 400px;
 }
 
 .challenge-tutorial {
@@ -42,14 +43,13 @@
   color: white;
   border: none;
 }
+.challenge-nav-bar {
+  float: right;
+  position: relative;
+}
 
 .challenge-navigation {
-  /*display: block;*/
-  padding-left: 0;
-  margin-left: -10px;
-  float: left;
   list-style: none;
-  /*clear: both;*/
 }
 
 .challenge-navigation a, .challenge-navigation a:visited {
