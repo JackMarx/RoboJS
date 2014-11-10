@@ -28,7 +28,6 @@ $(document).ready(function(){
     // console.log(rupertAnimation.queuedInstructions);
     rupertAnimation.getNextInstruction();
 
-
     var url = $(".edit_game").attr("action");
 
     $.ajax({
