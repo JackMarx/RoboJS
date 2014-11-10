@@ -9,11 +9,7 @@
 
 <h3 class="profile-challenges-header">Challenges</h3>
 <ol class="profile-challenges">
-  <% @challenges.each do |challenge| %>
-    <% if challenge.users.include? current_user %>
-      <li><%= link_to "#{challenge.title}", challenge_games_path(game: @user.games.find_by(challenge: challenge).attributes, challenge_id: challenge.id), method: :post %></li>
-    <% else %>
-      <li><%= link_to "#{challenge.title}", challenge_games_path(user_id: @user.id.to_i, challenge_id: challenge.id.to_i, game: Game.new.attributes), method: :post %></li>
-    <% end %>
+  <% @current_challenges.each_with_index do |challenge, i| %>
+    <li><%= link_to "#{@challenges[i].title}", challenge_games_path(challenge), method: :post %></li>
   <% end %>
 </ol>
