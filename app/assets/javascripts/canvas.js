@@ -1,7 +1,6 @@
 FACING = ["up", "left", "down", "right"];
 
 function DrawnRobot(){
-  this.instructions = [];
   this.body = new fabric.Triangle({
     left: 200,
     top: 390,
@@ -12,58 +11,88 @@ function DrawnRobot(){
     originY: 'center',
     selectable: false,
   });
-
   this.facing =  FACING[0];
   this.canvas = new fabric.Canvas('myCanvas');
+  this.queuedInstructions = [];
 }
 
-DrawnRobot.prototype.turnLeft = function(){
 
-  var canvas = this.canvas;
-  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000 };
-  this.instructions.push("L");
-  this.body.animate('angle', '-=90', canvasData);
-
-  facingIndex = FACING.indexOf(this.facing);
-
-  facingIndex += 1;
-  if (facingIndex === 4) {
-      facingIndex = 0;
-  }
-  this.facing = FACING[facingIndex];
-  // console.log(this.facing);
+DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
+  this.queuedInstructions = instructionsArr;
 };
 
-DrawnRobot.prototype.turnRight = function(){
-  var canvas = this.canvas;
-  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000 };
-  this.instructions.push("R");
+DrawnRobot.prototype.getNextInstruction = function(){
+  var robot = this;
+  if(robot.queuedInstructions.length > 0){
+    console.log("Number of instructions left: " + robot.queuedInstructions.length);
+    eval(robot.queuedInstructions.shift());
 
-  this.body.animate('angle', '+=90', canvasData);
+  }
+};
 
+DrawnRobot.prototype.setFacingRight = function(){
   facingIndex = FACING.indexOf(this.facing);
   facingIndex -= 1;
   if (facingIndex === -1) {
       facingIndex = 3;
   }
-
   this.facing = FACING[facingIndex];
+};
+
+DrawnRobot.prototype.setFacingLeft = function(){
+  facingIndex = FACING.indexOf(this.facing);
+  facingIndex += 1;
+  if (facingIndex === 4) {
+      facingIndex = 0;
+  }
+  this.facing = FACING[facingIndex];
+  console.log(this.facing);
+};
+
+DrawnRobot.prototype.turnLeft = function(){
+  var canvas = this.canvas;
+  var robot = this;
+  robot.setFacingLeft();
+  canvasData = {
+    duration: 1500,
+    onChange: canvas.renderAll.bind(canvas),
+    onComplete: function(){
+      robot.getNextInstruction();
+    }
+  };
+  this.body.animate('angle', '-=90', canvasData);
+};
+
+DrawnRobot.prototype.turnRight = function(){
+  var robot = this;
+  var canvas = this.canvas;
+  robot.setFacingRight();
+  canvasData = {
+    duration: 1500,
+    onChange: canvas.renderAll.bind(canvas),
+    onComplete: function(){
+
+      robot.getNextInstruction();
+    }
+  };
+  this.body.animate('angle', '+=90', canvasData);
   // console.log(this.facing);
 };
 
 DrawnRobot.prototype.moveForward = function(amt){
-  var distance, line, robot, canvas, canvasData;
-
   if(typeof amt === 'undefined' || typeof amt === 'string') amt = 1;
-  for(var i=1;i<=amt;i++){ this.instructions.push("F"); }
-
+  var distance, line, robot, canvas, canvasData;
   robot = this;
   canvas = robot.canvas;
-  canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000 };
+  canvasData = { onChange: canvas.renderAll.bind(canvas),
+    duration: 1500,
+     onComplete: function(){
+      robot.getNextInstruction();
+    }
+  };
   distance = amt * 50;
   line = robot.lineTrail();
   canvas.add(line);
-
   if (robot.facing === "up") {
     robot.body.animate('top', '-=' + distance.toString(), canvasData);
 
@@ -87,11 +116,6 @@ DrawnRobot.prototype.moveForward = function(amt){
 
 };
 
-DrawnRobot.prototype.serializedInstructions = function() {
-  this.instructions.push("S");
-  return this.instructions.join(",");
-};
-
 DrawnRobot.prototype.lineTrail = function() {
     var line = new fabric.Line([ this.body.left - 3, this.body.top -3, this.body.left -3, this.body.top - 3], {
      stroke: '#006569',
@@ -103,24 +127,30 @@ DrawnRobot.prototype.lineTrail = function() {
   return line;
 };
 
-DrawnRobot.prototype.turnBackward = function(){
-  var canvas = this.canvas;
-  this.body.animate('angle', '-=180', {
-    onChange: canvas.renderAll.bind(canvas),
-    duration: 1000
-  });
-  facingIndex = FACING.indexOf(this.facing);
+// DrawnRobot.prototype.turnAround = function(){
+//   var canvas = this.canvas;
+//   var robot = this;
 
-  facingIndex += 2;
-    if (facingIndex === 4) {
-      facingIndex = 0;
-  } else if (facingIndex === 5) {
-      facingIndex = 1;
-  } else {
-    return facingIndex;
-  }
-  this.facing = FACING[facingIndex];
-  console.log(this.facing);
-};
+//   this.body.animate('angle', '-=180', {
+//     onChange: canvas.renderAll.bind(canvas),
+//     duration: 1000,
+//     onComplete: function() { robot.getNextInstruction(); }
+//   });
+
+
+//   facingIndex = FACING.indexOf(this.facing);
+
+//   facingIndex += 2;
+//     if (facingIndex === 4) {
+//       facingIndex = 0;
+//   } else if (facingIndex === 5) {
+//       facingIndex = 1;
+//   } else {
+//     return facingIndex;
+//   }
+//   this.facing = FACING[facingIndex];
+//   console.log(this.facing);
+// };
+
 
 

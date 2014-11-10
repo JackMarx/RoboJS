@@ -1,8 +1,11 @@
 $(document).ready(function(){
-    var rupert = new DrawnRobot();
-    rupert.canvas.add(rupert.body);
-    rupert.moveForward(2);
+    var rupert = new Robot();
+
+    var rupertAnimation = new DrawnRobot();
+    rupertAnimation.canvas.add(rupertAnimation.body);
+    rupertAnimation.moveForward(2);
     rupert.instructions = [];
+    rupert.fullInstructions = [];
 
   $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
 
@@ -15,16 +18,15 @@ $(document).ready(function(){
     event.preventDefault();
     var sourceCode = $("#game_status_string").val();
     // console.log(sourceCode);
-
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?"); }
-    // var arrSourceCode = sourceCode.split("\n");
-    // for(var i=0;i < arrSourceCode.length; i++){
-    //   if(arrSourceCode[i] !== ""){
-    //     eval(setTimeout(arrSourceCode[i], 1200))
-    //   }
-    // }
-    console.log(rupert.serializedInstructions());
+
+    // console.log(rupert.serializedInstructions());
+
+
+    rupertAnimation.doTheseFrames(rupert.fullInstructions);
+    // console.log(rupertAnimation.queuedInstructions);
+    rupertAnimation.getNextInstruction();
 
     var url = $(".edit_game").attr("action");
 
