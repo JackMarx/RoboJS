@@ -1,4 +1,4 @@
-<h3><%= @user.username %></h3>
+<h3 class="profile-welcome">Welcome, <%= @user.username %></h3>
 
 <% unless @badges.empty? %>
   <h3>Badges</h3>
@@ -7,13 +7,13 @@
   <% end %>
 <% end %>
 
-<h3>Challenges</h3>
-<ol>
+<h3 class="profile-challenges-header">Challenges</h3>
+<ol class="profile-challenges">
   <% @challenges.each do |challenge| %>
     <% if challenge.games.pluck(:user_id).include? @user.id %>
-      <li><%= link_to "Challenge #{challenge.id}", challenge_games_path(game: @user.games.find_by(challenge: challenge).attributes, challenge_id: challenge.id), method: :post %></li>
+      <li><%= link_to "#{challenge.title}", challenge_games_path(game: @user.games.find_by(challenge: challenge).attributes, challenge_id: challenge.id), method: :post %></li>
     <% else %>
-      <li><%= link_to "Challenge #{challenge.id}", challenge_games_path(user_id: @user.id.to_i, challenge_id: challenge.id.to_i, game: Game.new.attributes), method: :post %></li>
+      <li><%= link_to "#{challenge.title}", challenge_games_path(user_id: @user.id.to_i, challenge_id: challenge.id.to_i, game: Game.new.attributes), method: :post %></li>
     <% end %>
   <% end %>
 </ol>
