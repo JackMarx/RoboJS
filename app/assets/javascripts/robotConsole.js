@@ -21,12 +21,12 @@ $(document).ready(function(){
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?"); }
 
-    console.log(rupert.serializedInstructions());
+    // console.log(rupert.serializedInstructions());
 
 
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
-    console.log(rupertAnimation.queuedInstructions);
-    rupertAnimation.start();
+    // console.log(rupertAnimation.queuedInstructions);
+    rupertAnimation.getNextInstruction();
 
 
     var url = $(".edit_game").attr("action");

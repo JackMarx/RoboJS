@@ -21,29 +21,31 @@ DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
   this.queuedInstructions = instructionsArr;
 };
 
-DrawnRobot.prototype.start = function(){
-  var robot = this;
-  var currentInstruction = robot.queuedInstructions.shift();
-  eval(currentInstruction);
-};
+// DrawnRobot.prototype.start = function(){
+  // var robot = this;
+  // var currentInstruction = robot.queuedInstructions.shift();
+  // eval(currentInstruction);
+// };
 
 DrawnRobot.prototype.getNextInstruction = function(){
   var robot = this;
   if(robot.queuedInstructions.length > 0){
+    console.log(robot.queuedInstructions);
+
     var currentInstruction = robot.queuedInstructions.shift();
+    console.log(currentInstruction);
     eval(currentInstruction);
-  } else {
-    return "stop";
+    // return currentInstruction;
   }
+  // else {
+  //   return "stop";
+  // }
 };
 
 DrawnRobot.prototype.turnLeft = function(){
   var canvas = this.canvas;
   var robot = this;
-  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000, onComplete: function() {
-   robot.getNextInstruction();
-
-  }
+  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1500, onComplete: function() { setTimeout(function(){robot.getNextInstruction();}, 30); }
 };
 
   this.body.animate('angle', '-=90', canvasData);
@@ -61,8 +63,8 @@ DrawnRobot.prototype.turnLeft = function(){
 DrawnRobot.prototype.turnRight = function(){
   var robot = this;
   var canvas = this.canvas;
-  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000, onComplete: function() {
-    robot.getNextInstruction();} };
+  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1500, onComplete: function() { setTimeout(function(){robot.getNextInstruction();}, 30); }
+  };
 
   this.body.animate('angle', '+=90', canvasData);
 
@@ -81,7 +83,8 @@ DrawnRobot.prototype.moveForward = function(amt){
   var distance, line, robot, canvas, canvasData;
   robot = this;
   canvas = robot.canvas;
-  canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000, onComplete: function() { robot.getNextInstruction(); } };
+  canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1500, onComplete: function() { setTimeout(function(){robot.getNextInstruction();}, 30); }
+};
   distance = amt * 50;
   line = robot.lineTrail();
   canvas.add(line);
