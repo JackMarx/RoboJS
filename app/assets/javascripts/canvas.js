@@ -90,28 +90,33 @@ DrawnRobot.prototype.moveForward = function(amt){
       robot.getNextInstruction();
     }
   };
+  canvasLineData = { onChange: canvas.renderAll.bind(canvas),
+    duration: 1500,
+     onComplete: function(){
+    }
+  };
   distance = amt * 50;
   line = robot.lineTrail();
   canvas.add(line);
   if (robot.facing === "up") {
     robot.body.animate('top', '-=' + distance.toString(), canvasData);
 
-    line.animate('height', '-=' + distance.toString(), canvasData);
+    line.animate('height', '-=' + distance.toString(), canvasLineData);
 
   } else if (robot.facing === "left") {
       robot.body.animate('left', '-=' + distance.toString(), canvasData);
 
-      line.animate('width', '-=' + distance.toString(), canvasData);
+      line.animate('width', '-=' + distance.toString(), canvasLineData);
 
   } else if (robot.facing === "down") {
       robot.body.animate('top', '+=' + distance.toString(), canvasData);
 
-      line.animate('height', '+=' + distance.toString(), canvasData);
+      line.animate('height', '+=' + distance.toString(), canvasLineData);
 
   } else {
       robot.body.animate('left', '+=' + distance.toString(), canvasData);
 
-      line.animate('width', '+=' + distance.toString(), canvasData);
+      line.animate('width', '+=' + distance.toString(), canvasLineData);
   }
 
 };
