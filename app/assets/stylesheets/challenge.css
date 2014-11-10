@@ -2,12 +2,15 @@
   color: #390;
   font-weight: bold;
   font-family: 'Open Sans', sans-serif;
+  margin-bottom: 20px;
 }
 
 .failure {
   color: #c00;
   font-weight: bold;
-  font-family: 'Open Sans', sans-serif
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+
 }
 
 .canvas-and-console {
@@ -78,5 +81,9 @@
   display: none;
   max-width: 150px;
   float: right;
+}
+
+.challenge-description {
+  margin: 10px 20px 20px 5px;
 }
 

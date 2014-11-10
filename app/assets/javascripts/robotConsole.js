@@ -38,7 +38,14 @@ $(document).ready(function(){
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
 
         $(".game-console-button").hide();
-        setTimeout(function(){$(".game-console-button").show();}, 2000);
+        $(".hint-link").hide();
+        $(".challenge-navigation a").hide();
+
+        setTimeout(function(){
+          $(".game-console-button").show();
+          $(".hint-link").show();
+          $(".challenge-navigation a").show();
+        }, 2000);
         // console.log("it worked");
       },
       error: function(response){
