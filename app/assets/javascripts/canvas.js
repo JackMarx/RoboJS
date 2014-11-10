@@ -20,7 +20,9 @@ function DrawnRobot(){
 DrawnRobot.prototype.turnLeft = function(){
 
   var canvas = this.canvas;
-  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000 };
+  var canvasData = { onChange: canvas.renderAll.bind(canvas), duration: 1000, onComplete: function() {
+    getNextInstruction();
+  }};
   this.instructions.push("L");
   this.body.animate('angle', '-=90', canvasData);
 

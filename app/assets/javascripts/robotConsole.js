@@ -15,15 +15,23 @@ $(document).ready(function(){
     event.preventDefault();
     var sourceCode = $("#game_status_string").val();
     // console.log(sourceCode);
+    sourceCodeArray = sourceCode.split("\n");
 
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?"); }
+
     // var arrSourceCode = sourceCode.split("\n");
     // for(var i=0;i < arrSourceCode.length; i++){
     //   if(arrSourceCode[i] !== ""){
     //     eval(setTimeout(arrSourceCode[i], 1200))
     //   }
     // }
+
+    function getNextInstruction(){
+      var currentInstruction = sourceCodeArray.Shift();
+      eval(currentInstruction);
+    }
+
     console.log(rupert.serializedInstructions());
 
     var url = $(".edit_game").attr("action");
