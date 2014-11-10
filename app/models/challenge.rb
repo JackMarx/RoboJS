@@ -14,12 +14,12 @@ class Challenge < ActiveRecord::Base
     }
   end
 
-  def self.current_challenges
+  def self.current_challenges(user)
     Challenge.all.map do |challenge|
-      if challenge.users.include? current_user
-        {game: current_user.games.find_by(challenge: challenge).attributes, challenge_id: challenge.id}
+      if challenge.users.include? user
+        {game: user.games.find_by(challenge: challenge).attributes, challenge_id: challenge.id}
       else
-        {user_id: current_user.id.to_i, challenge_id: challenge.id.to_i, game: Game.new.attributes}
+        {user_id: user.id.to_i, challenge_id: challenge.id.to_i, game: Game.new.attributes}
       end
     end
   end
