@@ -19,11 +19,11 @@ Challenge.create!(title: "Defeating the Zoolander Curse",
                   hint: "Try one of these:<br><code>rupert.turnRight();</code><br><code>rupert.turnLeft();</code><br><code>rupert.moveForward();</code>")
 
 Challenge.create!(title: "It's Hip to be Square",
-                  description: "<p>Fantastic! Using the same commands you already know, let's see if you can make Rupert make a square.</p>",
+                  description: "<p>Fantastic! Using the same commands you already know, let's see if you can make Rupert make a square. Start by moving forward then turning left, then repeat.</p>",
                   tutorial: "",
                   hint: "Try one of these:<br><code>rupert.turnRight();</code><br><code>rupert.turnLeft();</code><br><code>rupert.moveForward();</code>")
 
 Challenge.create!(title: "Loop around the Rosy",
-                  description: "<p>WOW, that sure was tedious! But as you may have realized, you can't say <code>rupert.moveForward(4);</code>, <code>rupert.turnLeft();</code> and expect him to move in a square. Instead, Rupert moves forward four times before he turns!</p><p>Computers are really good at processing complex instructions but really bad at inferring meaning from your commands. What can I say, they're not perfect.</p><p>Fortunately, there is a way around this: Introducing the FOR loop.</p><p>Type this:<code>for(var i=1;i<4;i++){</code><br><code>rupert.moveForward();rupert.turnLeft();</code><br><code>}</code></p>",
+                  description: "<p>WOW, that sure was tedious! But as you may have realized, you can't say <code>rupert.moveForward(4);</code>, <code>rupert.turnLeft();</code> and expect him to move in a square. Instead, Rupert moves forward four times before he turns!</p><p>Computers are really good at processing complex instructions but really bad at inferring meaning from your commands. What can I say, they're not perfect.</p><p>Fortunately, there is a way around this: Introducing the FOR loop.</p><p>Type this:<code>for(var i=1; i<5; i++){</code><br><code>rupert.moveForward();rupert.turnLeft();</code><br><code>}</code></p>",
                   tutorial: "",
                   hint: "Try one of these:<br><code>rupert.turnRight();</code><br><code>rupert.turnLeft();</code><br><code>rupert.moveForward();</code>")
