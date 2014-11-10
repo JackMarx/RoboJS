@@ -5,11 +5,12 @@ function DrawnRobot(){
   this.body = new fabric.Triangle({
     left: 230,
     top: 390,
-    fill: 'red',
+    fill: 'grey',
     width: 20,
     height: 20,
     originX: 'center',
-    originY: 'center'
+    originY: 'center',
+    selectable: false,
   });
 
   this.facing =  FACING[0];
@@ -97,8 +98,8 @@ DrawnRobot.prototype.serializedInstructions = function() {
 };
 
 DrawnRobot.prototype.lineTrail = function() {
-    var line = new fabric.Line([ this.body.left, this.body.top, this.body.left, this.body.top], {
-     stroke: 'red',
+    var line = new fabric.Line([ this.body.left - 3, this.body.top -3, this.body.left -3, this.body.top - 3], {
+     stroke: 'grey',
      strokeWidth: 5,
      selectable: false,
      lockMovementY: true,
