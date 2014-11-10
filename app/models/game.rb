@@ -8,6 +8,5 @@ class Game < ActiveRecord::Base
 
   def get_instructions(game_id)
     current_user.games.find(game_id).pluck(:instructions)
-    # ["F1,R,F2,R,F2"]
   end
 end
