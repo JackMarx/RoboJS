@@ -9,7 +9,7 @@ describe SessionsController do
 
     it "has an 'enter' button" do
       get :index
-      response.should have_link('Enter', href: login_path)
+      expect(response.body).to have_link('Enter', href: login_path)
     end
   end
 end
