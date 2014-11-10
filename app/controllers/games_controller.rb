@@ -23,7 +23,6 @@ class GamesController  < ApplicationController
 
     challenge_solution = "challenge#{@challenge.id}"
 
-    # unless Challenge.solutions[challenge_solution.to_sym].match(@user_input).nil?
     if Challenge.solutions[challenge_solution.to_sym] == params[:instructions]  # updated logic
       @game.update_attribute(:completed, true)
       @success_message = "Great! Try the next challenge."

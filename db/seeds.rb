@@ -19,11 +19,11 @@ Challenge.create!(title: "Defeating the Zoolander Curse",
                   hint: "Try one of these: rupert.turnRight(); rupert.turnLeft(); rupert.moveForward();")
 
 Challenge.create!(title: "It's Hip to be Square",
-                  description: "Fantastic! Using the same commands you already know, let's see if you can make Rupert make a square.",
+                  description: "Fantastic! Using the same commands you already know, let's see if you can make Rupert make a square. Start by moving forward then turning left, then repeat.",
                   tutorial: "",
                   hint: "Try one of these: rupert.turnRight(); rupert.turnLeft(); rupert.moveForward();")
 
 Challenge.create!(title: "Loop around the Rosy",
-                  description: "WOW, that sure was tedious! But as you may have realized, you can't say rupert.moveForward(4);, rupert.turnLeft(); and expect him to move in a square. Instead, Rupert moves forward four times before he turns!\n\nComputers are really good at processing complex instructions but really bad at inferring meaning from your commands. What can I say, they're not perfect.\n\nFortunately, there is a way around this: Introducing the FOR loop.\n\nType this:for(var i=1;i<4;i++){\nrupert.moveForward();rupert.turnLeft();\n}",
+                  description: "WOW, that sure was tedious! But as you may have realized, you can't say rupert.moveForward(4);, rupert.turnLeft(); and expect him to move in a square. Instead, Rupert moves forward four times before he turns!\n\nComputers are really good at processing complex instructions but really bad at inferring meaning from your commands. What can I say, they're not perfect.\n\nFortunately, there is a way around this: Introducing the FOR loop.\n\nType this: for (var i=1; i<5; i++) {\nrupert.moveForward(); rupert.turnLeft();\n}",
                   tutorial: "",
                   hint: "Try one of these: rupert.turnRight(); rupert.turnLeft(); rupert.moveForward();")
