@@ -67,6 +67,10 @@ body {
   text-decoration: none;
 }
 
+.splash-enter-button:hover {
+  background-color: #00999f;
+}
+
 .robo-picture {
   padding: 25px 10px 25px;
 }
