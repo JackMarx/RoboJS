@@ -66,5 +66,6 @@
 }
 
 .login-errors {
-  list-style-type: none;
+  padding: 2px;
+  margin: 0;
 }
