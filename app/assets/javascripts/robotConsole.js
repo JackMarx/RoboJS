@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
-    var sourceCode, accessToken, url;
+    var sourceCode, accessToken, url, robotInstructions;
     
     sourceCode = $("#game_status_string").val();
     url = $(".edit_game").attr("action");
@@ -27,10 +27,12 @@ $(document).ready(function(){
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
     invalidCommand = true;}
 
+    robotInstructions = rupert.serializedInstructions();
+
     $.ajax({
       url: "https://api.spark.io/v1/devices/54ff6b066667515129141367/robot",
       data: { "access_token": accessToken,
-              "params": rupert.serializedInstructions() },
+              "params": robotInstructions },
       type: "POST",
       dataType: "json",
       success: function(response){
@@ -45,10 +47,10 @@ $(document).ready(function(){
    
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
-
+    console.log(robotInstructions)
     $.ajax({
       url: url,
-      data: { instructions: rupert.serializedInstructions(), status_string: sourceCode },
+      data: { instructions: robotInstructions, status_string: sourceCode },
       type: "put",
       success: function(response){
         $(".game-console").html(response);
