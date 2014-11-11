@@ -30,5 +30,5 @@ Robot.prototype.turnAround = function(){
 
 Robot.prototype.serializedInstructions = function() {
   this.instructions.push("S");
-  return this.instructions.join(",");
+  return this.instructions.join("");
 };
