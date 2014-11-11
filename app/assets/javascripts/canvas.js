@@ -11,7 +11,7 @@ function DrawnRobot(){
     originX: 'center',
     originY: 'center',
     selectable: false,
-    crashed: false
+    crashed: false,
   });
   this.facing =  FACING[0];
   this.canvas = new fabric.Canvas('myCanvas');
@@ -25,7 +25,7 @@ DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
 DrawnRobot.prototype.getNextInstruction = function(){
   var robot = this;
   if(robot.queuedInstructions.length > 0){
-
+    // console.log(robot.queuedInstructions);
     eval(robot.queuedInstructions.shift());
   } else {
       $(".game-console-button").show();
@@ -138,13 +138,13 @@ DrawnRobot.prototype.moveForward = function(amt){
   abort: function(){
     return robot.crashed;
   },
-  duration: 2400,
+  duration: 1200,
   onComplete: function(){
       robot.getNextInstruction();
     }
   };
   canvasLineData = { onChange: canvas.renderAll.bind(canvas),
-    duration: 2400,
+    duration: 1200,
      onComplete: function(){
     }
   };
@@ -248,6 +248,12 @@ DrawnRobot.prototype.rememberHistory = function(history){
 };
 
 DrawnRobot.prototype.reverseCommands = function(){
+  if(this.queuedInstructions.length > 0){
+    this.queuedInstructions.shift();
+    this.queuedInstructions.push("robot.reverseCommands();");
+    this.getNextInstruction();
+}else{
   this.queuedInstructions = this.queuedHistory;
   this.getNextInstruction();
+}
 };

@@ -18,50 +18,21 @@ $(document).ready(function(){
 
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
-    var sourceCode, accessToken, url, robotInstructions;
-    
-    sourceCode = $("#game_status_string").val();
-    url = $(".edit_game").attr("action");
-    accessToken = "a77ab0d36e1778bb188ee681da72534f8db521da";
-
+    var sourceCode = $("#game_status_string").val();
+    // console.log(sourceCode);
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
     invalidCommand = true;}
 
-
-    rupertAnimation.doTheseFrames(rupert.fullInstructions);
-    rupertAnimation.getNextInstruction();
     rupertAnimation.rememberHistory(rupert.resetFullInstructions);
-
-    url = $(".edit_game").attr("action");
-
-
-    robotInstructions = rupert.serializedInstructions();
-
-    $.ajax({
-      url: "https://api.spark.io/v1/devices/54ff6b066667515129141367/robot",
-      data: { "access_token": accessToken,
-              "params": robotInstructions },
-      type: "POST",
-      dataType: "json",
-      success: function(response){
-        console.log(response);
-        console.log("it worked");
-      },
-      error: function(response){
-        console.log(response);
-        console.log("crap");
-      }
-    });
-   
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
 
-    console.log(robotInstructions)
+    var url = $(".edit_game").attr("action");
 
     $.ajax({
       url: url,
-      data: { instructions: robotInstructions, status_string: sourceCode },
+      data: { instructions: rupert.serializedInstructions(), status_string: sourceCode },
       type: "put",
       success: function(response){
         $(".game-console").html(response);
@@ -78,7 +49,7 @@ $(document).ready(function(){
         //   $(".hint-link").show();
         //   $(".challenge-navigation a").show();
         // }, 2000);
-        console.log("internal server pinged");
+        // console.log("it worked");
       },
       error: function(response){
         // console.log("crap");
