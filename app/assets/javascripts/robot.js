@@ -39,9 +39,9 @@ Robot.prototype.moveBackward = function(amt){
 
 Robot.prototype.serializedInstructions = function() {
   this.instructions.push("S");
-  return this.instructions.join(",");
+  return this.instructions.join("");
 };
 
-Robot.prototype.resetPosition = function(){
-  this.fullInstructions.push("robot.resetPosition();");
+Robot.prototype.reverseCommands = function(){
+  this.fullInstructions.push("robot.reverseCommands();");
 };

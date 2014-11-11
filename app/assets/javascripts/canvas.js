@@ -25,6 +25,7 @@ DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
 DrawnRobot.prototype.getNextInstruction = function(){
   var robot = this;
   if(robot.queuedInstructions.length > 0){
+
     eval(robot.queuedInstructions.shift());
   } else {
       $(".game-console-button").show();
@@ -49,6 +50,7 @@ DrawnRobot.prototype.setFacingLeft = function(){
       facingIndex = 0;
   }
   this.facing = FACING[facingIndex];
+
 };
 
 DrawnRobot.prototype.turnLeft = function(){
@@ -245,7 +247,7 @@ DrawnRobot.prototype.rememberHistory = function(history){
   console.log(this.queuedHistory);
 };
 
-DrawnRobot.prototype.resetPosition = function(){
+DrawnRobot.prototype.reverseCommands = function(){
   this.queuedInstructions = this.queuedHistory;
   this.getNextInstruction();
 };
