@@ -12,18 +12,18 @@ Robot.prototype.turnRight = function(){
 
 Robot.prototype.turnLeft = function(){
   this.fullInstructions.push("robot.turnLeft();");
-  this.resetFullInstructions.push("robot.turnRight();");
+  this.resetFullInstructions.unshift("robot.turnRight();");
   this.instructions.push("L");
-  this.resetInstructions.push("R");
+  this.resetInstructions.unshift("R");
 };
 
 Robot.prototype.moveForward = function(amt){
   if(typeof amt === "undefined" || typeof amt === "string") amt = 1 ;
   for(var i=1;i<=amt;i++){
     this.fullInstructions.push("robot.moveForward();");
-    this.resetFullInstructions.push("robot.moveBackward();");
+    this.resetFullInstructions.unshift("robot.moveBackward();");
     this.instructions.push("F");
-    this.resetInstructions.push("B");
+    this.resetInstructions.unshift("B");
   }
 };
 
@@ -31,9 +31,9 @@ Robot.prototype.moveBackward = function(amt){
   if(typeof amt === "undefined" || typeof amt === "string") amt = 1 ;
   for(var i=1;i<=amt;i++){
     this.fullInstructions.push("robot.moveBackward();");
-    this.resetFullInstructions.push("robot.moveForward();");
+    this.resetFullInstructions.unshift("robot.moveForward();");
     this.instructions.push("B");
-    this.resetInstructions.push("F");
+    this.resetInstructions.unshift("F");
   }
 };
 
