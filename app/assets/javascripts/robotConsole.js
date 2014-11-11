@@ -56,6 +56,7 @@ $(document).ready(function(){
    
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
+
     console.log(robotInstructions)
 
     $.ajax({
