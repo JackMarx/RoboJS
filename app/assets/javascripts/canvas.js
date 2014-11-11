@@ -56,7 +56,7 @@ DrawnRobot.prototype.turnLeft = function(){
   var robot = this;
   robot.setFacingLeft();
   canvasData = {
-    duration: 1500,
+    duration: 1200,
     onChange: canvas.renderAll.bind(canvas),
     onComplete: function(){
       robot.getNextInstruction();
@@ -70,7 +70,7 @@ DrawnRobot.prototype.turnRight = function(){
   var canvas = this.canvas;
   robot.setFacingRight();
   canvasData = {
-    duration: 1500,
+    duration: 1200,
     onChange: canvas.renderAll.bind(canvas),
     onComplete: function(){
       robot.getNextInstruction();
@@ -136,13 +136,13 @@ DrawnRobot.prototype.moveForward = function(amt){
   abort: function(){
     return robot.crashed;
   },
-  duration: 1500,
+  duration: 2400,
   onComplete: function(){
       robot.getNextInstruction();
     }
   };
   canvasLineData = { onChange: canvas.renderAll.bind(canvas),
-    duration: 1500,
+    duration: 2400,
      onComplete: function(){
     }
   };
@@ -199,13 +199,13 @@ DrawnRobot.prototype.moveBackward = function(amt){
   abort: function(){
     return robot.crashed;
   },
-  duration: 1500,
+  duration: 2400,
   onComplete: function(){
       robot.getNextInstruction();
     }
   };
   canvasLineData = { onChange: canvas.renderAll.bind(canvas),
-    duration: 1500,
+    duration: 2400,
      onComplete: function(){
     }
   };
