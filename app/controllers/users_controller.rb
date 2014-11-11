@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @games      = @user.games
     @badges     = @user.badges
     @challenges = Challenge.all
+    @current_challenges = Challenge.current_challenges(@user)
   end
 
   def create

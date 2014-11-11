@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'travis-lint'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'shoulda-matchers'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -47,5 +48,7 @@ gem 'byebug'
 gem 'dino'
 gem 'pusher'
 gem 'ruby_spark'
+gem 'factory_girl_rails', group: :development, group: :test
+gem 'faker', group: :development, group: :test
 
 gem 'rails_12factor', group: :production

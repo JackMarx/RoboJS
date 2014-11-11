@@ -1,8 +1,8 @@
 <div class="success">
-  <%= success_message unless success_message.nil? %>
+  <%= success_message %>
 </div>
 <div class="failure">
-  <%= failure_message unless failure_message.nil? %>
+  <%= failure_message %>
 </div>
 
 <%= form_for game, url: challenge_game_path(game, challenge_id: challenge.id, id: game.id), controller: :games, method: "put" do |f| %>
@@ -11,4 +11,4 @@
 <% end %>
 
 <a href="#" class="hint-link">Stumped?</a>
-<div class="hint"><%= challenge.hint %></div>
+<div class="hint"><%= raw(challenge.hint) %></div>
