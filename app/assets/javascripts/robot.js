@@ -43,5 +43,5 @@ Robot.prototype.serializedInstructions = function() {
 };
 
 Robot.prototype.reverseCommands = function(){
-  this.fullInstructions.unshift("robot.reverseCommands();");
+  this.fullInstructions.push("robot.reverseCommands();");
 };
