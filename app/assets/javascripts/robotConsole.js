@@ -1,6 +1,5 @@
 $(document).ready(function(){
     var rupert = new Robot();
-
     var rupertAnimation = new DrawnRobot();
     rupertAnimation.canvas.add(rupertAnimation.body);
     invalidCommand = false;

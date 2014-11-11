@@ -3,13 +3,13 @@ function Robot() {
   this.fullInstructions = [];
 }
 
-Robot.prototype.turnRight = function(){
-  this.fullInstructions.push("robot.turnRight();");
+Robot.prototype.turnRight = function(degrees){
+  this.fullInstructions.push("robot.turnRight("+degrees.toString()+");");
   this.instructions.push("R");
 };
 
-Robot.prototype.turnLeft = function(){
-  this.fullInstructions.push("robot.turnLeft();");
+Robot.prototype.turnLeft = function(degrees){
+  this.fullInstructions.push("robot.turnLeft("+degrees.toString()+");");
   this.instructions.push("L");
 };
 
