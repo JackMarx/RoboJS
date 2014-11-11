@@ -104,6 +104,7 @@ DrawnRobot.prototype.upInSmoke = function(){
   });
   robot.canvas.add(smoke);
   robot.crashed = true;
+  alert("Try Again!")
 };
 
 DrawnRobot.prototype.moveForward = function(amt){
