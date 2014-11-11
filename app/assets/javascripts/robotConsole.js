@@ -1,12 +1,13 @@
 $(document).ready(function(){
     var rupert = new Robot();
-
     var rupertAnimation = new DrawnRobot();
     rupertAnimation.canvas.add(rupertAnimation.body);
     invalidCommand = false;
     rupertAnimation.moveForward(2);
     rupert.instructions = [];
     rupert.fullInstructions = [];
+    rupert.resetInstructions = [];
+    rupert.resetFullInstructions = [];
 
   $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
 
@@ -26,6 +27,14 @@ $(document).ready(function(){
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
     invalidCommand = true;}
+
+
+    rupertAnimation.doTheseFrames(rupert.fullInstructions);
+    rupertAnimation.getNextInstruction();
+    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
+
+    url = $(".edit_game").attr("action");
+
 
     robotInstructions = rupert.serializedInstructions();
 
@@ -48,6 +57,7 @@ $(document).ready(function(){
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
     console.log(robotInstructions)
+
     $.ajax({
       url: url,
       data: { instructions: robotInstructions, status_string: sourceCode },
