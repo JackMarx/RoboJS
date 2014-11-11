@@ -124,6 +124,9 @@ DrawnRobot.prototype.moveForward = function(amt){
       }
     canvas.renderAll.bind(canvas);
   },
+  abort: function(){
+    return robot.crashed;
+  },
   duration: 1500,
   onComplete: function(){
       robot.getNextInstruction();
