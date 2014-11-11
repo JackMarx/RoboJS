@@ -90,7 +90,18 @@ DrawnRobot.prototype.moveForward = function(amt){
   var distance, line, robot, canvas, canvasData;
   robot = this;
   canvas = robot.canvas;
-  canvasData = { onChange: canvas.renderAll.bind(canvas),
+  canvasData = { onChange: function(){
+    if (robot.body.top >= 400){
+      robot.body.top = 10;
+    }else if(robot.body.top <= 0){
+
+    }else if(robot.body.left >= 400){
+
+    }else if(robot.body.left <= 0){
+
+    };
+
+    canvas.renderAll.bind(canvas);},
     duration: 1500,
      onComplete: function(){
       robot.getNextInstruction();
