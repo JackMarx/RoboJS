@@ -11,6 +11,7 @@ function DrawnRobot(){
     originX: 'center',
     originY: 'center',
     selectable: false,
+    crashed: false
   });
   this.facing =  FACING[0];
   this.canvas = new fabric.Canvas('myCanvas');
@@ -77,7 +78,6 @@ DrawnRobot.prototype.turnRight = function(){
     duration: 1500,
     onChange: canvas.renderAll.bind(canvas),
     onComplete: function(){
-
       robot.getNextInstruction();
     }
   };
@@ -85,28 +85,51 @@ DrawnRobot.prototype.turnRight = function(){
   // console.log(this.facing);
 };
 
+DrawnRobot.prototype.upInSmoke = function(){
+  var robot = this;
+  var smokeTop = robot.body.top;
+  var smokeSide = robot.body.left;
+  robot.canvas.remove(robot.body);
+  imgElement = document.getElementById('cloud');
+  smoke = new fabric.Image(imgElement, {
+    left: smokeSide,
+    top: smokeTop,
+    fill: '#006569',
+    width: 20,
+    height: 20,
+    originX: 'center',
+    originY: 'center',
+    selectable: false,
+    evented: false
+  });
+  robot.canvas.add(smoke);
+  robot.crashed = true;
+};
+
 DrawnRobot.prototype.moveForward = function(amt){
   if(typeof amt === 'undefined' || typeof amt === 'string') amt = 1;
   var distance, line, robot, canvas, canvasData;
   robot = this;
   canvas = robot.canvas;
-  canvasData = { onChange: function(){
-    if (robot.body.top >= 400){
-      robot.body.top = 10;
-    }else if(robot.body.top <= 0){
-
-    }else if(robot.body.left >= 400){
-
-    }else if(robot.body.left <= 0){
-
-    };
-
-    canvas.renderAll.bind(canvas);},
-    duration: 1500,
-     onComplete: function(){
+  canvasData = {
+    onChange: function(){
+      if (robot.body.top >= 400){
+        robot.upInSmoke();
+      }else if(robot.body.top <= 0){
+        robot.upInSmoke();
+      }else if(robot.body.left >= 400){
+        robot.upInSmoke();
+      }else if(robot.body.left <= 0){
+        robot.upInSmoke();
+      }
+    canvas.renderAll.bind(canvas);
+  },
+  duration: 1500,
+  onComplete: function(){
       robot.getNextInstruction();
     }
   };
+
   canvasLineData = { onChange: canvas.renderAll.bind(canvas),
     duration: 1500,
      onComplete: function(){
