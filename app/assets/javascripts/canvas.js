@@ -146,14 +146,13 @@ DrawnRobot.prototype.moveForward = function(amt){
       robot.getNextInstruction();
     }
   };
-
   canvasLineData = { onChange: canvas.renderAll.bind(canvas),
     duration: 1500,
      onComplete: function(){
     }
   };
   distance = amt * 50;
-  line = robot.lineTrail();
+  line = robot.forwardLineTrail();
   canvas.add(line);
   canvas.sendToBack(line);
   if (robot.facing === "up") {
@@ -171,7 +170,7 @@ DrawnRobot.prototype.moveForward = function(amt){
   }
 };
 
-DrawnRobot.prototype.lineTrail = function() {
+DrawnRobot.prototype.forwardLineTrail = function() {
     var line = new fabric.Line([ this.body.left - 3, this.body.top -3, this.body.left -3, this.body.top - 3], {
       stroke: '#006569',
       strokeWidth: 5,
@@ -183,31 +182,65 @@ DrawnRobot.prototype.lineTrail = function() {
   return line;
 };
 
-// DrawnRobot.prototype.turnAround = function(){
-//   var canvas = this.canvas;
-//   var robot = this;
 
-//   this.body.animate('angle', '-=180', {
-//     onChange: canvas.renderAll.bind(canvas),
-//     duration: 1000,
-//     onComplete: function() { robot.getNextInstruction(); }
-//   });
+DrawnRobot.prototype.moveBackward = function(amt){
+  if(typeof amt === 'undefined' || typeof amt === 'string') amt = 1;
+  var distance, line, robot, canvas, canvasData;
+  robot = this;
+  canvas = robot.canvas;
+  canvasData = {
+    onChange: function(){
+      if (robot.body.top >= 400){
+        robot.upInSmoke("bottom");
+      }else if(robot.body.top <= 0){
+        robot.upInSmoke("top");
+      }else if(robot.body.left >= 400){
+        robot.upInSmoke("right");
+      }else if(robot.body.left <= 0){
+        robot.upInSmoke("left");
+      }
+    canvas.renderAll.bind(canvas);
+  },
+  abort: function(){
+    return robot.crashed;
+  },
+  duration: 1500,
+  onComplete: function(){
+      robot.getNextInstruction();
+    }
+  };
+  canvasLineData = { onChange: canvas.renderAll.bind(canvas),
+    duration: 1500,
+     onComplete: function(){
+    }
+  };
+  distance = amt * 50;
+  line = robot.backwardLineTrail();
+  canvas.add(line);
+  canvas.sendToBack(line);
+  if (robot.facing === "up") {
+    robot.body.animate('top', '+=' + distance.toString(), canvasData);
+    line.animate('height', '+=' + distance.toString(), canvasLineData);
+  } else if (robot.facing === "left") {
+      robot.body.animate('left', '+=' + distance.toString(), canvasData);
+      line.animate('width', '+=' + distance.toString(), canvasLineData);
+  } else if (robot.facing === "down") {
+      robot.body.animate('top', '-=' + distance.toString(), canvasData);
+      line.animate('height', '-=' + distance.toString(), canvasLineData);
+  } else {
+      robot.body.animate('left', '-=' + distance.toString(), canvasData);
+      line.animate('width', '-=' + distance.toString(), canvasLineData);
+  }
+};
 
-
-//   facingIndex = FACING.indexOf(this.facing);
-
-//   facingIndex += 2;
-//     if (facingIndex === 4) {
-//       facingIndex = 0;
-//   } else if (facingIndex === 5) {
-//       facingIndex = 1;
-//   } else {
-//     return facingIndex;
-//   }
-//   this.facing = FACING[facingIndex];
-//   console.log(this.facing);
-// };
-
-
-
-
+DrawnRobot.prototype.backwardLineTrail = function() {
+    var line = new fabric.Line([ this.body.left - 3, this.body.top -3, this.body.left -3, this.body.top - 3], {
+      stroke: '#006569',
+      strokeWidth: 5,
+      strokeDashArray: [5, 5],
+      selectable: false,
+      lockMovementY: true,
+      lockMovementX: true
+  });
+  return line;
+};

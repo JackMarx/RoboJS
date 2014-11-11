@@ -21,12 +21,20 @@ Robot.prototype.moveForward = function(amt){
   }
 };
 
-Robot.prototype.turnAround = function(){
-  this.fullInstructions.push("robot.turnRight();");
-  this.fullInstructions.push("robot.turnRight();");
-  this.instructions.push("R");
-  this.instructions.push("R");
+Robot.prototype.moveBackward = function(amt){
+  if(typeof amt === "undefined" || typeof amt === "string") amt = 1 ;
+  for(var i=1;i<=amt;i++){
+    this.fullInstructions.push("robot.moveBackward();");
+    this.instructions.push("B");
+  }
 };
+
+// Robot.prototype.turnAround = function(){
+//   this.fullInstructions.push("robot.turnRight();");
+//   this.fullInstructions.push("robot.turnRight();");
+//   this.instructions.push("R");
+//   this.instructions.push("R");
+// };
 
 Robot.prototype.serializedInstructions = function() {
   this.instructions.push("S");
