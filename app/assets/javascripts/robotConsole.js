@@ -17,23 +17,19 @@ $(document).ready(function(){
 
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
-    var sourceCode = $("#game_status_string").val();
-    // console.log(sourceCode);
+    var sourceCode, accessToken, url;
+    
+    sourceCode = $("#game_status_string").val();
+    url = $(".edit_game").attr("action");
+    accessToken = "a77ab0d36e1778bb188ee681da72534f8db521da";
+
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
     invalidCommand = true;}
 
-    // console.log(rupert.serializedInstructions());
-
-
-    rupertAnimation.doTheseFrames(rupert.fullInstructions);
-    rupertAnimation.getNextInstruction();
-
-    var url = $(".edit_game").attr("action");
-
     $.ajax({
       url: "https://api.spark.io/v1/devices/54ff6b066667515129141367/robot",
-      data: { "access_token": "555c011b99e78634692663f43c74d68c99f26528",
+      data: { "access_token": accessToken,
               "params": rupert.serializedInstructions() },
       type: "POST",
       dataType: "json",
@@ -45,8 +41,10 @@ $(document).ready(function(){
         console.log(response);
         console.log("crap");
       }
-
     });
+   
+    rupertAnimation.doTheseFrames(rupert.fullInstructions);
+    rupertAnimation.getNextInstruction();
 
     $.ajax({
       url: url,
