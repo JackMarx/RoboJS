@@ -23,7 +23,7 @@ $(document).ready(function(){
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
     invalidCommand = true;}
 
-    // console.log(rupert.serializedInstructions());
+    console.log(rupert.serializedInstructions());
 
 
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
