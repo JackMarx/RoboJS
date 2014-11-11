@@ -8,9 +8,9 @@
 <% end %>
 
 <h3 class="profile-challenges-header">Challenges</h3>
-<ol class="profile-challenges">
+<ul class="profile-challenges">
   <% @current_challenges.each_with_index do |challenge, i| %>
-    <li>
+    <li class="challenge-list">
       <div class="status-border">
         <div class="game-status <%= @challenges[i].game_status(current_user) %>"></div>
       </div>
@@ -18,4 +18,4 @@
     </li>
 
   <% end %>
-</ol>
+</ul>

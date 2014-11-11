@@ -2,9 +2,11 @@
   height: 19px;
   width: 19px;
   border-radius: 10px;
-  margin: 2px 8px 2px 0;
+  margin-bottom: -4px;
+  /*padding-right: 5px;*/
   background-color: #6f6f6f;
-  float: left;
+  display: inline-block;
+  z-index: 1;
 }
 
 .game-status {
@@ -13,7 +15,7 @@
   margin-top: 2px;
   margin-left: 2px;
   border-radius: 10px;
-  box-shadow: inset 0 0 6px #333;
+  box-shadow: inset 0 0 8px #000;
 }
 
 .completed {
