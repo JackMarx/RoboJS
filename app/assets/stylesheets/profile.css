@@ -9,6 +9,10 @@
   margin-top: 55px;
 }
 
+.profile-challenges {
+  display: block;
+}
+
 .profile-challenges li, .profile-challenges-header {
   font-family: 'Open Sans', sans-serif;
   color: #006569;
@@ -18,8 +22,10 @@
   text-decoration: none;
   font-weight: bold;
   color: #00979c;
+  float: left;
+
 }
 
 .profile-challenges li {
-  padding: 4px;
+  padding: 6px;
 }
