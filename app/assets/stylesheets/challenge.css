@@ -16,7 +16,11 @@
 #robot-icon{
   display: none;
 }
-
+#cloud{
+  width: 20px;
+  height: 20px;
+  display: none;
+}
 
 .canvas-and-console {
   width: 100%;
