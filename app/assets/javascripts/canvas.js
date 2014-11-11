@@ -99,6 +99,7 @@ DrawnRobot.prototype.moveForward = function(amt){
   distance = amt * 50;
   line = robot.lineTrail();
   canvas.add(line);
+  canvas.sendToBack(line);
   if (robot.facing === "up") {
     robot.body.animate('top', '-=' + distance.toString(), canvasData);
 
@@ -126,7 +127,7 @@ DrawnRobot.prototype.lineTrail = function() {
     var line = new fabric.Line([ this.body.left - 3, this.body.top -3, this.body.left -3, this.body.top - 3], {
       stroke: '#006569',
       strokeWidth: 5,
-      strokeDashArray: [5, 5],
+      strokeDashArray: [5, 6],
       selectable: false,
       lockMovementY: true,
       lockMovementX: true

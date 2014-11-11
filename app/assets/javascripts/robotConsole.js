@@ -3,6 +3,7 @@ $(document).ready(function(){
 
     var rupertAnimation = new DrawnRobot();
     rupertAnimation.canvas.add(rupertAnimation.body);
+
     rupertAnimation.moveForward(2);
     rupert.instructions = [];
     rupert.fullInstructions = [];
