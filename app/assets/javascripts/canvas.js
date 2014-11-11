@@ -250,7 +250,7 @@ DrawnRobot.prototype.rememberHistory = function(history){
 DrawnRobot.prototype.reverseCommands = function(){
   if(this.queuedInstructions.length > 0){
     this.queuedInstructions.shift();
-    this.queuedInstructions.push("robot.reverseCommands();");
+    // this.queuedInstructions.push("robot.reverseCommands();");
     this.getNextInstruction();
 }else{
   this.queuedInstructions = this.queuedHistory;
