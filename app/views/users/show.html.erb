@@ -11,10 +11,10 @@
 <ol class="profile-challenges">
   <% @current_challenges.each_with_index do |challenge, i| %>
     <li>
-      <%= link_to "#{@challenges[i].title}", challenge_games_path(challenge), method: :post %>
       <div class="status-border">
         <div class="game-status <%= @challenges[i].game_status(current_user) %>"></div>
       </div>
+      <%= link_to "#{@challenges[i].title}", challenge_games_path(challenge), method: :post %>
     </li>
 
   <% end %>

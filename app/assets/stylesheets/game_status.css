@@ -2,7 +2,7 @@
   height: 19px;
   width: 19px;
   border-radius: 10px;
-  margin: 2px 8px;
+  margin: 2px 8px 2px 0;
   background-color: #6f6f6f;
   float: left;
 }
@@ -13,7 +13,7 @@
   margin-top: 2px;
   margin-left: 2px;
   border-radius: 10px;
-  box-shadow: inset 0 0 8px #333;
+  box-shadow: inset 0 0 6px #333;
 }
 
 .completed {
