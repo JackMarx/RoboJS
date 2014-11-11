@@ -127,7 +127,7 @@ DrawnRobot.prototype.lineTrail = function() {
     var line = new fabric.Line([ this.body.left - 3, this.body.top -3, this.body.left -3, this.body.top - 3], {
       stroke: '#006569',
       strokeWidth: 5,
-      strokeDashArray: [5, 6],
+      strokeDashArray: [5, 5],
       selectable: false,
       lockMovementY: true,
       lockMovementX: true
