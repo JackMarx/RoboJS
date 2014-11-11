@@ -2,7 +2,6 @@ class RobotsController < ApplicationController
 
   def move_robot(robot_instructions)
     action_array = robot_instructions.split(",")
-
     action_array.each do |action|
       case action
       when 'F' then event = 'forward'
