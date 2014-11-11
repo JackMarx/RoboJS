@@ -6,10 +6,18 @@
 }
 
 .profile-challenges-header {
-  margin-top: 55px;
+  margin-top: 85px;
+  margin-bottom: 0;
 }
 
-.profile-challenges li, .profile-challenges-header {
+.profile-challenges {
+  display: inline-block;
+  padding: 0;
+  margin: 5px 10px;
+  list-style-type: none;
+}
+
+.challenge-list, .profile-challenges-header {
   font-family: 'Open Sans', sans-serif;
   color: #006569;
 }
@@ -18,8 +26,9 @@
   text-decoration: none;
   font-weight: bold;
   color: #00979c;
+  padding-left: 5px;
 }
 
-.profile-challenges li {
-  padding: 4px;
+.challenge-list {
+  padding: 6px;
 }
