@@ -85,10 +85,23 @@ DrawnRobot.prototype.turnRight = function(){
   // console.log(this.facing);
 };
 
-DrawnRobot.prototype.upInSmoke = function(){
+
+DrawnRobot.prototype.upInSmoke = function(edge){
   var robot = this;
-  var smokeTop = robot.body.top;
-  var smokeSide = robot.body.left;
+  var smokeTop, smokeSide;
+  if(edge === "top"){
+    smokeTop = robot.body.top + 12;
+    smokeSide = robot.body.left;
+  }else if(edge === "left"){
+    smokeTop = robot.body.top;
+    smokeSide = robot.body.left + 12;
+  }else if(edge === "bottom"){
+    smokeTop = robot.body.top - 12;
+    smokeSide = robot.body.left;
+  }else if(edge === "right"){
+    smokeTop = robot.body.top;
+    smokeSide = robot.body.left - 12;
+  }
   robot.canvas.remove(robot.body);
   imgElement = document.getElementById('cloud');
   smoke = new fabric.Image(imgElement, {
@@ -104,7 +117,7 @@ DrawnRobot.prototype.upInSmoke = function(){
   });
   robot.canvas.add(smoke);
   robot.crashed = true;
-  alert("Try Again!")
+  // alert("Try Again!");
 };
 
 DrawnRobot.prototype.moveForward = function(amt){
@@ -115,13 +128,13 @@ DrawnRobot.prototype.moveForward = function(amt){
   canvasData = {
     onChange: function(){
       if (robot.body.top >= 400){
-        robot.upInSmoke();
+        robot.upInSmoke("bottom");
       }else if(robot.body.top <= 0){
-        robot.upInSmoke();
+        robot.upInSmoke("top");
       }else if(robot.body.left >= 400){
-        robot.upInSmoke();
+        robot.upInSmoke("right");
       }else if(robot.body.left <= 0){
-        robot.upInSmoke();
+        robot.upInSmoke("left");
       }
     canvas.renderAll.bind(canvas);
   },

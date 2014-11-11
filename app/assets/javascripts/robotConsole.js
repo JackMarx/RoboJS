@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     var rupertAnimation = new DrawnRobot();
     rupertAnimation.canvas.add(rupertAnimation.body);
-
+    invalidCommand = false;
     rupertAnimation.moveForward(2);
     rupert.instructions = [];
     rupert.fullInstructions = [];
@@ -20,7 +20,8 @@ $(document).ready(function(){
     var sourceCode = $("#game_status_string").val();
     // console.log(sourceCode);
     try { eval(sourceCode); }
-    catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?"); }
+    catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
+    invalidCommand = true;}
 
     // console.log(rupert.serializedInstructions());
 
@@ -39,11 +40,12 @@ $(document).ready(function(){
         $(".game-console").html(response);
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
-
+        if(invalidCommand === false){
+        invalidCommand = false;
         $(".game-console-button").hide();
         $(".hint-link").hide();
         $(".challenge-navigation a").hide();
-
+      }
         // setTimeout(function(){
         //   $(".game-console-button").show();
         //   $(".hint-link").show();
