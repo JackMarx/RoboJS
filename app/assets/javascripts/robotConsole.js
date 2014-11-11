@@ -1,12 +1,13 @@
 $(document).ready(function(){
     var rupert = new Robot();
-
     var rupertAnimation = new DrawnRobot();
     rupertAnimation.canvas.add(rupertAnimation.body);
     invalidCommand = false;
     rupertAnimation.moveForward(2);
     rupert.instructions = [];
     rupert.fullInstructions = [];
+    rupert.resetInstructions = [];
+    rupert.resetFullInstructions = [];
 
   $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
 
@@ -23,12 +24,9 @@ $(document).ready(function(){
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
     invalidCommand = true;}
 
-    // console.log(rupert.serializedInstructions());
-
-
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
-    // console.log(rupertAnimation.queuedInstructions);
     rupertAnimation.getNextInstruction();
+    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     var url = $(".edit_game").attr("action");
 

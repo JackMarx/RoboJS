@@ -18,7 +18,6 @@ function DrawnRobot(){
   this.queuedInstructions = [];
 }
 
-
 DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
   this.queuedInstructions = instructionsArr;
 };
@@ -26,15 +25,12 @@ DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
 DrawnRobot.prototype.getNextInstruction = function(){
   var robot = this;
   if(robot.queuedInstructions.length > 0){
-    console.log("Number of instructions left: " + robot.queuedInstructions.length);
     eval(robot.queuedInstructions.shift());
   } else {
       $(".game-console-button").show();
       $(".hint-link").show();
       $(".challenge-navigation a").show();
   }
-
-
 };
 
 DrawnRobot.prototype.setFacingRight = function(){
@@ -53,7 +49,6 @@ DrawnRobot.prototype.setFacingLeft = function(){
       facingIndex = 0;
   }
   this.facing = FACING[facingIndex];
-  console.log(this.facing);
 };
 
 DrawnRobot.prototype.turnLeft = function(){
@@ -243,4 +238,14 @@ DrawnRobot.prototype.backwardLineTrail = function() {
       lockMovementX: true
   });
   return line;
+};
+
+DrawnRobot.prototype.rememberHistory = function(history){
+  this.queuedHistory = history;
+  console.log(this.queuedHistory);
+};
+
+DrawnRobot.prototype.resetPosition = function(){
+  this.queuedInstructions = this.queuedHistory;
+  this.getNextInstruction();
 };
