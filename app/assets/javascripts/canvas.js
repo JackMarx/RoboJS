@@ -1,7 +1,8 @@
 FACING = ["up", "left", "down", "right"];
 
 function DrawnRobot(){
-  this.body = new fabric.Triangle({
+  imgElement = document.getElementById('robot-icon');
+  this.body = new fabric.Image(imgElement, {
     left: 200,
     top: 390,
     fill: '#006569',
@@ -26,8 +27,13 @@ DrawnRobot.prototype.getNextInstruction = function(){
   if(robot.queuedInstructions.length > 0){
     console.log("Number of instructions left: " + robot.queuedInstructions.length);
     eval(robot.queuedInstructions.shift());
-
+  }else{
+      $(".game-console-button").show();
+      $(".hint-link").show();
+      $(".challenge-navigation a").show();
   }
+
+
 };
 
 DrawnRobot.prototype.setFacingRight = function(){
@@ -98,6 +104,7 @@ DrawnRobot.prototype.moveForward = function(amt){
   distance = amt * 50;
   line = robot.lineTrail();
   canvas.add(line);
+  canvas.sendToBack(line);
   if (robot.facing === "up") {
     robot.body.animate('top', '-=' + distance.toString(), canvasData);
     line.animate('height', '-=' + distance.toString(), canvasLineData);
@@ -115,11 +122,12 @@ DrawnRobot.prototype.moveForward = function(amt){
 
 DrawnRobot.prototype.lineTrail = function() {
     var line = new fabric.Line([ this.body.left - 3, this.body.top -3, this.body.left -3, this.body.top - 3], {
-     stroke: '#006569',
-     strokeWidth: 5,
-     selectable: false,
-     lockMovementY: true,
-     lockMovementX: true
+      stroke: '#006569',
+      strokeWidth: 5,
+      strokeDashArray: [5, 5],
+      selectable: false,
+      lockMovementY: true,
+      lockMovementX: true
   });
   return line;
 };
@@ -148,6 +156,7 @@ DrawnRobot.prototype.lineTrail = function() {
 //   this.facing = FACING[facingIndex];
 //   console.log(this.facing);
 // };
+
 
 
 
