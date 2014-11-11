@@ -47,7 +47,7 @@ $(document).ready(function(){
    
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
-    console.log(robotInstructions)
+    console.log(robotInstructions);
     $.ajax({
       url: url,
       data: { instructions: robotInstructions, status_string: sourceCode },
