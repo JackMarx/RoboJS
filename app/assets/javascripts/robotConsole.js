@@ -44,11 +44,11 @@ $(document).ready(function(){
         $(".hint-link").hide();
         $(".challenge-navigation a").hide();
 
-        setTimeout(function(){
-          $(".game-console-button").show();
-          $(".hint-link").show();
-          $(".challenge-navigation a").show();
-        }, 2000);
+        // setTimeout(function(){
+        //   $(".game-console-button").show();
+        //   $(".hint-link").show();
+        //   $(".challenge-navigation a").show();
+        // }, 2000);
         // console.log("it worked");
       },
       error: function(response){

@@ -27,8 +27,13 @@ DrawnRobot.prototype.getNextInstruction = function(){
   if(robot.queuedInstructions.length > 0){
     console.log("Number of instructions left: " + robot.queuedInstructions.length);
     eval(robot.queuedInstructions.shift());
-
+  }else{
+      $(".game-console-button").show();
+      $(".hint-link").show();
+      $(".challenge-navigation a").show();
   }
+
+
 };
 
 DrawnRobot.prototype.setFacingRight = function(){
