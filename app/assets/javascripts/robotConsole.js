@@ -23,14 +23,30 @@ $(document).ready(function(){
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
     invalidCommand = true;}
 
-    console.log(rupert.serializedInstructions());
+    // console.log(rupert.serializedInstructions());
 
 
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
-    // console.log(rupertAnimation.queuedInstructions);
     rupertAnimation.getNextInstruction();
 
     var url = $(".edit_game").attr("action");
+
+    $.ajax({
+      url: "https://api.spark.io/v1/devices/54ff6b066667515129141367/robot",
+      data: { "access_token": "555c011b99e78634692663f43c74d68c99f26528",
+              "params": rupert.serializedInstructions() },
+      type: "POST",
+      dataType: "json",
+      success: function(response){
+        console.log(response);
+        console.log("it worked");
+      },
+      error: function(response){
+        console.log(response);
+        console.log("crap");
+      }
+
+    });
 
     $.ajax({
       url: url,
@@ -51,7 +67,7 @@ $(document).ready(function(){
         //   $(".hint-link").show();
         //   $(".challenge-navigation a").show();
         // }, 2000);
-        // console.log("it worked");
+        console.log("internal server pinged");
       },
       error: function(response){
         // console.log("crap");
