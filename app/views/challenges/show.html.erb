@@ -34,7 +34,7 @@
 
 <script>
 $(document).ready(function() {
-  if ('popUpDiv'){
+  if($('popUpDiv').length){
     popup('popUpDiv');
     $('#nextSlide').on('click', function (){
   	   nextSlide();
