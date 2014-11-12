@@ -4,13 +4,17 @@ body {
   margin: 0;
   /*background-color: #ced8e4;*/
   /*background-color: #f9f9ff;*/
-  background: url('/assets/splash-background.png') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 
 }
+
+.splash-body-background{
+  background: url('/assets/splash-background.png') no-repeat center center fixed; 
+}
+
 .box{
   width:40%;
   /*background-color: #ced8e4;*/

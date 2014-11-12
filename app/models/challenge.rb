@@ -1,6 +1,6 @@
 class Challenge < ActiveRecord::Base
+  has_one :badge
   has_many :games
-  has_many :badges
   has_many :users, through: :games
 
   def self.solutions
