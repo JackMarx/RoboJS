@@ -1,3 +1,13 @@
+<% if @challenge.id == 6 %>
+<div id="blanket" style="display: none"></div>
+<div id="popUpDiv" style="display: none">
+	<%= image_tag "for-loop-slide1.jpg", :class => "slide", :id => "slide1" %>
+	<%= image_tag "for-loop-slide2.jpg", :class => "slide", :id => "slide2" %>
+	<%= image_tag "up-arrow-icon.png", :class => "button", :id => "nextSlide" %>
+	<%= image_tag "x-icon.png", :class => "button", :id => "closeLink" %>
+</div>	
+<% end %>
+
 <div class="challenge-title"><h3><%= @challenge.title %></h3></div>
 <div class="challenge-description"><%= raw(@challenge.description) %></div>
 <div class="challenge-tutorial"><%= @challenge.tutorial %></div>
@@ -21,3 +31,15 @@
 		</div>
 	</div>
 </div>
+
+<script>
+$(document).ready( function() {
+  popup('popUpDiv');
+  $('#nextSlide').on('click', function () {
+  	nextSlide();
+  });
+  $('#closeLink').on('click', function () {
+  	popup('popUpDiv');
+  });
+});
+</script>
