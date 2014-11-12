@@ -22,6 +22,18 @@
   display: none;
 }
 
+.reset-robot-button {
+  padding: 10px;
+  background: #006569;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  border: none;
+  text-decoration: none;
+  margin-top: 10px;
+  position: absolute;
+}
+
 .canvas-and-console {
   width: 100%;
   display: inline-block;
@@ -88,11 +100,19 @@
 
 .hint {
   display: none;
-  max-width: 150px;
   float: right;
 }
 
 .challenge-description {
   margin: 10px 20px 20px 5px;
+}
+
+#badge-popup {
+  position: absolute;
+  top: 75px;
+  left: 40%;
+  height: 250px;
+  z-index: 1000;
+
 }
 

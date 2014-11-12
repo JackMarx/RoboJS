@@ -2,7 +2,7 @@ $(document).ready(function(){
     var rupert = new Robot();
     var rupertAnimation = new DrawnRobot();
     rupertAnimation.canvas.add(rupertAnimation.body);
-    invalidCommand = false;
+
     rupertAnimation.moveForward(2);
     rupert.instructions = [];
     rupert.fullInstructions = [];
@@ -16,68 +16,66 @@ $(document).ready(function(){
     $(".hint").toggle();
   });
 
+  // $(".reset-robot-button").hide();
+
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
-    var sourceCode, accessToken, url, robotInstructions;
-    
+
+    var sourceCode, url, robotInstructions, counter, invalidCommand;
+
     sourceCode = $("#game_status_string").val();
     url = $(".edit_game").attr("action");
-    accessToken = "a77ab0d36e1778bb188ee681da72534f8db521da";
 
+    counter = 0;
+    // console.log(sourceCode);
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
-    invalidCommand = true;}
+                   invalidCommand = true; }
 
 
-    rupertAnimation.doTheseFrames(rupert.fullInstructions);
-    rupertAnimation.getNextInstruction();
+<<<<<<< HEAD
+
     rupertAnimation.rememberHistory(rupert.resetFullInstructions);
-
-    url = $(".edit_game").attr("action");
-
-
-    robotInstructions = rupert.serializedInstructions();
-
-    $.ajax({
-      url: "https://api.spark.io/v1/devices/54ff6b066667515129141367/robot",
-      data: { "access_token": accessToken,
-              "params": robotInstructions },
-      type: "POST",
-      dataType: "json",
-      success: function(response){
-        console.log(response);
-        console.log("it worked");
-      },
-      error: function(response){
-        console.log(response);
-        console.log("crap");
-      }
-    });
-   
+=======
+>>>>>>> b472b741f1d433cd94e1e27762150c768e1f7a1c
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
+    console.log(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
+    robotInstructions = rupert.serializedInstructions();
+<<<<<<< HEAD
+    // pingRobot(robotInstructions);
 
-    console.log(robotInstructions)
+=======
+    pingRobot(robotInstructions);
+
+
+    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
+>>>>>>> b472b741f1d433cd94e1e27762150c768e1f7a1c
 
     $.ajax({
       url: url,
       data: { instructions: robotInstructions, status_string: sourceCode },
       type: "put",
       success: function(response){
+<<<<<<< HEAD
+        var invalidCommand = false;
         $(".game-console").html(response);
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+=======
+
+        $(".game-console").html(response);
+        rupert.instructions = [];
+        $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+
+>>>>>>> b472b741f1d433cd94e1e27762150c768e1f7a1c
         if(invalidCommand === false){
-        invalidCommand = false;
         $(".game-console-button").hide();
         $(".hint-link").hide();
         $(".challenge-navigation a").hide();
+        $(".reset-robot-button").hide();
+          invalidCommand = false;
       }
-        // setTimeout(function(){
-        //   $(".game-console-button").show();
-        //   $(".hint-link").show();
-        //   $(".challenge-navigation a").show();
-        // }, 2000);
         console.log("internal server pinged");
       },
       error: function(response){
@@ -85,4 +83,13 @@ $(document).ready(function(){
       }
     });
   });
+  $(".game-console").on("click", ".reset-robot-button", function(event){
+      event.preventDefault();
+      rupertAnimation.reverseCommands();
+      rupert.reverseCommands();
+      $(".game-console-button").prop("disabled",true);
+      $(".game-console-button").val("Input Locked");
+      $(".game-console-button").css("background", "#787868");
+      $(".reset-robot-button").hide();
+    });
 });

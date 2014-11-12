@@ -1,3 +1,7 @@
+<% if @badge %>
+  <%= image_tag @badge, id: "badge-popup" %>
+<% end %>
+
 <div class="success">
   <%= success_message %>
 </div>
@@ -9,6 +13,12 @@
   <%= f.text_area :status_string, rows: 10, cols: 40 %><br>
   <%= f.submit "Test your code!", class: "game-console-button" %>
 <% end %>
+<!-- <button type="button", class="reset-robot-button">Reset</button> -->
 
 <a href="#" class="hint-link">Stumped?</a>
 <div class="hint"><%= raw(challenge.hint) %></div>
+
+<%if @success_message == "Great! Try the next challenge."%>
+<a href="" class="reset-robot-button">Reset</a>
+
+<%end%>

@@ -20,12 +20,19 @@ class GamesController  < ApplicationController
     @challenge = Challenge.find(params[:challenge_id])
     @game = Game.find_by(user: current_user, challenge: @challenge)
     @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
+    @badge = false
 
     challenge_solution = "challenge#{@challenge.id}"
 
     if Challenge.solutions[challenge_solution.to_sym] == params[:instructions]  # updated logic
       @game.update_attribute(:completed, true)
       @success_message = "Great! Try the next challenge."
+
+      if @challenge.badge && (!current_user.badges.include? @challenge.badge)
+        current_user.badges << @challenge.badge 
+        @badge = @challenge.badge.image_url
+      end
+
     else
       @failure_message = "Oops! That wasn't quite right. Try again."
     end

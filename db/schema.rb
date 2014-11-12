@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141109184701) do
 
   create_table "challenges", force: true do |t|
     t.string   "title"
-    t.text     "tutorial"
+    t.boolean  "tutorial"
     t.text     "description"
     t.string   "hint"
     t.datetime "created_at"

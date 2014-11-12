@@ -11,7 +11,8 @@ function DrawnRobot(){
     originX: 'center',
     originY: 'center',
     selectable: false,
-    crashed: false
+    crashed: false,
+    isBeingReset: false,
   });
   this.facing =  FACING[0];
   this.canvas = new fabric.Canvas('myCanvas');
@@ -23,14 +24,21 @@ DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
 };
 
 DrawnRobot.prototype.getNextInstruction = function(){
+  // var robot = this;
   var robot = this;
   if(robot.queuedInstructions.length > 0){
-
     eval(robot.queuedInstructions.shift());
   } else {
       $(".game-console-button").show();
       $(".hint-link").show();
       $(".challenge-navigation a").show();
+      $(".reset-robot-button").show();
+      if(robot.isBeingReset === true){
+        // $(".game-console-button").hide();
+        // $(".hint-link").hide();
+        // $(".challenge-navigation a").hide();
+        $(".reset-robot-button").hide();
+      }
   }
 };
 
@@ -41,6 +49,9 @@ DrawnRobot.prototype.setFacingRight = function(){
       facingIndex = 3;
   }
   this.facing = FACING[facingIndex];
+
+  console.log(this.facing);
+
 };
 
 DrawnRobot.prototype.setFacingLeft = function(){
@@ -51,9 +62,12 @@ DrawnRobot.prototype.setFacingLeft = function(){
   }
   this.facing = FACING[facingIndex];
 
+  console.log(this.facing);
+
 };
 
 DrawnRobot.prototype.turnLeft = function(){
+  console.log("animate fired");
   var canvas = this.canvas;
   var robot = this;
   robot.setFacingLeft();
@@ -68,6 +82,7 @@ DrawnRobot.prototype.turnLeft = function(){
 };
 
 DrawnRobot.prototype.turnRight = function(){
+  console.log("animate fired");
   var robot = this;
   var canvas = this.canvas;
   robot.setFacingRight();
@@ -75,7 +90,7 @@ DrawnRobot.prototype.turnRight = function(){
     duration: 1200,
     onChange: canvas.renderAll.bind(canvas),
     onComplete: function(){
-      robot.getNextInstruction();
+    robot.getNextInstruction();
     }
   };
   this.body.animate('angle', '+=90', canvasData);
@@ -244,10 +259,11 @@ DrawnRobot.prototype.backwardLineTrail = function() {
 
 DrawnRobot.prototype.rememberHistory = function(history){
   this.queuedHistory = history;
-  console.log(this.queuedHistory);
+  // console.log(this.queuedHistory);
 };
 
 DrawnRobot.prototype.reverseCommands = function(){
+  this.isBeingReset = true;
   this.queuedInstructions = this.queuedHistory;
   this.getNextInstruction();
 };

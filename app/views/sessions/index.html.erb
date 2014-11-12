@@ -8,15 +8,16 @@
    <%= csrf_meta_tags %>
 </head>
 
-<body>
-<header class="splash-header box">
-  <h1 class="splash-h1">Robo.JS</h1>
-</header>
+<body class="splash-body-background">
+  <header class="splash-header box">
+    <h1 class="splash-h1">Robo.JS</h1>
+  </header>
 
-<div class="splash-container">
-  <%= image_tag "../assets/robot-512-mod-blue.png", class: "robo-picture" %>
-  <%= link_to "Enter", login_path, class: "splash-enter-button" %>
-</div>
+  <div class="splash-container">
+    <%= link_to login_path, class: "login-path-link" do %>
+      <%= image_tag "robot-shadow3.png", class: "robot-welcome" %>
+    <% end %>
+  </div>
 
 </body>
 </html>
