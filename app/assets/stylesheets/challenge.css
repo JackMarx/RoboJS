@@ -88,7 +88,8 @@
 
 .hint {
   display: none;
-  max-width: 150px;
+  /*max-width: 150px;*/
+  /*margin-right:;*/
   float: right;
 }
 
