@@ -244,14 +244,14 @@ DrawnRobot.prototype.backwardLineTrail = function() {
   return line;
 };
 
-// DrawnRobot.prototype.rememberHistory = function(history){
-//   this.queuedHistory = history;
-//   // console.log(this.queuedHistory);
-// };
-
-DrawnRobot.prototype.reverseCommands = function(history){
+DrawnRobot.prototype.rememberHistory = function(history){
   this.queuedHistory = history;
+  // console.log(this.queuedHistory);
+};
+
+DrawnRobot.prototype.reverseCommands = function(){
   console.log("reverse fires");
+  console.log(this.queuedHistory);
   this.queuedInstructions = this.queuedHistory;
   this.getNextInstruction();
 };

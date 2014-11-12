@@ -22,6 +22,15 @@
   display: none;
 }
 
+.reset-robot-button {
+  padding: 10px;
+  background: #006569;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  border: none;
+}
+
 .canvas-and-console {
   width: 100%;
   display: inline-block;

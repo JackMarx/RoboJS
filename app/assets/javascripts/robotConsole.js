@@ -16,12 +16,7 @@ $(document).ready(function(){
     $(".hint").toggle();
   });
 
-  $("button.reset-robot-button").on("click", function(event){
-    console.log()
-      rupertAnimation.reverseCommands(rupert.resetFullInstructions);
-      rupert.reverseCommands();
-    });
-
+  // $(".reset-robot-button").hide();
 
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
@@ -39,12 +34,12 @@ $(document).ready(function(){
 
 
 
-    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
+    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     console.log(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
     robotInstructions = rupert.serializedInstructions();
-    pingRobot(robotInstructions);
+    // pingRobot(robotInstructions);
 
 
     $.ajax({
@@ -71,4 +66,11 @@ $(document).ready(function(){
       }
     });
   });
+  $(".game-console").on("click", ".reset-robot-button", function(event){
+      event.preventDefault();
+      $(".game-console .ace_content").empty();
+      rupertAnimation.reverseCommands();
+      rupert.reverseCommands();
+      $(".game-console-button").hide();
+    });
 });
