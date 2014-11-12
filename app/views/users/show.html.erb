@@ -1,12 +1,5 @@
 <h3 class="profile-welcome">Welcome, <%= @user.username %></h3>
 
-<% unless @badges.empty? %>
-  <h3>Badges</h3>
-  <% @badges.each do |badge| %>
-    <%= badge %>
-  <% end %>
-<% end %>
-
 <h3 class="profile-challenges-header">Challenges</h3>
 <ul class="profile-challenges">
   <% @current_challenges.each_with_index do |challenge, i| %>
@@ -19,3 +12,12 @@
 
   <% end %>
 </ul>
+
+<div class="badges-list">
+  <% unless @badges.empty? %>
+    <h3 class="badges">Badges</h3>
+    <% @badges.each do |badge| %>
+      <%= image_tag "#{badge.image_url}" %>
+    <% end %>
+  <% end %>
+</div>

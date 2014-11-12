@@ -26,6 +26,11 @@ class GamesController  < ApplicationController
     if Challenge.solutions[challenge_solution.to_sym] == params[:instructions]  # updated logic
       @game.update_attribute(:completed, true)
       @success_message = "Great! Try the next challenge."
+
+      if @challenge.badge
+        current_user.badges << @challenge.badge 
+      end
+
     else
       @failure_message = "Oops! That wasn't quite right. Try again."
     end
