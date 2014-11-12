@@ -2,20 +2,20 @@
 RoboJS
 ======
 
-<b>RoboJS<b> is a tool which inspires kids to learn javascript.  Children can practices challenges with basic javascript skillsRupert The Robot responds to commands given to him via wifi from the web app console.
+<b>RoboJS<b> is a tool which inspires kids to learn javascript.  Children can practices challenges with basic javascript skills. Rupert The Robot responds to commands given to him via wifi from the web app console.
 
 
 View the actual site here - http://stormy-eyrie-7388.herokuapp.com
 
-http://image.bayimg.com/4171e89c224584a41c557a9288f97de88de5feb4.jpg
+![alt tag](http://image.bayimg.com/4171e89c224584a41c557a9288f97de88de5feb4.jpg)
 
 
-=== Sample Screenshots
+## Sample Screenshots
 
-*insert screenshots - link from Bayimg*
+*insert screenshots*
 
 
-=== System Requirements
+## System Requirements
 
 - Ruby 2.0.0 p-481
 - Rails 4.1.6
@@ -24,7 +24,7 @@ http://image.bayimg.com/4171e89c224584a41c557a9288f97de88de5feb4.jpg
 
 
 
-=== External APIs and Libraries
+## External APIs and Libraries
 
 <b>Ruby Spark</b> - ver. 1.0.0
 
@@ -45,16 +45,16 @@ Integrates jquery-ace plugin to Rails.
 
 
 
-=== Getting Started
+## Getting Started
 
 1. Clone to local machine: <tt>git clone https://github.com/JackMarx/RoboJS.git</tt>
 2. Install dependencies: <tt>bundle</tt>
-3. Initialize database: <tt>rake db:reset</tt>
+3. Initialize database: <tt>rake db:setup</tt>
 4. Run server: <tt>rails s</tt>
 5. Visit http://localhost:3000
 
 
-=== Workflow
+## Workflow
 
 <em>As a collaborator on this project, I hold myself to high standard of code, commit often, and never push to the master branch.</em>
 
@@ -65,7 +65,9 @@ Integrates jquery-ace plugin to Rails.
 
 2. Create new branch for the feature you're working on:
 
-   <tt>git checkout -b features-add-shield</tt>
+   Branch Naming: list the feature and then what specific you are working on. Separate all words with dashes. 
+
+   <tt>git checkout -b motors-add-shield</tt>
 
 3. To bring the local code base up-to-date, first checkout master branch:
 
@@ -77,7 +79,7 @@ Integrates jquery-ace plugin to Rails.
 
 5. Then switch back to your feature branch before merging code from master:
 
-   <tt>git checkout features_add-shield</tt>
+   <tt>git checkout motors-add-shield</tt>
 
 6. Now merge the updated master branch code into your current feature branch:
 
@@ -91,32 +93,32 @@ Integrates jquery-ace plugin to Rails.
 
 9. Then commit the changes you've made:
 
-   <tt>git commit -m "Add sweet feature to do sweet thing"</tt>
+   <tt>git commit -m "I made Robot Rupert's eyes blue"</tt>
 
 10. Repeat step <b>3 through 6</b> to ensure your code base is up-to-date with any changes to master that might have occured in the time you were working on your feature branch. Solve conflicts if present.
 
 11. Push your code to your remote feature branch:
 
-    <tt>git push origin Daniel_awesomebranch</tt>
+    <tt>git push origin motors-add-shield</tt>
 
 12. Submit a pull request on Github for code review.
 
 
-=== Running the Test Suite
+## Running the Test Suite
 
 <tt>rspec</tt>
 
-=== Brought to You By
-http://image.bayimg.com/62e6a5ac1b5b4318ab6ad596d86a5a2e05b8ad60.jpg
+## Brought to You By
+![alt tag](http://image.bayimg.com/62e6a5ac1b5b4318ab6ad596d86a5a2e05b8ad60.jpg)
 
 Megan:: https://github.com/MissAndry
 Christian:: https://github.com/ChristianStanfield
 Perry:: https://github.com/peryanderson
 Josh:: https://github.com/JackMarx
 
-=== More photos just for fun
-http://image.bayimg.com/4c50560dfa7f1e021c5662373f65cc149416e678.jpg
-http://image.bayimg.com/cc8942f4170a90fb9f775b0e2f22b7a8db5bc00d.jpg
-http://image.bayimg.com/c1643ba629dd2c3754ff1a3c37158b78cff2a2d1.jpg
-http://image.bayimg.com/1b2817dddaeca1146c174b5549e861335d422b36.jpg
-http://image.bayimg.com/6def04cee75def3aac3207d311eb788383e5ae1d.jpg
+## More photos just for fun
+![alt tag](http://image.bayimg.com/4c50560dfa7f1e021c5662373f65cc149416e678.jpg)
+![alt tag](http://image.bayimg.com/cc8942f4170a90fb9f775b0e2f22b7a8db5bc00d.jpg)
+![alt tag](http://image.bayimg.com/c1643ba629dd2c3754ff1a3c37158b78cff2a2d1.jpg)
+![alt tag](http://image.bayimg.com/1b2817dddaeca1146c174b5549e861335d422b36.jpg)
+![alt tag](http://image.bayimg.com/6def04cee75def3aac3207d311eb788383e5ae1d.jpg)
