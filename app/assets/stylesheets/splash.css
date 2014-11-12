@@ -2,23 +2,27 @@ body {
   top: 0;
   left: 0;
   margin: 0;
-  /*background-color: #ced8e4;*/
   background-color: #f9f9ff;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 
 }
 
-.splash-body-background{
-  background: url('/assets/splash-background.png') no-repeat center center fixed; 
+.splash-body-background {
+    background-image:
+    linear-gradient(
+      to top left, #006569, white
+    );
+  /*background: url('/assets/splash-background.png') no-repeat center center fixed; */
+ /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
 }
 
 .box{
   width:40%;
   /*background-color: #ced8e4;*/
   background-color: white;
+  /*background-color: transparent;*/
   margin:0 auto;
 }
 
