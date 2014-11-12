@@ -95,3 +95,12 @@
   margin: 10px 20px 20px 5px;
 }
 
+#badge-popup {
+  position: absolute;
+  top: 75px;
+  left: 40%;
+  height: 250px;
+  z-index: 1000;
+
+}
+
