@@ -24,10 +24,10 @@ DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
 
 DrawnRobot.prototype.getNextInstruction = function(){
   var robot = this;
-  var nextInstruction = robot.queuedInstructions.shift();
+  var rupert = this;
   if(robot.queuedInstructions.length > 0){
-
-    eval(nextInstruction);
+    console.log(robot.queuedInstructions);
+    eval(robot.queuedInstructions.shift());
   } else {
       $(".game-console-button").show();
       $(".hint-link").show();
