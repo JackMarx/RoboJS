@@ -20,10 +20,10 @@ $(document).ready(function(){
     event.preventDefault();
 
     var sourceCode, url, robotInstructions, counter, accessToken;
-    
+
     sourceCode = $("#game_status_string").val();
     url = $(".edit_game").attr("action");
-    
+
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
     invalidCommand = true;}
@@ -41,17 +41,17 @@ $(document).ready(function(){
       success: function(response){
         console.log("it worked");
         console.log(response);
-        if((response.error === "Timed out.") && (counter < 3)){
-          console.log("Trying again.");
-          console.log(counter);
-          counter++;
-          pingRobot();
-        } else if((response.error === "Timed out.") && (counter >= 3)){
-          console.log("you waited too long");
-          $(".container").html("<h1 class='timeout-error'>You sure have been waiting a long time. Why don't you come back later?</h1>");
-        } else if(typeof response.error !== "undefined") {
-          $(".container").html("<h1 class='unknown-error'>I'm not sure what's happening. Please contact a developer.</h1>");
-        }
+        // if((response.error === "Timed out.") && (counter < 3)){
+        //   console.log("Trying again.");
+        //   console.log(counter);
+        //   counter++;
+        //   pingRobot();
+        // } else if((response.error === "Timed out.") && (counter >= 3)){
+        //   console.log("you waited too long");
+        //   $(".container").html("<h1 class='timeout-error'>You sure have been waiting a long time. Why don't you come back later?</h1>");
+        // } else if(typeof response.error !== "undefined") {
+        //   $(".container").html("<h1 class='unknown-error'>I'm not sure what's happening. Please contact a developer.</h1>");
+        // }
       },
       error: function(response){
         console.log(response);
@@ -59,10 +59,9 @@ $(document).ready(function(){
       }
     });
     }
-    pingRobot();
+    // pingRobot();
 
     rupertAnimation.rememberHistory(rupert.resetFullInstructions);
-
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
 
