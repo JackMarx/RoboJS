@@ -8,7 +8,6 @@ function Robot() {
 Robot.prototype.turnRight = function(){
   this.fullInstructions.push("robot.turnRight();");
   this.resetFullInstructions.push("robot.turnLeft();");
-
   this.instructions.push("R");
   this.resetInstructions.unshift("L");
 };
@@ -26,7 +25,6 @@ Robot.prototype.moveForward = function(amt){
   for(var i=1;i<=amt;i++){
     this.fullInstructions.push("robot.moveForward();");
     this.resetFullInstructions.unshift("robot.moveBackward();");
-
     this.instructions.push("F");
     this.resetInstructions.unshift("B");
   }
@@ -37,7 +35,6 @@ Robot.prototype.moveBackward = function(amt){
   for(var i=1;i<=amt;i++){
     this.fullInstructions.push("robot.moveBackward();");
     this.resetFullInstructions.unshift("robot.moveForward();");
-
     this.instructions.push("B");
     this.resetInstructions.unshift("F");
   }
@@ -49,5 +46,9 @@ Robot.prototype.serializedInstructions = function() {
 };
 
 Robot.prototype.reverseCommands = function(){
-  this.fullInstructions.push("robot.reverseCommands();");
+  for (i = 0; i < this.resetInstructions.length; i++) {
+    this.instructions.push(this.resetInstructions[i]);
+  }
+  robotInstructions = this.serializedInstructions();
+  // pingRobot(robotInstructions);
 };
