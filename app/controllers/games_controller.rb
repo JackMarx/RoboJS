@@ -27,7 +27,7 @@ class GamesController  < ApplicationController
       @game.update_attribute(:completed, true)
       @success_message = "Great! Try the next challenge."
 
-      if @challenge.badge
+      if @challenge.badge && (!current_user.badges.include? @challenge.badge)
         current_user.badges << @challenge.badge 
       end
 
