@@ -16,7 +16,7 @@ Robot.prototype.turnRight = function(){
 Robot.prototype.turnLeft = function(){
   this.fullInstructions.push("robot.turnLeft();");
   this.resetFullInstructions.unshift("robot.turnRight();");
-  
+  // console.log(this.fullInstructions);
   this.instructions.push("L");
   this.resetInstructions.unshift("R");
 };
@@ -26,7 +26,7 @@ Robot.prototype.moveForward = function(amt){
   for(var i=1;i<=amt;i++){
     this.fullInstructions.push("robot.moveForward();");
     this.resetFullInstructions.unshift("robot.moveBackward();");
-    
+
     this.instructions.push("F");
     this.resetInstructions.unshift("B");
   }
@@ -37,7 +37,7 @@ Robot.prototype.moveBackward = function(amt){
   for(var i=1;i<=amt;i++){
     this.fullInstructions.push("robot.moveBackward();");
     this.resetFullInstructions.unshift("robot.moveForward();");
-    
+
     this.instructions.push("B");
     this.resetInstructions.unshift("F");
   }
