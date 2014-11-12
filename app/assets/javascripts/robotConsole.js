@@ -2,7 +2,6 @@ $(document).ready(function(){
     var rupert = new Robot();
     var rupertAnimation = new DrawnRobot();
     rupertAnimation.canvas.add(rupertAnimation.body);
-
     rupertAnimation.moveForward(2);
     rupert.instructions = [];
     rupert.fullInstructions = [];
@@ -21,8 +20,7 @@ $(document).ready(function(){
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
 
-    var sourceCode, url, robotInstructions, counter, invalidCommand;
-
+    var sourceCode, url, robotInstructions, counter;
     sourceCode = $("#game_status_string").val();
     url = $(".edit_game").attr("action");
 
@@ -43,7 +41,6 @@ $(document).ready(function(){
 
     pingRobot(robotInstructions);
 
-
     // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     $.ajax({
@@ -51,16 +48,17 @@ $(document).ready(function(){
       data: { instructions: robotInstructions, status_string: sourceCode },
       type: "put",
       success: function(response){
+
         var invalidCommand = false;
         $(".game-console").html(response);
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
 
         if(invalidCommand === false){
-        $(".game-console-button").hide();
-        $(".hint-link").hide();
-        $(".challenge-navigation a").hide();
-        $(".reset-robot-button").hide();
+          $(".game-console-button").hide();
+          $(".hint-link").hide();
+          $(".challenge-navigation a").hide();
+          $(".reset-robot-button").hide();
           invalidCommand = false;
       }
         console.log("internal server pinged");
@@ -70,6 +68,7 @@ $(document).ready(function(){
       }
     });
   });
+
   $(".game-console").on("click", ".reset-robot-button", function(event){
       event.preventDefault();
       rupertAnimation.reverseCommands();
