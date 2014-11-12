@@ -5,7 +5,9 @@ include ApplicationHelper
   def show
     @challenge = Challenge.find(params[:id])
     
-    
+    unless @challenge.tutorial == "" 
+      @tutorial = @challenge.tutorial
+    end
 
     if @challenge != Challenge.all[-1]
       @next_challenge = Challenge.find(@challenge.id + 1)
