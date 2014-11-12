@@ -28,6 +28,7 @@ DrawnRobot.prototype.getNextInstruction = function(){
   var robot = this;
   if(robot.queuedInstructions.length > 0){
     eval(robot.queuedInstructions.shift());
+    invalidCommand = false;
   } else {
       $(".game-console-button").show();
       $(".hint-link").show();
