@@ -1,25 +1,42 @@
 header {
+  width: 100%;
   color: white;
   background: black;
   margin-top: 0;
   padding-top: 0;
   font-family: 'Open Sans', sans-serif;
-  display: block;
-  height: 120px;
+  vertical-align: middle;
 }
 
-header h1{
-  padding: 15px;
-  text-align: center;
+.general-headers {
+  width: 100%;
+  display: inline-block;
+}
+
+.layout-header {
+  width: 32%;
   margin: 0 auto;
-  width: 200px;
+  padding: 1%;
+  /*margin-left: 33%;*/
+  float: left;
+  text-align: center;
 }
 
-nav {
-  width: 300px;
-  float: right;
+.profile {
+  width: 32%;
+  text-align: left;
+  padding-left: 1%;
+  float: left;
+  margin-top: 26px;
+
 }
 
+.logout{
+  width: 32%;
+  text-align: right;
+  float: left;
+  margin-top: 26px;
+}
 .container {
   margin: 0 auto;
   padding: 10px;
@@ -28,27 +45,12 @@ nav {
   overflow: auto;
 }
 
-.user-navigation a, .user-navigation a:visited {
+.user-navigaion {
+}
+
+.user-navigation, .user-navigation:visited {
   color: #fff;
   text-decoration: none;
-}
-
-.user-navigation {
-  list-style: none;
-  float: right;
-  margin: 0;
-  /*padding: 0;*/
-  margin-right: 30px;
-}
-
-.user-navigation li {
-  float: left;
-  padding: 0 4px;
-}
-
-.user-navigation li a {
-  display: inline;
-  padding: 0 4px;
 }
 
 input[type="submit"]{
@@ -57,5 +59,16 @@ input[type="submit"]{
 
 input[type="submit"]:hover{
   background-color: #00999f;
-;
+
 }
+
+/*#profile {
+  position: absolute;
+  left: 5%;
+}
+
+#logout {
+  position: absolute;
+  right: 5%;
+}
+*/
