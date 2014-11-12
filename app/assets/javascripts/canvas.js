@@ -11,7 +11,8 @@ function DrawnRobot(){
     originX: 'center',
     originY: 'center',
     selectable: false,
-    crashed: false
+    crashed: false,
+    isBeingReset: false,
   });
   this.facing =  FACING[0];
   this.canvas = new fabric.Canvas('myCanvas');
@@ -31,6 +32,9 @@ DrawnRobot.prototype.getNextInstruction = function(){
       $(".hint-link").show();
       $(".challenge-navigation a").show();
       $(".reset-robot-button").show();
+      if(robot.isBeingReset === true){
+        $(".reset-robot-button").hide();
+      }
   }
 };
 
@@ -251,8 +255,7 @@ DrawnRobot.prototype.rememberHistory = function(history){
 };
 
 DrawnRobot.prototype.reverseCommands = function(){
-  console.log("reverse fires");
-  console.log(this.queuedHistory);
+  this.isBeingReset = true
   this.queuedInstructions = this.queuedHistory;
   this.getNextInstruction();
 };

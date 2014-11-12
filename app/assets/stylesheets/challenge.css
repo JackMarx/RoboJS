@@ -29,6 +29,9 @@
   font-size: 18px;
   color: white;
   border: none;
+  text-decoration: none;
+  margin-top: 10px;
+  position: absolute;
 }
 
 .canvas-and-console {
