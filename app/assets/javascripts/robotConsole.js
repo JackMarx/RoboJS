@@ -33,6 +33,7 @@ $(document).ready(function(){
     robotInstructions = rupert.serializedInstructions();
     
     pingRobot(robotInstructions);
+    
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
     rupertAnimation.rememberHistory(rupert.resetFullInstructions);
