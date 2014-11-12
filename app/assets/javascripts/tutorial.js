@@ -54,5 +54,5 @@ function popup(windowname) {
   blanket_size(windowname);
   window_pos(windowname);
   toggle('blanket');
-  toggle(windowname);   
+  toggle(windowname);
 }

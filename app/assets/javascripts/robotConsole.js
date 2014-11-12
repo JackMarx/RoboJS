@@ -30,14 +30,13 @@ $(document).ready(function(){
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
                    invalidCommand = true; }
 
-
-    // pingRobot(robotInstructions);
-    
-    
     robotInstructions = rupert.serializedInstructions();
+    pingRobot(robotInstructions);
+
+    robotInstructions = robotInstructions;
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
-    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
+    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     console.log(robotInstructions);
 
