@@ -39,7 +39,7 @@ $(document).ready(function(){
     console.log(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
     robotInstructions = rupert.serializedInstructions();
-    // pingRobot(robotInstructions);
+    pingRobot(robotInstructions);
 
 
     $.ajax({
@@ -51,7 +51,6 @@ $(document).ready(function(){
         $(".game-console").html(response);
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
-
         $(".game-console-button").hide();
         $(".hint-link").hide();
         $(".challenge-navigation a").hide();

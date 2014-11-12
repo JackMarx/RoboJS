@@ -33,6 +33,9 @@ DrawnRobot.prototype.getNextInstruction = function(){
       $(".challenge-navigation a").show();
       $(".reset-robot-button").show();
       if(robot.isBeingReset === true){
+        // $(".game-console-button").hide();
+        // $(".hint-link").hide();
+        // $(".challenge-navigation a").hide();
         $(".reset-robot-button").hide();
       }
   }
@@ -255,7 +258,7 @@ DrawnRobot.prototype.rememberHistory = function(history){
 };
 
 DrawnRobot.prototype.reverseCommands = function(){
-  this.isBeingReset = true
+  this.isBeingReset = true;
   this.queuedInstructions = this.queuedHistory;
   this.getNextInstruction();
 };
