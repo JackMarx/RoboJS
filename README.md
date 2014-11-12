@@ -65,7 +65,7 @@ Integrates jquery-ace plugin to Rails.
 
 2. Create new branch for the feature you're working on:
 
-   branch naming: list the feature and then what specific you are working on. Sepperate all words with dashes. 
+   Branch Naming: list the feature and then what specific you are working on. Separate all words with dashes. 
 
    <tt>git checkout -b motors-add-shield</tt>
 
