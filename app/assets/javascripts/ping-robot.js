@@ -7,8 +7,8 @@ function pingRobot(robotInstructions){
   type: "POST",
   dataType: "json",
   success: function(response){
-    console.log("it worked");
-    console.log(response);
+    // console.log("it worked");
+    // console.log(response);
     if((response.error === "Timed out.") && (counter < 3)){
       console.log("Trying again.");
       console.log(counter);

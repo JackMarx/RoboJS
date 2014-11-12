@@ -23,32 +23,32 @@ $(document).ready(function(){
 
     sourceCode = $("#game_status_string").val();
     url = $(".edit_game").attr("action");
-    
+
     counter = 0;
     console.log(sourceCode);
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
                    invalidCommand = true; }
 
-    robotInstructions = rupert.serializedInstructions();
-    
-    pingRobot(robotInstructions);
-    rupertAnimation.doTheseFrames(rupert.fullInstructions);
-    rupertAnimation.getNextInstruction();
-    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
-    console.log(robotInstructions);
+    rupertAnimation.doTheseFrames(rupert.fullInstructions);
+    console.log(rupert.fullInstructions);
+
+    robotInstructions = rupert.serializedInstructions();
+    pingRobot(robotInstructions);
+    rupertAnimation.getNextInstruction();
+    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     $.ajax({
       url: url,
       data: { instructions: robotInstructions, status_string: sourceCode },
       type: "put",
       success: function(response){
-       
+
         $(".game-console").html(response);
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
-        
+
         if(invalidCommand === false){
           invalidCommand = false;
           $(".game-console-button").hide();
