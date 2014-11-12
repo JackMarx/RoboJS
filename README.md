@@ -2,7 +2,7 @@
 RoboJS
 ======
 
-<b>RoboJS<b> is a tool which inspires kids to learn javascript.  Children can practices challenges with basic javascript skillsRupert The Robot responds to commands given to him via wifi from the web app console.
+<b>RoboJS<b> is a tool which inspires kids to learn javascript.  Children can practices challenges with basic javascript skills. Rupert The Robot responds to commands given to him via wifi from the web app console.
 
 
 View the actual site here - http://stormy-eyrie-7388.herokuapp.com
@@ -49,7 +49,7 @@ Integrates jquery-ace plugin to Rails.
 
 1. Clone to local machine: <tt>git clone https://github.com/JackMarx/RoboJS.git</tt>
 2. Install dependencies: <tt>bundle</tt>
-3. Initialize database: <tt>rake db:reset</tt>
+3. Initialize database: <tt>rake db:setup</tt>
 4. Run server: <tt>rails s</tt>
 5. Visit http://localhost:3000
 
@@ -65,7 +65,9 @@ Integrates jquery-ace plugin to Rails.
 
 2. Create new branch for the feature you're working on:
 
-   <tt>git checkout -b features-add-shield</tt>
+   branch naming: list the feature and then what specific you are working on. Sepperate all words with dashes. 
+
+   <tt>git checkout -b motors-add-shield</tt>
 
 3. To bring the local code base up-to-date, first checkout master branch:
 
@@ -77,7 +79,7 @@ Integrates jquery-ace plugin to Rails.
 
 5. Then switch back to your feature branch before merging code from master:
 
-   <tt>git checkout features_add-shield</tt>
+   <tt>git checkout motors-add-shield</tt>
 
 6. Now merge the updated master branch code into your current feature branch:
 
@@ -91,18 +93,18 @@ Integrates jquery-ace plugin to Rails.
 
 9. Then commit the changes you've made:
 
-   <tt>git commit -m "Add sweet feature to do sweet thing"</tt>
+   <tt>git commit -m "I made Robot Rupert's eyes blue"</tt>
 
 10. Repeat step <b>3 through 6</b> to ensure your code base is up-to-date with any changes to master that might have occured in the time you were working on your feature branch. Solve conflicts if present.
 
 11. Push your code to your remote feature branch:
 
-    <tt>git push origin Daniel_awesomebranch</tt>
+    <tt>git push origin motors-add-shield</tt>
 
 12. Submit a pull request on Github for code review.
 
 
-=== Running the Test Suite
+## Running the Test Suite
 
 <tt>rspec</tt>
 
