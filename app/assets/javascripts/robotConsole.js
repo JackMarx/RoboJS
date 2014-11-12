@@ -16,9 +16,9 @@ $(document).ready(function(){
     $(".hint").toggle();
   });
 
-  $(".reset-robot-button").on("click", function(event){
-      event.preventDefault();
-      rupertAnimation.reverseCommands();
+  $("button.reset-robot-button").on("click", function(event){
+    console.log()
+      rupertAnimation.reverseCommands(rupert.resetFullInstructions);
       rupert.reverseCommands();
     });
 
@@ -32,14 +32,14 @@ $(document).ready(function(){
     url = $(".edit_game").attr("action");
 
     counter = 0;
-    console.log(sourceCode);
+    // console.log(sourceCode);
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
                    invalidCommand = true; }
 
 
 
-    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
+    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     console.log(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();

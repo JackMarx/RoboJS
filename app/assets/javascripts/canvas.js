@@ -23,7 +23,6 @@ DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
 };
 
 DrawnRobot.prototype.getNextInstruction = function(){
-  // var robot = this;
   var robot = this;
   if(robot.queuedInstructions.length > 0){
     eval(robot.queuedInstructions.shift());
@@ -41,7 +40,7 @@ DrawnRobot.prototype.setFacingRight = function(){
       facingIndex = 3;
   }
   this.facing = FACING[facingIndex];
-  console.log(this.facing);
+  // console.log(this.facing);
 };
 
 DrawnRobot.prototype.setFacingLeft = function(){
@@ -51,7 +50,7 @@ DrawnRobot.prototype.setFacingLeft = function(){
       facingIndex = 0;
   }
   this.facing = FACING[facingIndex];
-  console.log(this.facing);
+  // console.log(this.facing);
 };
 
 DrawnRobot.prototype.turnLeft = function(){
@@ -245,12 +244,14 @@ DrawnRobot.prototype.backwardLineTrail = function() {
   return line;
 };
 
-DrawnRobot.prototype.rememberHistory = function(history){
-  this.queuedHistory = history;
-  // console.log(this.queuedHistory);
-};
+// DrawnRobot.prototype.rememberHistory = function(history){
+//   this.queuedHistory = history;
+//   // console.log(this.queuedHistory);
+// };
 
-DrawnRobot.prototype.reverseCommands = function(){
+DrawnRobot.prototype.reverseCommands = function(history){
+  this.queuedHistory = history;
+  console.log("reverse fires");
   this.queuedInstructions = this.queuedHistory;
   this.getNextInstruction();
 };
