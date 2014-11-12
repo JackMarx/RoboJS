@@ -20,6 +20,7 @@ class GamesController  < ApplicationController
     @challenge = Challenge.find(params[:challenge_id])
     @game = Game.find_by(user: current_user, challenge: @challenge)
     @game.update_attributes(status_string: @user_input, instructions: params[:instructions])
+    @badge = false
 
     challenge_solution = "challenge#{@challenge.id}"
 
@@ -29,6 +30,7 @@ class GamesController  < ApplicationController
 
       if @challenge.badge && (!current_user.badges.include? @challenge.badge)
         current_user.badges << @challenge.badge 
+        @badge = @challenge.badge.image_url
       end
 
     else
