@@ -10,15 +10,20 @@
 </head>
 <body>
   <header>
-    <h1>RoboJs</h1>
-    <nav>
-      <ul class="user-navigation">
+  <div class="general-headers">
+    <div class="profile">
       <% if current_user %>
-        <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
-        <li><%= link_to "Profile", profile_path(current_user) %></li>
+        <%= link_to "Profile", profile_path(current_user), class: "user-navigation" %>
       <% end %>
-      </ul>
-    </nav>
+    </div>
+
+    <h1 class="layout-header">Robo.Js</h1>
+    <div class="logout">
+      <% if current_user %>
+        <%= link_to "Log Out", logout_path, method: "delete", class: "user-navigation" %>
+      <% end %>
+    </div>
+  </div>
   </header>
   <div class="container">
     <%= yield %>

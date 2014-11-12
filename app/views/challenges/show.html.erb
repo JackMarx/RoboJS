@@ -1,4 +1,4 @@
-<% if @challenge.id == 6 %>
+<% if @challenge.tutorial %>
   <div id="blanket" style="display: none"></div>
   <div id="popUpDiv" style="display: none">
   	<%= image_tag "for-loop-slide1.jpg", :class => "slide", :id => "slide1" %>
@@ -34,7 +34,9 @@
 
 <script>
 $(document).ready(function() {
-  if ($('popUpDiv').length){
+
+  if ($('#popUpDiv').length){
+
     popup('popUpDiv');
     $('#nextSlide').on('click', function (){
   	   nextSlide();

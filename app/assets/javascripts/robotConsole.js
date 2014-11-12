@@ -33,24 +33,42 @@ $(document).ready(function(){
                    invalidCommand = true; }
 
 
+<<<<<<< HEAD
 
     rupertAnimation.rememberHistory(rupert.resetFullInstructions);
+=======
+>>>>>>> b472b741f1d433cd94e1e27762150c768e1f7a1c
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     console.log(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
     robotInstructions = rupert.serializedInstructions();
+<<<<<<< HEAD
     // pingRobot(robotInstructions);
 
+=======
+    pingRobot(robotInstructions);
+
+
+    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
+>>>>>>> b472b741f1d433cd94e1e27762150c768e1f7a1c
 
     $.ajax({
       url: url,
       data: { instructions: robotInstructions, status_string: sourceCode },
       type: "put",
       success: function(response){
+<<<<<<< HEAD
         var invalidCommand = false;
         $(".game-console").html(response);
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+=======
+
+        $(".game-console").html(response);
+        rupert.instructions = [];
+        $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+
+>>>>>>> b472b741f1d433cd94e1e27762150c768e1f7a1c
         if(invalidCommand === false){
         $(".game-console-button").hide();
         $(".hint-link").hide();

@@ -4,8 +4,6 @@ include ApplicationHelper
   before_filter :authorized?
   def show
     @challenge = Challenge.find(params[:id])
-    
-    
 
     if @challenge != Challenge.all[-1]
       @next_challenge = Challenge.find(@challenge.id + 1)
