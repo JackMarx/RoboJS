@@ -50,5 +50,5 @@ Robot.prototype.reverseCommands = function(){
     this.instructions.push(this.resetInstructions[i]);
   }
   robotInstructions = this.serializedInstructions();
-  pingRobot(robotInstructions);
+  // pingRobot(robotInstructions);
 };
