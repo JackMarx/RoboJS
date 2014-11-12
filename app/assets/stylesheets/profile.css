@@ -1,20 +1,30 @@
+.profile-challenges-and-badges{
+  display: inline-block;
+  width: inherit;
+}
+
+.profile-challenges {
+  /*display: inline-block;*/
+  padding: 0;
+  width: 425px;
+}
+
 .profile-welcome {
   color: #006569;
   font-family: 'Open Sans', sans-serif;
   font-size: 30px; 
   float: right;
-}
-
-.profile-challenges-header {
-  margin-top: 85px;
   margin-bottom: 0;
 }
 
-.profile-challenges {
-  display: inline-block;
-  padding: 0;
+.profile-challenges-header {
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+.challenge-list-block{
+  padding-left: 0;
   margin: 5px 10px;
-  list-style-type: none;
+  float: left;
 }
 
 .challenge-list, .profile-challenges-header {
@@ -31,4 +41,5 @@
 
 .challenge-list {
   padding: 6px;
+  list-style-type: none;
 }

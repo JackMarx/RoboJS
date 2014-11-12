@@ -1,23 +1,28 @@
 <h3 class="profile-welcome">Welcome, <%= @user.username %></h3>
 
-<h3 class="profile-challenges-header">Challenges</h3>
-<ul class="profile-challenges">
-  <% @current_challenges.each_with_index do |challenge, i| %>
-    <li class="challenge-list">
-      <div class="status-border">
-        <div class="game-status <%= @challenges[i].game_status(current_user) %>"></div>
-      </div>
-      <%= link_to "#{@challenges[i].title}", challenge_games_path(challenge), method: :post %>
-    </li>
-
-  <% end %>
-</ul>
-
-<div class="badges-list">
-  <% unless @badges.empty? %>
-    <h3 class="badges">Badges</h3>
-    <% @badges.each do |badge| %>
-      <%= image_tag "#{badge.image_url}" %>
+<div class="profile-challenges-and-badges">
+  <div class="profile-challenges">
+    <h3 class="profile-challenges-header">Challenges</h3>
+    <ul class="challenge-list-block">
+  
+    <% @current_challenges.each_with_index do |challenge, i| %>
+      <li class="challenge-list">
+        <div class="status-border">
+          <div class="game-status <%= @challenges[i].game_status(current_user) %>"></div>
+        </div>
+        <%= link_to "#{@challenges[i].title}", challenge_games_path(challenge), method: :post %>
+      </li>
     <% end %>
-  <% end %>
+    
+    </ul>
+  </div>
+
+  <div class="badges-list">
+    <% unless @badges.empty? %>
+      <!-- <h3 class="badges">Badges</h3> -->
+      <% @badges.each do |badge| %>
+        <%= image_tag "#{badge.image_url}", class: "badge badge#{badge.id}" %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

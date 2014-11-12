@@ -1,0 +1,23 @@
+.badge {
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.badges {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  color: #006569;
+  margin-top: 0;
+}
+
+.badges-list {
+  width: 310px;
+  float: right;
+  margin-top: -10px;
+  /*margin: 0 auto;*/
+}
+
+.badge3 {
+  margin-left: 75px;
+}
