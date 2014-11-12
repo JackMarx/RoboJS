@@ -1,23 +1,22 @@
 header {
+  width: 100%;
   color: white;
   background: black;
   margin-top: 0;
   padding-top: 0;
   font-family: 'Open Sans', sans-serif;
-  display: block;
-  height: 120px;
+  vertical-align: middle;
 }
 
-header h1{
+.layout-header {
+  margin: auto;
   padding: 15px;
-  text-align: center;
-  margin: 0 auto;
-  width: 200px;
+  margin-left: 33%;
+  display: inline-block;
 }
 
 nav {
-  width: 300px;
-  float: right;
+  display: inline-block;
 }
 
 .container {
@@ -35,10 +34,8 @@ nav {
 
 .user-navigation {
   list-style: none;
-  float: right;
+  display: inline-block;
   margin: 0;
-  /*padding: 0;*/
-  margin-right: 30px;
 }
 
 .user-navigation li {
@@ -58,4 +55,14 @@ input[type="submit"]{
 input[type="submit"]:hover{
   background-color: #00999f;
 ;
+}
+
+#profile {
+  position: absolute;
+  left: 5%;
+}
+
+#logout {
+  position: absolute;
+  right: 5%;
 }
