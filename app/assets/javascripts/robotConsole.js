@@ -31,12 +31,11 @@ $(document).ready(function(){
                    invalidCommand = true; }
 
     robotInstructions = rupert.serializedInstructions();
-
     
-    
-    pingRobot(robotInstructions, rupertAnimation);
-
-
+    pingRobot(robotInstructions);
+    rupertAnimation.doTheseFrames(rupert.fullInstructions);
+    rupertAnimation.getNextInstruction();
+    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     console.log(robotInstructions);
 
