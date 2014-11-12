@@ -1,6 +1,8 @@
 function Robot() {
   this.instructions = [];
   this.fullInstructions = [];
+  this.resetInstructions = [];
+  this.resetFullInstructions = [];
 }
 
 Robot.prototype.turnRight = function(){
