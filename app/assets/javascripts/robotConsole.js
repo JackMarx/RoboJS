@@ -52,12 +52,10 @@ $(document).ready(function(){
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
 
-        if(invalidCommand === false){
-          invalidCommand = false;
-          $(".game-console-button").hide();
-          $(".hint-link").hide();
-          $(".challenge-navigation a").hide();
-        }
+        $(".game-console-button").hide();
+        $(".hint-link").hide();
+        $(".challenge-navigation a").hide();
+        $(".reset-robot-button").hide();
 
         console.log("internal server pinged");
       },
@@ -68,9 +66,9 @@ $(document).ready(function(){
   });
   $(".game-console").on("click", ".reset-robot-button", function(event){
       event.preventDefault();
-      $(".game-console .ace_content").empty();
       rupertAnimation.reverseCommands();
       rupert.reverseCommands();
-      $(".game-console-button").hide();
+      $(".game-console-button").prop("disabled",true);
+      $(".reset-robot-button").hide();
     });
 });

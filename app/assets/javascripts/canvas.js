@@ -30,6 +30,7 @@ DrawnRobot.prototype.getNextInstruction = function(){
       $(".game-console-button").show();
       $(".hint-link").show();
       $(".challenge-navigation a").show();
+      $(".reset-robot-button").show();
   }
 };
 
