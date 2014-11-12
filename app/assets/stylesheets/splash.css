@@ -7,10 +7,7 @@ body {
 }
 
 .splash-body-background {
-    background-image:
-    linear-gradient(
-      to top left, #006569, white
-    );
+  background-image: linear-gradient(to left, #006569, white);
   /*background: url('/assets/splash-background.png') no-repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
