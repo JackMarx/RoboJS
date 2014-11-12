@@ -38,7 +38,9 @@ $(document).ready(function(){
     console.log(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
     robotInstructions = rupert.serializedInstructions();
-    // pingRobot(robotInstructions);
+
+    pingRobot(robotInstructions);
+
     // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     $.ajax({
@@ -46,9 +48,12 @@ $(document).ready(function(){
       data: { instructions: robotInstructions, status_string: sourceCode },
       type: "put",
       success: function(response){
+
+        var invalidCommand = false;
         $(".game-console").html(response);
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+
         if(invalidCommand === false){
           $(".game-console-button").hide();
           $(".hint-link").hide();
