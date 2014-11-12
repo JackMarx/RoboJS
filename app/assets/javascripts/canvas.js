@@ -24,9 +24,10 @@ DrawnRobot.prototype.doTheseFrames = function(instructionsArr){
 
 DrawnRobot.prototype.getNextInstruction = function(){
   var robot = this;
+  var nextInstruction = robot.queuedInstructions.shift();
   if(robot.queuedInstructions.length > 0){
 
-    eval(robot.queuedInstructions.shift());
+    eval(nextInstruction);
   } else {
       $(".game-console-button").show();
       $(".hint-link").show();

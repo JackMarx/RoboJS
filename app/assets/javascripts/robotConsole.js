@@ -19,25 +19,25 @@ $(document).ready(function(){
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
 
-    var sourceCode, accessToken, url, robotInstructions, counter;
+    var sourceCode, url, robotInstructions, counter, invalidCommand;
 
     sourceCode = $("#game_status_string").val();
     url = $(".edit_game").attr("action");
     
-    robotInstructions = rupert.serializedInstructions();
     counter = 0;
-
+    console.log(sourceCode);
     try { eval(sourceCode); }
     catch(error) { alert("Whoops! Looks like that was an invalid command. Do you need a hint?");
-    invalidCommand = true;}
+                   invalidCommand = true; }
 
 
     // pingRobot(robotInstructions);
     
     
+    robotInstructions = rupert.serializedInstructions();
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
-    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
+    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     console.log(robotInstructions);
 
