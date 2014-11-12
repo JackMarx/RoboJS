@@ -16,11 +16,6 @@ $(document).ready(function(){
     $(".hint").toggle();
   });
 
-  $(".reset-robot-button").on("click", function(event){
-      event.preventDefault();
-      rupert.reverseCommands();
-    });
-
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
 
@@ -36,15 +31,14 @@ $(document).ready(function(){
                    invalidCommand = true; }
 
 
-
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
-
+    console.log(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
-    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
     robotInstructions = rupert.serializedInstructions();
     pingRobot(robotInstructions);
 
-    // console.log(robotInstructions);
+
+    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     $.ajax({
       url: url,
@@ -63,7 +57,7 @@ $(document).ready(function(){
           $(".challenge-navigation a").hide();
         }
 
-        // console.log("internal server pinged");
+        console.log("internal server pinged");
       },
       error: function(response){
         // console.log("crap");
