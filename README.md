@@ -7,15 +7,15 @@ RoboJS
 
 View the actual site here - http://stormy-eyrie-7388.herokuapp.com
 
-http://image.bayimg.com/4171e89c224584a41c557a9288f97de88de5feb4.jpg
+![alt tag](http://image.bayimg.com/4171e89c224584a41c557a9288f97de88de5feb4.jpg)
 
 
-=== Sample Screenshots
+## Sample Screenshots
 
-*insert screenshots - link from Bayimg*
+*insert screenshots*
 
 
-=== System Requirements
+## System Requirements
 
 - Ruby 2.0.0 p-481
 - Rails 4.1.6
@@ -24,7 +24,7 @@ http://image.bayimg.com/4171e89c224584a41c557a9288f97de88de5feb4.jpg
 
 
 
-=== External APIs and Libraries
+## External APIs and Libraries
 
 <b>Ruby Spark</b> - ver. 1.0.0
 
@@ -45,7 +45,7 @@ Integrates jquery-ace plugin to Rails.
 
 
 
-=== Getting Started
+## Getting Started
 
 1. Clone to local machine: <tt>git clone https://github.com/JackMarx/RoboJS.git</tt>
 2. Install dependencies: <tt>bundle</tt>
@@ -54,7 +54,7 @@ Integrates jquery-ace plugin to Rails.
 5. Visit http://localhost:3000
 
 
-=== Workflow
+## Workflow
 
 <em>As a collaborator on this project, I hold myself to high standard of code, commit often, and never push to the master branch.</em>
 
@@ -106,17 +106,17 @@ Integrates jquery-ace plugin to Rails.
 
 <tt>rspec</tt>
 
-=== Brought to You By
-http://image.bayimg.com/62e6a5ac1b5b4318ab6ad596d86a5a2e05b8ad60.jpg
+## Brought to You By
+![alt tag](http://image.bayimg.com/62e6a5ac1b5b4318ab6ad596d86a5a2e05b8ad60.jpg)
 
 Megan:: https://github.com/MissAndry
 Christian:: https://github.com/ChristianStanfield
 Perry:: https://github.com/peryanderson
 Josh:: https://github.com/JackMarx
 
-=== More photos just for fun
-http://image.bayimg.com/4c50560dfa7f1e021c5662373f65cc149416e678.jpg
-http://image.bayimg.com/cc8942f4170a90fb9f775b0e2f22b7a8db5bc00d.jpg
-http://image.bayimg.com/c1643ba629dd2c3754ff1a3c37158b78cff2a2d1.jpg
-http://image.bayimg.com/1b2817dddaeca1146c174b5549e861335d422b36.jpg
-http://image.bayimg.com/6def04cee75def3aac3207d311eb788383e5ae1d.jpg
+## More photos just for fun
+![alt tag](http://image.bayimg.com/4c50560dfa7f1e021c5662373f65cc149416e678.jpg)
+![alt tag](http://image.bayimg.com/cc8942f4170a90fb9f775b0e2f22b7a8db5bc00d.jpg)
+![alt tag](http://image.bayimg.com/c1643ba629dd2c3754ff1a3c37158b78cff2a2d1.jpg)
+![alt tag](http://image.bayimg.com/1b2817dddaeca1146c174b5549e861335d422b36.jpg)
+![alt tag](http://image.bayimg.com/6def04cee75def3aac3207d311eb788383e5ae1d.jpg)
