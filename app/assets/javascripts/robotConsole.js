@@ -16,6 +16,13 @@ $(document).ready(function(){
     $(".hint").toggle();
   });
 
+  $(".reset-robot-button").on("click", function(event){
+      event.preventDefault();
+      rupertAnimation.reverseCommands();
+      rupert.reverseCommands();
+    });
+
+
   $(".game-console").on("submit", ".edit_game", function(event){
     event.preventDefault();
 
@@ -31,14 +38,14 @@ $(document).ready(function(){
                    invalidCommand = true; }
 
 
+
+    rupertAnimation.rememberHistory(rupert.resetFullInstructions);
     rupertAnimation.doTheseFrames(rupert.fullInstructions);
     console.log(rupert.fullInstructions);
     rupertAnimation.getNextInstruction();
     robotInstructions = rupert.serializedInstructions();
     pingRobot(robotInstructions);
 
-
-    // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
     $.ajax({
       url: url,
