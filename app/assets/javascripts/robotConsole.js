@@ -39,7 +39,7 @@ $(document).ready(function(){
     rupertAnimation.getNextInstruction();
     robotInstructions = rupert.serializedInstructions();
 
-    // pingRobot(robotInstructions);w
+    pingRobot(robotInstructions);
 
     // rupertAnimation.rememberHistory(rupert.resetFullInstructions);
 
