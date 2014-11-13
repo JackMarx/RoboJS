@@ -12,7 +12,9 @@ View the actual site here - http://stormy-eyrie-7388.herokuapp.com
 
 ## Sample Screenshots
 
-*insert screenshots*
+![splash]()
+![profile]()
+![challenge](http://i.imgur.com/bbnbM07.png)
 
 
 ## System Requirements
