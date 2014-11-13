@@ -27,6 +27,7 @@ class GamesController  < ApplicationController
     if Challenge.solutions[challenge_solution.to_sym] == params[:instructions]  # updated logic
       @game.update_attribute(:completed, true)
       @success_message = "Great! Try the next challenge."
+      @success_sound = '<audio autoplay><sound src="smb3_fortress_clear.wav" /></audio>'
 
       if @challenge.badge && (!current_user.badges.include? @challenge.badge)
         current_user.badges << @challenge.badge 
@@ -37,7 +38,7 @@ class GamesController  < ApplicationController
       @failure_message = "Oops! That wasn't quite right. Try again."
     end
 
-    render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, failure_message: @failure_message }
+    render partial: "challenges/console", locals: { game: @game, challenge: @challenge, success_message: @success_message, success_sound: @success_sound, failure_message: @failure_message }
 
   end
 
