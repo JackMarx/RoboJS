@@ -12,8 +12,8 @@ View the actual site here - http://stormy-eyrie-7388.herokuapp.com
 
 ## Sample Screenshots
 
-![splash]()
-![profile]()
+![splash](http://i.imgur.com/et6rw9z.png)
+![profile](http://i.imgur.com/lK5MHXE.png)
 ![challenge](http://i.imgur.com/bbnbM07.png)
 
 
