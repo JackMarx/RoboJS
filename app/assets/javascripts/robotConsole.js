@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  if($(".edit_game").length > 0){
+
     var rupert = new Robot();
     var rupertAnimation = new DrawnRobot();
     rupertAnimation.canvas.add(rupertAnimation.body);
@@ -8,7 +10,9 @@ $(document).ready(function(){
     rupert.resetInstructions = [];
     rupert.resetFullInstructions = [];
 
-  $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+
+    $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
+  }
 
   $(".game-console").on("click", ".hint-link", function(event){
     event.preventDefault();

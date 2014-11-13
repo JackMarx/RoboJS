@@ -41,15 +41,12 @@ header {
 }
 .container {
   margin: 20px auto 0;
-  padding: 0 30px;
+  padding: 0 30px 25px;
   width: 820px;
-  min-height: 670px;
   display: block;
-  background-color: rgba(245,255,255,0.85);
+  background-color: rgba(245,255,255,0.75);
   border-radius: 20px;
   font-family: 'Open Sans', sans-serif;
-  overflow: auto;
-
 }
 
 .user-navigaion {

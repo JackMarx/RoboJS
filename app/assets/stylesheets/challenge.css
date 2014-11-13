@@ -48,7 +48,7 @@
 }
 
 .challenge-description {
-  
+
 }
 
 .canvas-and-console {
@@ -131,4 +131,9 @@
   height: 225px;
   z-index: 1000;
 
+}
+
+#myCanvas {
+  margin-bottom: 10px;
+  /*padding-bottom: 10px;*/
 }
