@@ -48,8 +48,6 @@ $(document).ready(function(){
       data: { instructions: robotInstructions, status_string: sourceCode },
       type: "put",
       success: function(response){
-
-        var invalidCommand = false;
         $(".game-console").html(response);
         rupert.instructions = [];
         $("#game_status_string").ace({ theme: 'monokai', lang: 'javascript' });
@@ -61,6 +59,7 @@ $(document).ready(function(){
           $(".reset-robot-button").hide();
           invalidCommand = false;
       }
+        invalidCommand = false;
         console.log("internal server pinged");
       },
       error: function(response){
