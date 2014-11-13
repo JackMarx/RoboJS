@@ -15,7 +15,7 @@
   width: 30%;
   padding: 20px 20px 20px;
   position: relative;
-  background: #fcffff;
+  background: transparent;
 }
 
 .submit-button {
@@ -32,17 +32,29 @@
   margin: 5px 0 15px;
 }
 
-.sign-up-form:before, .sign-up-form:after {
+
+.form-border {
+  margin-top: 50px;
+  height: 350px;
+  width: 5px;
+  background-image: radial-gradient( rgba(100, 100, 100, 0.4), #c8c8c8 30%, rgba(200,200,200,0.03) 80%);
+  /*border-right: 2px solid rgba(100, 100, 100, 0.3);*/
+  /*text-shadow: 0 0 2px gray;*/
+  float: left;
+
+
+}
+/*.sign-up-form:before, .sign-up-form:after {
   content:"";
     position:absolute;
     z-index:-1;
-    -webkit-box-shadow:10px 0 10px rgba(0,151,156,0.6);
-    -moz-box-shadow:10px 0 10px rgba(0,151,156,0.6);
-    box-shadow:10px 0 10px rgba(0,151,156,0.6);
-    top:10%;
-    bottom:10px;
-    left:10px;
-    right:10px;
+    -webkit-box-shadow: 10px 9px 10px rgba(0,151,156,0.6);
+    -moz-box-shadow: 10px 9px 10px rgba(0,151,156,0.6);
+    box-shadow: 10px 9px 10px rgba(0,151,156,0.6);
+    top: 10%;
+    bottom: 15%;
+    left: 10%;
+    right: 10%;
     -moz-border-radius:100px / 10px;
     border-radius:100px / 10px;
 }
@@ -55,7 +67,7 @@
       -ms-transform:skew(8deg) rotate(3deg);
        -o-transform:skew(8deg) rotate(3deg);
           transform:skew(8deg) rotate(3deg);
-}
+}*/
 
 .login-errors {
   padding: 2px;
