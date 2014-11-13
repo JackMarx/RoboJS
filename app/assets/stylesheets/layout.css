@@ -9,7 +9,8 @@ header {
 }
 
 .general-headers {
-  width: 100%;
+  margin-left: 5%;
+  width: 90%;
   display: inline-block;
 }
 
