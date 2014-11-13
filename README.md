@@ -113,10 +113,10 @@ Integrates jquery-ace plugin to Rails.
 ## Brought to You By
 ![alt tag](http://image.bayimg.com/62e6a5ac1b5b4318ab6ad596d86a5a2e05b8ad60.jpg)
 
-**Megan:** https://github.com/MissAndry
-**Christian:** https://github.com/ChristianStanfield
-**Perry:** https://github.com/peryanderson
-**Josh:** https://github.com/JackMarx
+**Megan:** https://github.com/MissAndry  
+**Christian:** https://github.com/ChristianStanfield  
+**Perry:** https://github.com/peryanderson  
+**Josh:** https://github.com/JackMarx  
 
 ## More photos just for fun
 ![alt tag](http://image.bayimg.com/4c50560dfa7f1e021c5662373f65cc149416e678.jpg)
