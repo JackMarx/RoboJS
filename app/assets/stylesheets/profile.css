@@ -14,7 +14,7 @@
   font-family: 'Open Sans', sans-serif;
   font-size: 30px; 
   float: right;
-  margin-right: 32px;
+  margin-right: 15px;
   margin-bottom: 0;
 }
 
@@ -22,6 +22,7 @@
   margin-top: 30px;
   margin-bottom: 5px;
 }
+
 .challenge-list-block{
   padding-left: 0;
   margin: 5px 10px;

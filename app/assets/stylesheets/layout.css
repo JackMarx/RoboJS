@@ -40,11 +40,12 @@ header {
   margin-top: 26px;
 }
 .container {
-  margin: 0 auto;
-  padding: 10px;
+  margin: 20px auto 0;
+  padding: 0 30px 25px;
   width: 820px;
   display: block;
-  overflow: auto;
+  border-radius: 20px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .user-navigaion {
