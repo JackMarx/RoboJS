@@ -40,11 +40,16 @@ header {
   margin-top: 26px;
 }
 .container {
-  margin: 0 auto;
-  padding: 10px;
+  margin: 20px auto 0;
+  padding: 0 30px;
   width: 820px;
+  min-height: 670px;
   display: block;
+  background-color: rgba(245,255,255,0.85);
+  border-radius: 20px;
+  font-family: 'Open Sans', sans-serif;
   overflow: auto;
+
 }
 
 .user-navigaion {
