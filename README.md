@@ -7,6 +7,8 @@ RoboJS
 
 View the actual site here - http://stormy-eyrie-7388.herokuapp.com
 
+Code for the Robot can be found here - https://github.com/JackMarx/robotRupert
+
 ![alt tag](http://image.bayimg.com/4171e89c224584a41c557a9288f97de88de5feb4.jpg)
 
 
